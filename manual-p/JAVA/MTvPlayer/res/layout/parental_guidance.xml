@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_gravity="center_horizontal"
+	android:layout_width="320dip"
+	android:layout_height="489dip"
+	android:background="@drawable/list_menu_img_bg"
+	android:orientation="vertical">
+	<TextView
+		android:id="@+id/parental_guidance_title"
+		android:layout_marginTop="36dip"
+		android:layout_marginLeft="27dip"
+		android:gravity="center"
+		android:layout_width="267dip"
+		android:layout_height="35dip" />
+	<ListView
+		android:id="@+id/parental_guidance_list"
+		android:layout_width="267dip"
+		android:layout_marginLeft="27dip"
+		android:layout_marginTop="8dip"
+		android:listSelector="@drawable/button_state"
+		android:layout_height="369dp" />
+</LinearLayout>
+
+
+

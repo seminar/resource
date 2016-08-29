@@ -1,0 +1,371 @@
+FrameBuffer 原理、实现与应用
+
+一、FrameBuffer的原理
+    FrameBuffer 是出现在 2.2.xx 内核当中的一种驱动程序接口。
+Linux是工作在保护模式下，所以用户态进程是无法象DOS那样使用显卡BIOS里提供的中断调用来实现直接写屏，Linux抽象出FrameBuffer这个设备来供用户态进程实现直接写屏。Framebuffer机制模仿显卡的功能，将显卡硬件结构抽象掉，可以通过Framebuffer的读写直接对显存进行操作。用户可以将Framebuffer看成是显示内存的一个映像，将其映射到进程地址空间之后，就可以直接进行读写操作，而写操作可以立即反应在屏幕上。这种操作是抽象的，统一的。用户不必关心物理显存的位置、换页机制等等具体细节。这些都是由Framebuffer设备驱动来完成的。
+     但Framebuffer本身不具备任何运算数据的能力,就只好比是一个暂时存放水的水池.CPU将运算后的结果放到这个水池,水池再将结果流到显示器.中间不会对数据做处理. 应用程序也可以直接读写这个水池的内容.在这种机制下，尽管Framebuffer需要真正的显卡驱动的支持，但所有显示任务都有CPU完成,因此CPU负担很重.
+framebuffer的设备文件一般是 /dev/fb0、/dev/fb1 等等。
+     可以用命令: #dd if=/dev/zero of=/dev/fb 清空屏幕.
+如果显示模式是 1024x768-8 位色，用命令：$ dd if=/dev/zero of=/dev/fb0 bs=1024 count=768 清空屏幕；
+用命令: #dd if=/dev/fb of=fbfile 可以将fb中的内容保存下来；可以重新写回屏幕: #dd if=fbfile of=/dev/fb；在使用Framebuffer时，Linux是将显卡置于图形模式下的．
+     在应用程序中，一般通过将 FrameBuffer 设备映射到进程地址空间的方式使用，比如下面的程序就打开 /dev/fb0 设备，并通过 mmap 系统调用进行地址映射，随后用 memset 将屏幕清空（这里假设显示模式是 1024x768-8 位色模式，线性内存模式）： 
+int fb;
+unsigned char* fb_mem;
+fb = open ("/dev/fb0", O_RDWR);
+fb_mem = mmap (NULL, 1024*768, PROT_READ|PROT_WRITE,MAP_SHARED,fb,0);
+memset (fb_mem, 0, 1024*768);
+     FrameBuffer 设备还提供了若干 ioctl 命令，通过这些命令，可以获得显示设备的一些固定信息（比如显示内存大小）、与显示模式相关的可变信息（比如分辨率、象素结构、每扫描线的字节宽度），以及伪彩色模式下的调色板信息等等。
+     通过 FrameBuffer 设备，还可以获得当前内核所支持的加速显示卡的类型（通过固定信息得到），这种类型通常是和特定显示芯片相关的。比如目前最新的内核（2.4.9）中，就包含有对 S3、Matrox、nVidia、3Dfx 等等流行显示芯片的加速支持。在获得了加速芯片类型之后，应用程序就可以将 PCI 设备的内存I/O（memio）映射到进程的地址空间。这些 memio 一般是用来控制显示卡的寄存器，通过对这些寄存器的操作，应用程序就可以控制特定显卡的加速功能。PCI 设备可以将自己的控制寄存器映射到物理内存空间，而后，对这些控制寄存器的访问，给变成了对物理内存的访问。因此，这些寄存器又被称为"memio"。一旦被映射到物理内存，Linux 的普通进程就可以通过 mmap 将这些内存 I/O 映射到进程地址空间，这样就可以直接访问这些寄存器了。
+     当然，因为不同的显示芯片具有不同的加速能力，对memio 的使用和定义也各自不同，这时，就需要针对加速芯片的不同类型来编写实现不同的加速功能。比如大多数芯片都提供了对矩形填充的硬件加速支持，但不同的芯片实现方式不同，这时，就需要针对不同的芯片类型编写不同的用来完成填充矩形的函数。
+      FrameBuffer 只是一个提供显示内存和显示芯片寄存器从物理内存映射到进程地址空间中的设备。所以，对于应用程序而言，如果希望在 FrameBuffer 之上进行图形编程，还需要自己动手完成其他许多工作。
+二、FrameBuffer在Linux中的实现和机制
+   Framebuffer对应的源文件在linux/drivers/video/目录下。总的抽象设备文件为fbcon.c，在这个目录下还有与各种显卡驱动相关的源文件。   
+(一)、分析Framebuffer设备驱动
+     需要特别提出的是在INTEL平台上，老式的VESA 1.2 卡，如CGA/EGA卡，是不能支持Framebuffer的，因为Framebuffer要求显卡支持线性帧缓冲，即CPU可以访问显缓冲中的每一位，但是VESA 1.2 卡只能允许CPU一次访问64K的地址空间。
+FrameBuffer设备驱动基于如下两个文件：
+1) linux/include/linux/fb.h
+2) linux/drivers/video/fbmem.c
+    下面分析这两个文件。
+ 1、fb.h
+    几乎主要的结构都是在这个中文件定义的。这些结构包括：
+     1）fb_var_screeninfo
+这个结构描述了显示卡的特性：
+    struct fb_var_screeninfo
+{
+__u32 xres;
+__u32 yres;
+__u32 xres_virtual;
+__u32 yres_virtual;
+__u32 xoffset;
+__u32 yoffset;
+__u32 bits_per_pixel;
+__u32 grayscale;
+struct fb_bitfield red;
+struct fb_bitfield green;
+struct fb_bitfield blue;
+struct fb_bitfield transp;
+__u32 nonstd;
+__u32 activate;
+__u32 height;
+__u32 width;
+__u32 accel_flags;
+
+__u32 pixclock;
+__u32 left_margin;
+__u32 right_margin;
+__u32 upper_margin;
+__u32 lower_margin;
+__u32 hsync_len;
+__u32 vsync_len;
+__u32 sync;
+__u32 vmode;
+__u32 reserved[6];
+};
+2) fb_fix_screeninfon
+    这个结构在显卡被设定模式后创建，它描述显示卡的属性，并且系统运行时不能被修改；比如FrameBuffer内存的起始地址。它依赖于被设定的模式，当一个模式被设定后，内存信息由显示卡硬件给出，内存的位置等信息就不可以修改。    
+struct fb_fix_screeninfo {
+char id[16];
+unsigned long smem_start;
+
+__u32 smem_len;
+__u32 type;
+__u32 type_aux;
+__u32 visual;
+__u16 xpanstep;
+__u16 ypanstep;
+__u16 ywrapstep;
+__u32 line_length;
+unsigned long mmio_start;
+
+__u32 mmio_len;
+__u32 accel;
+__u16 reserved[3];
+};
+3) fb_cmap
+描述设备无关的颜色映射信息。可以通过FBIOGETCMAP 和 FBIOPUTCMAP 对应的ioctl操作设定或获取颜色映射信息.
+struct fb_cmap {
+__u32 start;
+__u32 len;
+__u16 *red;
+__u16 *green;
+__u16 *blue;
+__u16 *transp;
+};
+4) fb_info
+    定义当显卡的当前状态；fb_info结构仅在内核中可见，在这个结构中有一个fb_ops指针， 指向驱动设备工作所需的函数集。
+    定义当显卡的当前状态；fb_info结构仅在内核中可见，在这个结构中有一个fb_ops指针， 指向驱动设备工作所需的函数集。
+struct fb_info {
+char modename[40];
+kdev_t node;
+int flags;
+int open;
+#define FBINFO_FLAG_MODULE 1
+struct fb_var_screeninfo var;
+struct fb_fix_screeninfo fix;
+struct fb_monspecs monspecs;
+struct fb_cmap cmap;
+struct fb_ops *fbops;
+char *screen_base;
+struct display *disp;
+struct vc_data *display_fg;
+char fontname[40];
+devfs_handle_t devfs_handle;
+devfs_handle_t devfs_lhandle;
+int (*changevar)(int);
+int (*switch_con)(int, struct fb_info*);
+
+int (*updatevar)(int, struct fb_info*);
+
+void (*blank)(int, struct fb_info*);
+
+
+void *pseudo_palette;
+
+void *par;
+};
+5) struct fb_ops
+用户应用可以使用ioctl()系统调用来操作设备，这个结构就是用一支持ioctl()的这些操作的。
+struct fb_ops {
+
+struct module *owner;
+int (*fb_open)(struct fb_info *info, int user);
+int (*fb_release)(struct fb_info *info, int user);
+
+int (*fb_get_fix)(struct fb_fix_screeninfo *fix, int con,
+struct fb_info *info);
+
+int (*fb_get_var)(struct fb_var_screeninfo *var, int con,
+struct fb_info *info);
+
+int (*fb_set_var)(struct fb_var_screeninfo *var, int con,
+struct fb_info *info);
+
+int (*fb_get_cmap)(struct fb_cmap *cmap, int kspc, int con,
+struct fb_info *info);
+
+int (*fb_set_cmap)(struct fb_cmap *cmap, int kspc, int con,
+struct fb_info *info);
+
+int (*fb_pan_display)(struct fb_var_screeninfo *var, int con,
+struct fb_info *info);
+
+int (*fb_ioctl)(struct inode *inode, struct file *file, unsigned int cmd,
+unsigned long arg, int con, struct fb_info *info);
+
+int (*fb_mmap)(struct fb_info *info, struct file *file, struct vm_area_struct *vma);
+
+int (*fb_rasterimg)(struct fb_info *info, int start);
+};
+6) structure map
+struct fb_info_gen | struct fb_info | fb_var_screeninfo
+| | fb_fix_screeninfo
+| | fb_cmap
+| | modename[40]
+| | fb_ops ---|--->ops on var
+| | ... | fb_open
+| | | fb_release
+| | | fb_ioctl
+| | | fb_mmap
+| struct fbgen_hwswitch -|-> detect
+| | encode_fix
+| | encode_var
+| | decode_fix
+| | decode_var
+| | get_var
+| | set_var
+| | getcolreg
+| | setcolreg
+| | pan_display
+| | blank
+| | set_disp
+[编排有点困难，第一行的第一条竖线和下面的第一列竖线对齐，第一行的第二条竖线和下面的第二列竖线对齐就可以了]
+这个结构 fbgen_hwswitch抽象了硬件的操作.虽然它不是必需的，但有时候很有用.
+2、 fbmem.c
+    fbmem.c 处于Framebuffer设备驱动技术的中心位置.它为上层应用程序提供系统调用也为下一层的特定硬件驱动提供接口；那些底层硬件驱动需要用到这儿的接口来向系统内核注册它们自己. fbmem.c 为所有支持FrameBuffer的设备驱动提供了通用的接口，避免重复工作.
+1) 全局变量
+struct fb_info *registered_fb[FB_MAX];
+int num_registered_fb;
+    这两变量记录了所有fb_info 结构的实例，fb_info 结构描述显卡的当前状态，所有设备对应的fb_info 结构都保存在这个数组中，当一个FrameBuffer设备驱动向系统注册自己时，其对应的fb_info 结构就会添加到这个结构中，同时num_registered_fb 为自动加1.
+static struct {
+    const char *name;
+    int (*init)(void);
+    int (*setup)(void);
+} fb_drivers[] __initdata= { ....};
+1) 全局变量
+struct fb_info *registered_fb[FB_MAX];
+int num_registered_fb;
+
+这两变量记录了所有fb_info 结构的实例，fb_info 结构描述显卡的当前状态，所有设备对应的fb_info 结构都保存在这个数组中，当一个FrameBuffer设备驱动向系统注册自己时，其对应的fb_info 结构就会添加到这个结构中，同时num_registered_fb 为自动加1.
+static struct {
+const char *name;
+int (*init)(void);
+int (*setup)(void);
+} fb_drivers[] __initdata= { ....};
+如果FrameBuffer设备被静态链接到内核，其对应的入口就会添加到这个表中；如果是动态加载的，即使用insmod/rmmod,就不需要关心这个表。
+static struct file_operations fb_ops ={
+owner: THIS_MODULE,
+read: fb_read,
+write: fb_write,
+ioctl: fb_ioctl,
+mmap: fb_mmap,
+open: fb_open,
+release: fb_release
+};
+这是一个提供给应用程序的接口.
+2）fbmem.c 实现了如下函数.
+    register_framebuffer(struct fb_info *fb_info);
+    unregister_framebuffer(struct fb_info *fb_info);
+这两个是提供给下层FrameBuffer设备驱动的接口，设备驱动通过这两函数向系统注册或注销自己。几乎底层设备驱动所要做的所有事情就是填充fb_info结构然后向系统注册或注销它。
+（二）一个LCD显示芯片的驱动实例
+     以Skeleton LCD 控制器驱动为例，在LINUX中存有一个/fb/skeleton.c的skeleton的Framebuffer驱动程序，很简单，仅仅是填充了 fb_info结构，并且注册/注销自己。设备驱动是向用户程序提供系统调用接口，所以我们需要实现底层硬件操作并且定义file_operations 结构来向系统提供系统调用接口，从而实现更有效的LCD控制器驱动程序。
+1）在系统内存中分配显存
+    在fbmem.c文件中可以看到, file_operations 结构中的open()和release()操作不需底层支持，但read()、write()和 mmap()操作需要函数fb_get_fix()的支持.因此需要重新实现函数fb_get_fix()。另外还需要在系统内存中分配显存空间，大多数的LCD控制器都没有自己的显存空间，被分配的地址空间的起始地址与长度将会被填充到fb_fix_screeninfo 结构的smem_start 和smem_len 的两个变量中.被分配的空间必须是物理连续的。
+2）实现 fb_ops 中的函数
+用户应用程序通过ioctl()系统调用操作硬件，fb_ops 中的函数就用于支持这些操作。（注： fb_ops结构与file_operations 结构不同，fb_ops是底层操作的抽象,而file_operations是提供给上层系统调用的接口，可以直接调用.
+ioctl()系统调用在文件fbmem.c中实现，通过观察可以发现ioctl()命令与fb_ops’s 中函数的关系:
+FBIOGET_VSCREENINFO fb_get_var
+FBIOPUT_VSCREENINFO fb_set_var
+FBIOGET_FSCREENINFO fb_get_fix
+FBIOPUTCMAP fb_set_cmap
+FBIOGETCMAP fb_get_cmap
+FBIOPAN_DISPLAY fb_pan_display
+如果我们定义了fb_XXX_XXX 方法，用户程序就可以使用FBIOXXXX宏的ioctl()操作来操作硬件。
+文件linux/drivers/video/fbgen.c或者linux/drivers/video目录下的其它设备驱动是比较好的参考资料。在所有的这些函数中fb_set_var()是最重要的，它用于设定显示卡的模式和其它属性，下面是函数fb_set_var()的执行步骤：
+1)检测是否必须设定模式
+2)设定模式
+3)设定颜色映射
+4) 根据以前的设定重新设置LCD控制器的各寄存器。
+第四步表明了底层操作到底放置在何处。在系统内存中分配显存后，显存的起始地址及长度将被设定到LCD控制器的各寄存器中（一般通过fb_set_var() 函数），显存中的内容将自动被LCD控制器输出到屏幕上。另一方面，用户程序通过函数mmap()将显存映射到用户进程地址空间中，然后用户进程向映射空间发送的所有数据都将会被显示到LCD显示器上。
+1）在系统内存中分配显存
+在fbmem.c文件中可以看到, file_operations 结构中的open()和release()操作不需底层支持，但read()、write()和 mmap()操作需要函数fb_get_fix()的支持.因此需要重新实现函数fb_get_fix()。另外还需要在系统内存中分配显存空间，大多数的LCD控制器都没有自己的显存空间，被分配的地址空间的起始地址与长度将会被填充到fb_fix_screeninfo 结构的smem_start 和smem_len 的两个变量中.被分配的空间必须是物理连续的。
+2）实现 fb_ops 中的函数
+用户应用程序通过ioctl()系统调用操作硬件，fb_ops 中的函数就用于支持这些操作。（注： fb_ops结构与file_operations 结构不同，fb_ops是底层操作的抽象,而file_operations是提供给上层系统调用的接口，可以直接调用.
+ioctl()系统调用在文件fbmem.c中实现，通过观察可以发现ioctl()命令与fb_ops’s 中函数的关系:
+FBIOGET_VSCREENINFO fb_get_var
+FBIOPUT_VSCREENINFO fb_set_var
+FBIOGET_FSCREENINFO fb_get_fix
+FBIOPUTCMAP fb_set_cmap
+FBIOGETCMAP fb_get_cmap
+FBIOPAN_DISPLAY fb_pan_display
+    如果我们定义了fb_XXX_XXX 方法，用户程序就可以使用FBIOXXXX宏的ioctl()操作来操作硬件。
+文件linux/drivers/video/fbgen.c或者linux/drivers/video目录下的其它设备驱动是比较好的参考资料。在所有的这些函数中fb_set_var()是最重要的，它用于设定显示卡的模式和其它属性，下面是函数fb_set_var()的执行步骤：
+1)检测是否必须设定模式
+2)设定模式
+3)设定颜色映射
+4) 根据以前的设定重新设置LCD控制器的各寄存器。
+第四步表明了底层操作到底放置在何处。在系统内存中分配显存后，显存的起始地址及长度将被设定到LCD控制器的各寄存器中（一般通过fb_set_var() 函数），显存中的内容将自动被LCD控制器输出到屏幕上。另一方面，用户程序通过函数mmap()将显存映射到用户进程地址空间中，然后用户进程向映射空间发送的所有数据都将会被显示到LCD显示器上。
+ 
+三、FrameBuffer的应用
+（一）一个使用FrameBuffer的例子
+FrameBuffer主要是根据VESA标准的实现的，所以只能实现最简单的功能。
+由于涉及内核的问题，FrameBuffer是不允许在系统起来后修改显示模式等一系列操作。（好象很多人都想要这样干，这是不被允许的，当然如果你自己写驱动的话，是可以实现的）.
+对FrameBuffer的操作，会直接影响到本机的所有控制台的输出，包括XWIN的图形界面。
+好，现在可以让我们开始实现直接写屏：
+1、打开一个FrameBuffer设备
+2、通过mmap调用把显卡的物理内存空间映射到用户空间
+3、直接写内存。
+#ifndef _FBTOOLS_H_
+#define _FBTOOLS_H_
+#include <linux/fb.h>
+//a framebuffer device structure;
+typedef struct fbdev{
+int fb;
+unsigned long fb_mem_offset;
+unsigned long fb_mem;
+struct fb_fix_screeninfo fb_fix;
+struct fb_var_screeninfo fb_var;
+char dev[20];
+} FBDEV, *PFBDEV;
+//open & init a frame buffer
+//to use this function,
+//you must set FBDEV.dev="/dev/fb0"
+//or "/dev/fbX"
+//it's your frame buffer.
+int fb_open(PFBDEV pFbdev);
+
+//close a frame buffer
+int fb_close(PFBDEV pFbdev);
+
+//get display depth
+int get_display_depth(PFBDEV pFbdev);
+
+//full screen clear
+void fb_memset(void *addr, int c, size_t len);
+#endif
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <asm/page.h>
+#include "fbtools.h"
+#define TRUE 1
+#define FALSE 0
+#define MAX(x,y) ((x)>(y)?(x)y))
+#define MIN(x,y) ((x)<(y)?(x)y))
+
+//open & init a frame buffer
+int fb_open(PFBDEV pFbdev)
+{
+pFbdev->fb = open(pFbdev->dev, O_RDWR);
+if(pFbdev->fb < 0)
+{
+printf("Error opening %s: %m. Check kernel config\n", pFbdev->dev);
+return FALSE;
+}
+if (-1 == ioctl(pFbdev->fb,FBIOGET_VSCREENINFO,&(pFbdev->fb_var)))
+{
+printf("ioctl FBIOGET_VSCREENINFO\n");
+return FALSE;
+}
+if (-1 == ioctl(pFbdev->fb,FBIOGET_FSCREENINFO,&(pFbdev->fb_fix)))
+{
+printf("ioctl FBIOGET_FSCREENINFO\n");
+return FALSE;
+}
+//map physics address to virtual address
+pFbdev->fb_mem_offset = (unsigned long)(pFbdev->fb_fix.smem_start) & (~PAGE_MASK);
+pFbdev->fb_mem = (unsigned long int)mmap(NULL, pFbdev->fb_fix.smem_len + pFbdev->fb_mem_offset, PROT_READ | PROT_WRITE, MAP_SHARED, pFbdev->fb, 0);
+if (-1L == (long) pFbdev->fb_mem)
+{
+printf("mmap error! mem:%d offset:%d\n", pFbdev->fb_mem, pFbdev->fb_mem_offset);
+return FALSE;
+}
+return TRUE;
+}
+//close frame buffer
+int fb_close(PFBDEV pFbdev)
+{
+close(pFbdev->fb);
+pFbdev->fb=-1;
+}
+//get display depth
+int get_display_depth(PFBDEV pFbdev);
+{
+if(pFbdev->fb<=0)
+{
+printf("fb device not open, open it first\n");
+return FALSE;
+}
+return pFbdev->fb_var.bits_per_pixel;
+}
+//full screen clear
+void fb_memset (void *addr, int c, size_t len)
+{
+memset(addr, c, len);
+}
+//use by test
+#define DEBUG
+#ifdef DEBUG
+main()
+{
+FBDEV fbdev;
+memset(&fbdev, 0, sizeof(FBDEV));
+strcpy(fbdev.dev, "/dev/fb0");
+if(fb_open(&fbdev)==FALSE)
+{
+printf("open frame buffer error\n");
+r

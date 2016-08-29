@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+	<style name="reminder_bg_style">
+
+		<item name="android:orientation">vertical</item>
+
+		<item name="android:layout_width">275dp</item>
+
+		<item name="android:layout_height">336dp</item>
+
+		<item name="android:layout_marginLeft">318dp</item>
+
+		<item name="android:layout_marginTop">28dp</item>
+
+		<item name="android:background">@drawable/reminder_img_bg</item>
+
+	</style>
+
+	<style name="reminder_title_style">
+
+		<item name="android:layout_width">248dp</item>
+
+		<item name="android:layout_height">35dp</item>
+
+		<item name="android:layout_marginLeft">13dp</item>
+
+		<item name="android:layout_marginTop">36dp</item>
+
+		<item name="android:gravity">center</item>
+
+		<item name="android:text">@string/str_reminder_title</item>
+
+	</style>
+
+	<style name="reminder_text_view_layout_style">
+
+		<item name="android:layout_width">275dp</item>
+
+		<item name="android:layout_height">35dp</item>
+
+		<item name="android:orientation">horizontal</item>
+
+		<item name="android:textSize">12dp</item>
+
+		<item name="android:background">@drawable/programme_epg_selcet</item>
+
+	</style>
+
+	<style name="reminder_text_view_style">
+
+		<item name="android:layout_width">87dp</item>
+
+		<item name="android:layout_height">35dp</item>
+
+		<item name="android:layout_marginLeft">27dp</item>
+
+		<item name="android:gravity">center</item>
+
+		<item name="android:textSize">12dp</item>
+	</style>
+
+	<style name="reminder_value_style">
+
+		<item name="android:layout_width">100dp</item>
+
+		<item name="android:layout_height">35dp</item>
+
+		<item name="android:layout_marginLeft">8dp</item>
+
+		<item name="android:gravity">center</item>
+
+		<item name="android:textSize">12dp</item>
+
+		<item name="android:singleLine">true</item>
+
+		<item name="android:ellipsize">marquee</item>
+
+		<item name="android:marqueeRepeatLimit">marquee_forever</item>
+
+		<item name="android:focusable">true</item>
+	</style>
+
+</resources>
+

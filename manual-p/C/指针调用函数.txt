@@ -1,0 +1,5 @@
+static BOOLEAN (*m_pfFileInfoCmp_Less)(MPlayerFileInfo* src, MPlayerFileInfo* dst);
+static BOOLEAN _MApp_MPlayer_FileInfoCmpByName_Less(MPlayerFileInfo *src, MPlayerFileInfo *dst)
+
+            m_pfFileInfoCmp_Less = _MApp_MPlayer_FileInfoCmpByName_Less;
+

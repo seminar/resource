@@ -1,0 +1,218 @@
+ 
+经典C语言程序设计100例41-50
+
+【程序41】
+题目：学习static定义静态变量的用法　　　
+1.程序分析：
+2.程序源代码：
+#include "stdio.h"
+varfunc()
+{
+int var=0;
+static int static_var=0;
+printf("\40:var equal %d \n",var);
+printf("\40:static var equal %d \n",static_var);
+printf("\n");
+var++;
+static_var++;
+}
+void main()
+{int i;
+　 for(i=0;i<3;i++)
+　　 varfunc();
+}
+-----------------------------------------------------------------------------
+【程序42】 
+题目：学习使用auto定义变量的用法
+1.程序分析：　　　　　　
+2.程序源代码：
+#include "stdio.h"
+main()
+{int i,num;
+num=2;
+　 for (i=0;i<3;i++)
+　 { printf("\40: The num equal %d \n",num);
+　　 num++;
+　　 {
+　　 auto int num=1;
+　　 printf("\40: The internal block num equal %d \n",num);
+　　 num++;
+　　 }
+　 }
+}
+-----------------------------------------------------------------------------
+【程序43】
+题目：学习使用static的另一用法。　　　
+1.程序分析：
+2.程序源代码：
+#include "stdio.h"
+main()
+{
+int i,num;
+num=2;
+for(i=0;i<3;i++)
+{
+printf("\40: The num equal %d \n",num);
+num++;
+{
+static int num=1;
+printf("\40:The internal block num equal %d\n",num);
+num++;
+}
+}
+}
+-----------------------------------------------------------------------------
+【程序44】
+题目：学习使用external的用法。
+1.程序分析：
+2.程序源代码：
+#include "stdio.h"
+int a,b,c;
+void add()
+{ int a;
+a=3;
+c=a+b;
+}
+void main()
+{ a=b=4;
+add();
+printf("The value of c is equal to %d\n",c);
+}
+-----------------------------------------------------------------------------
+【程序45】
+题目：学习使用register定义变量的方法。
+1.程序分析：
+2.程序源代码：
+void main()
+{
+register int i;
+int tmp=0;
+for(i=1;i<=100;i++)
+tmp+=i;
+printf("The sum is %d\n",tmp);
+}
+-----------------------------------------------------------------------------
+【程序46】
+题目：宏#define命令练习(1)　　　
+1.程序分析：
+2.程序源代码：
+#include "stdio.h"
+#define TRUE 1
+#define FALSE 0
+#define SQ(x) (x)*(x)
+void main()
+{
+int num;
+int again=1;
+printf("\40: Program will stop if input value less than 50.\n");
+while(again)
+{
+printf("\40:Please input number==>");
+scanf("%d",&num);
+printf("\40:The square for this number is %d \n",SQ(num));
+if(num>=50)
+　 again=TRUE;
+else
+　 again=FALSE;
+}
+}
+-----------------------------------------------------------------------------
+【程序47】
+题目：宏#define命令练习(2)
+1.程序分析：　　　　　　　　　　　　
+2.程序源代码：
+#include "stdio.h"
+#define exchange(a,b) { \ /*宏定义中允许包含两道衣裳命令的情形，此时必须在最右边加上"\"*/
+　　　　　　　　　　　　 int t;\
+　　　　　　　　　　　　 t=a;\
+　　　　　　　　　　　　 a=b;\
+　　　　　　　　　　　　 b=t;\
+　　　　　　　　　　　 }
+void main(void)
+{
+int x=10;
+int y=20;
+printf("x=%d; y=%d\n",x,y);
+exchange(x,y);
+printf("x=%d; y=%d\n",x,y);
+}
+-----------------------------------------------------------------------------
+【程序48】
+题目：宏#define命令练习(3)　　　
+1.程序分析：
+2.程序源代码：
+#define LAG >
+#define SMA <
+#define EQ ==
+#include "stdio.h"
+void main()
+{ int i=10;
+int j=20;
+if(i LAG j)
+printf("\40: %d larger than %d \n",i,j);
+else if(i EQ j)
+printf("\40: %d equal to %d \n",i,j);
+else if(i SMA j)
+printf("\40:%d smaller than %d \n",i,j);
+else
+printf("\40: No such value.\n");
+}
+-----------------------------------------------------------------------------
+【程序49】
+题目：#if #ifdef和#ifndef的综合应用。
+1. 程序分析： 
+2.程序源代码：
+#include "stdio.h"
+#define MAX
+#define MAXIMUM(x,y) (x>y)?x:y
+#define MINIMUM(x,y) (x>y)?y:x
+void main()
+{ int a=10,b=20;
+#ifdef MAX
+printf("\40: The larger one is %d\n",MAXIMUM(a,b));
+#else
+printf("\40: The lower one is %d\n",MINIMUM(a,b));
+#endif
+#ifndef MIN
+printf("\40: The lower one is %d\n",MINIMUM(a,b));
+#else
+printf("\40: The larger one is %d\n",MAXIMUM(a,b));
+#endif
+#undef MAX
+#ifdef MAX
+printf("\40: The larger one is %d\n",MAXIMUM(a,b));
+#else
+printf("\40: The lower one is %d\n",MINIMUM(a,b));
+#endif
+#define MIN
+#ifndef MIN
+printf("\40: The lower one is %d\n",MINIMUM(a,b));
+#else
+printf("\40: The larger one is %d\n",MAXIMUM(a,b));
+#endif
+}
+-----------------------------------------------------------------------------
+【程序50】
+题目：#include 的应用练习　　　
+1.程序分析：
+2.程序源代码：
+test.h 文件如下：
+#define LAG >
+#define SMA <
+#define EQ ==
+#include "test.h" /*一个新文件50.c，包含test.h*/
+#include "stdio.h"
+void main()
+{ int i=10;
+int j=20;
+if(i LAG j)
+printf("\40: %d larger than %d \n",i,j);
+else if(i EQ j)
+printf("\40: %d equal to %d \n",i,j);
+else if(i SMA j)
+printf("\40:%d smaller than %d \n",i,j);
+else
+printf("\40: No such value.\n");
+}
+
+ 

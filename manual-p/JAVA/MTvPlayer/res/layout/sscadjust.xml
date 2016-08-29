@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#3280A0">
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="47dip"
+        android:gravity="left"
+        android:text="@string/str_factory_ssc"
+        android:textColor="#ffffff"
+        android:textSize="17dip" />
+    <!--MIU Enable -->
+    <LinearLayout
+        android:id="@+id/linearlayout_factory_ssc_miuenable"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_factory_ssc_miuenable"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_factory_ssc_miuenable"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_factory_ssc_miuenable_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+    <!--MIU Modulation -->
+    <LinearLayout
+        android:id="@+id/linearlayout_factory_ssc_miumodulation"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_factory_ssc_miumodulation"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_factory_ssc_miumodulation"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_factory_ssc_miumodulation_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+    <!--MIU percentage -->
+    <LinearLayout
+        android:id="@+id/linearlayout_factory_ssc_miupercentage"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_factory_ssc_miupercentage"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_factory_ssc_miupercentage"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_factory_ssc_miupercentage_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+    <!--LVDS Enable -->
+    <LinearLayout
+        android:id="@+id/linearlayout_factory_ssc_lvdsenable"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_factory_ssc_lvdsenable"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_factory_ssc_lvdsenable"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_factory_ssc_lvdsenable_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+    <!--LVDS Modulation -->
+    <LinearLayout
+        android:id="@+id/linearlayout_factory_ssc_lvdsmodulation"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_factory_ssc_lvdsmodulation"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_factory_ssc_lvdsmodulation"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_factory_ssc_lvdsmodulation_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+    <!--LVDS Percentage -->
+    <LinearLayout
+        android:id="@+id/linearlayout_factory_ssc_lvdspercentage"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_factory_ssc_lvdspercentage"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_factory_ssc_lvdspercentage"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_factory_ssc_lvdspercentage_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+</LinearLayout>

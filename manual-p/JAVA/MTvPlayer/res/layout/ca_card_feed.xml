@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="336dp"
+    android:layout_height="336dp"
+    android:layout_gravity="center"
+    android:background="@drawable/picture_mode_img_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:gravity="left"
+            android:text="@string/str_ca_card_feed"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="33dp"
+            android:gravity="center"
+            android:text="@string/str_ca_op_operator_id"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="33dp"
+            android:gravity="center"
+            android:text="@string/str_ca_mg_child_or_parent_card1"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="33dp"
+            android:gravity="center"
+            android:text="@string/str_ca_mg_delaytime1"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="33dp"
+            android:gravity="center"
+            android:text="@string/str_ca_mg_lastfeedtime1"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/ca_card_feed_listview"
+        android:layout_width="match_parent"
+        android:listSelector="@drawable/select_item"
+        android:layout_height="250dp" />
+
+</LinearLayout>

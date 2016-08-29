@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="time_sty_menu">
+    	<item name="android:layout_width">460dp</item>
+    	<item name="android:layout_height">310dp</item>
+    	<item name="android:orientation">vertical</item>
+    	<item name="android:layout_gravity">center</item>
+    </style>
+    
+    <!-- combo button -->
+    <style name="time_sty_combo_btn">
+    	<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">30dp</item>
+    	<item name="android:background">@drawable/pic_mode_focus_state</item>
+    	<item name="android:orientation">horizontal</item>
+    	<item name="android:focusable">true</item>
+    	<item name="android:gravity">center_vertical</item>
+    	<item name="android:layout_marginBottom">6dip</item>
+    </style>
+    <style name="time_sty_combo_name">
+    	<item name="android:layout_width">414dp</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:textSize">20dp</item>
+    	<item name="android:gravity">left</item>
+    	<item name="android:layout_marginLeft">50dp</item>
+    </style>
+    <style name="time_sty_combo_indicator">
+    	<item name="android:layout_width">120dp</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:textSize">20dp</item>
+    	<item name="android:gravity">center</item>
+    </style>
+   
+       <!-- Simple Button -->
+    <style name="time_sty_simple_btn">
+    	<item name="android:layout_width">fill_parent</item>
+    	<item name="android:layout_height">26dp</item>
+    	<item name="android:background">@drawable/pic_mode_focus_state</item>
+    	<item name="android:orientation">horizontal</item>
+    	<item name="android:focusable">true</item>
+    	<item name="android:gravity">center_vertical</item>
+    	<item name="android:layout_marginBottom">6dip</item>
+    </style>
+    <style name="time_sty_simple_name">
+    	<item name="android:layout_width">314dp</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:textColor">#FFFFFF</item>
+    	<item name="android:textSize">16dp</item>
+    	<item name="android:gravity">left</item>
+    	<item name="android:layout_marginLeft">50dp</item>
+    </style>
+    <style name="time_sty_simple_indicator">
+    	<item name="android:layout_width">104dp</item>
+    	<item name="android:layout_height">wrap_content</item>
+    	<item name="android:textColor">#FFFFFF</item>
+    	<item name="android:textSize">16dp</item>
+    	<item name="android:gravity">center</item>
+    </style>
+   
+    <!-- seekbar button -->
+    <style name="time_sty_seekbar_btn">
+    	<item name="android:layout_width">314dp</item>
+    	<item name="android:layout_height">35dp</item>
+    	<item name="android:background">@drawable/pic_mode_focus_state</item>
+    	<item name="android:orientation">horizontal</item>
+    	<item name="android:focusable">true</item>
+    	<item name="android:layout_marginBottom">0dp</item>
+    	
+    </style>
+    <style name="time_sty_bar" >
+    	<item name="android:layout_width">111dp</item>
+    	<item name="android:layout_height">13dp</item>
+    	<item name="android:layout_gravity">center</item>
+		<item name="android:max">100</item>
+		<item name="android:progress">50</item>
+		<item name="android:thumb">@drawable/picture_mode_img_bar</item>
+		<item name="android:thumbOffset">0dp</item>
+		<item name="android:layout_marginRight">15dp</item>
+		<item name="android:visibility">gone</item>
+    </style>
+   <style name="time_sty_seekbar_name">
+   		<item name="android:layout_width">107dp</item>
+    	<item name="android:layout_height">fill_parent</item>
+    	<item name="android:gravity">center_vertical|left</item>
+    	<item name="android:textSize">15dp</item>
+    	<item name="android:textColor">#FFFFFF</item>
+    	<item name="android:layout_marginLeft">27dp</item>
+   </style>
+   <style name="time_sty_seekbar_indicator">
+   		<item name="android:layout_width">33dp</item>
+    	<item name="android:layout_height">fill_parent</item>
+    	<item name="android:gravity">center</item>
+    	<item name="android:textSize">15dp</item>
+    	<item name="android:textColor">#FFFFFF</item>
+   </style>
+   
+   <!-- 4 dots -->
+   <style name="time_sty_dots_layout">
+   		<item name="android:layout_width">wrap_content</item>
+   		<item name="android:layout_height">wrap_content</item>
+   		<item name="android:layout_marginLeft">100dp</item>
+   		<item name="android:layout_marginTop">7dp</item>
+   </style>
+   <style name="time_sty_enabledot">
+   		<item name="android:layout_width">15dp</item>
+   		<item name="android:layout_height">15dp</item>
+   		<item name="android:layout_marginLeft">4dp</item>
+   		<item name="android:background">@drawable/common_img_pagepoint_enable</item>
+   </style>
+   <style name="time_sty_disabledot">
+   		<item name="android:layout_width">15dp</item>
+   		<item name="android:layout_height">15dp</item>
+   		<item name="android:layout_marginLeft">4dp</item>
+   		<item name="android:background">@drawable/common_img_pagepoint_disable</item>
+   </style>
+   
+   <!-- arrows -->
+    <style name="time_sty_leftarrow">
+   		<item name="android:layout_width">13dp</item>
+   		<item name="android:layout_height">13dp</item>
+   		<item name="android:layout_marginLeft">0dp</item>
+   		<item name="android:background">@drawable/common_img_arrow_l</item>
+   		<item name="android:visibility">gone</item>
+   </style>
+   <style name="time_sty_rightarrow">
+   		<item name="android:layout_width">13dp</item>
+   		<item name="android:layout_height">13dp</item>
+   		<item name="android:layout_marginLeft">0dp</item>
+   		<item name="android:background">@drawable/common_img_arrow_r</item>
+   		<item name="android:visibility">gone</item>
+   </style>    
+</resources>

@@ -1,0 +1,713 @@
+ 
+第九章:结构与联合
+
+
+结构类型定义和结构变量说明
+
+　　在实际问题中，一组数据往往具有不同的数据类型。例如， 在学生登记表中，姓名应为字符型；学号可为整型或字符型； 年龄应为整型；性别应为字符型；成绩可为整型或实型。 显然不能用一个数组来存放这一组数据。 因为数组中各元素的类型和长度都必须一致，以便于编译系统处理。为了解决这个问题，Ｃ语言中给出了另一种构造数据类型——“结构”。 它相当于其它高级语言中的记录。
+
+　　“结构”是一种构造类型，它是由若干“成员”组成的。 每一个成员可以是一个基本数据类型或者又是一个构造类型。 结构既是一种“构造”而成的数据类型， 那么在说明和使用之前必须先定义它，也就是构造它。如同在说明和调用函数之前要先定义函数一样。
+
+一、结构的定义
+
+定义一个结构的一般形式为：
+struct 结构名
+{
+成员表列
+};
+成员表由若干个成员组成， 每个成员都是该结构的一个组成部分。对每个成员也必须作类型说明，其形式为：
+类型说明符 成员名;
+成员名的命名应符合标识符的书写规定。例如：
+struct stu
+{
+int num;
+char name[20];
+char sex;
+float score;
+};
+　　 在这个结构定义中，结构名为stu，该结构由4个成员组成。 第一个成员为num，整型变量；第二个成员为name，字符数组；第三个成员为sex，字符变量；第四个成员为score，实型变量。 应注意在括号后的分号是不可少的。结构定义之后，即可进行变量说明。 凡说明为结构stu的变量都由上述4个成员组成。由此可见， 结构是一种复杂的数据类型，是数目固定，类型不同的若干有序变量的集合。
+
+二、结构类型变量的说明
+
+说明结构变量有以下三种方法。以上面定义的stu为例来加以说明。
+1. 先定义结构，再说明结构变量。如：
+struct stu
+{
+int num;
+char name[20];
+char sex;
+float score;
+};
+struct stu boy1,boy2;
+说明了两个变量boy1和boy2为stu结构类型。也可以用宏定义使一个符号常量来表示一个结构类型，例如：
+#define STU struct stu
+STU
+{
+int num;
+char name[20];
+char sex;
+float score;
+};
+STU boy1,boy2;
+
+2. 在定义结构类型的同时说明结构变量。例如：
+struct stu
+{
+int num;
+char name[20];
+char sex;
+float score;
+}boy1,boy2;
+
+3. 直接说明结构变量。例如：
+struct
+{
+int num;
+char name[20];
+char sex;
+float score;
+}boy1,boy2;
+
+　　第三种方法与第二种方法的区别在于第三种方法中省去了结构名，而直接给出结构变量。三种方法中说明的boy1,boy2变量都具有图7.1所示的结构。说明了boy1,boy2变量为stu类型后，即可向这两个变量中的各个成员赋值。在上述stu结构定义中，所有的成员都是基本数据类型或数组类型。成员也可以又是一个结构， 即构成了嵌套的结构。例如，图7.2给出了另一个数据结构。 按图7.2可给出以下结构定义：
+struct date{
+int month;
+int day;
+int year;
+}
+struct{
+int num;
+char name[20];
+char sex;
+struct date birthday;
+float score;
+}boy1,boy2;
+　　 首先定义一个结构date，由month(月)、day(日)、year(年) 三个成员组成。 在定义并说明变量 boy1 和 boy2 时， 其中的成员birthday被说明为data结构类型。成员名可与程序中其它变量同名，互不干扰。结构变量成员的表示方法在程序中使用结构变量时， 往往不把它作为一个整体来使用。
+
+　　在ANSI C中除了允许具有相同类型的结构变量相互赋值以外， 一般对结构变量的使用，包括赋值、输入、输出、 运算等都是通过结构变量的成员来实现的。
+
+　　表示结构变量成员的一般形式是： 结构变量名.成员名 例如：boy1.num 即第一个人的学号　boy2.sex 即第二个人的性别 如果成员本身又是一个结构则必须逐级找到最低级的成员才能使用。例如：boy1.birthday.month 即第一个人出生的月份成员可以在程序中单独使用，与普通变量完全相同。
+
+结构变量的赋值
+
+前面已经介绍，结构变量的赋值就是给各成员赋值。 可用输入语句或赋值语句来完成。
+[例7.1]给结构变量赋值并输出其值。
+main(){
+struct stu
+{
+int num;
+char *name;
+char sex;
+float score;
+} boy1,boy2;
+boy1.num=102;
+boy1.name="Zhang ping";
+printf("input sex and score\n");
+scanf("%c %f",&boy1.sex,&boy1.score);
+boy2=boy1;
+printf("Number=%d\nName=%s\n",boy2.num,boy2.name);
+printf("Sex=%c\nScore=%f\n",boy2.sex,boy2.score);
+}
+struct stu
+{
+int num;
+char *name;
+char sex;
+float score;
+}boy1,boy2;
+boy1.num=102;
+boy1.name="Zhang ping";
+printf("input sex and score\n");
+scanf("%c %f",&boy1.sex,&boy1.score);
+boy2=boy1;
+printf("Number=%d\nName=%s\n",boy2.num,boy2.name);
+printf("Sex=%c\nScore=%f\n",boy2.sex,boy2.score);
+
+　　本程序中用赋值语句给num和name两个成员赋值，name是一个字符串指针变量。用scanf函数动态地输入sex和score成员值，然后把boy1的所有成员的值整体赋予boy2。最后分别输出boy2 的各个成员值。本例表示了结构变量的赋值、输入和输出的方法。
+
+结构变量的初始化
+　　 如果结构变量是全局变量或为静态变量， 则可对它作初始化赋值。对局部或自动结构变量不能作初始化赋值。
+[例7.2]外部结构变量初始化。
+struct stu /*定义结构*/
+{
+int num;
+char *name;
+char sex;
+float score;
+} boy2,boy1={102,"Zhang ping",'M',78.5};
+main()
+{
+boy2=boy1;
+printf("Number=%d\nName=%s\n",boy2.num,boy2.name);
+printf("Sex=%c\nScore=%f\n",boy2.sex,boy2.score);
+}
+struct stu
+{
+int num;
+char *name;
+char sex;
+float score;
+}boy2,boy1={102,"Zhang ping",'M',78.5};
+main()
+{
+boy2=boy1;
+……
+}
+本例中，boy2,boy1均被定义为外部结构变量，并对boy1作了初始化赋值。在main函数中，把boy1的值整体赋予boy2， 然后用两个printf语句输出boy2各成员的值。
+[例7.3]静态结构变量初始化。
+main()
+{
+static struct stu /*定义静态结构变量*/
+{
+int num;
+char *name;
+char sex;
+float score;
+}boy2,boy1={102,"Zhang ping",'M',78.5};
+boy2=boy1;
+printf("Number=%d\nName=%s\n",boy2.num,boy2.name);
+printf("Sex=%c\nScore=%f\n",boy2.sex,boy2.score);
+}
+static struct stu
+{
+int num;
+char *name;
+char sex;
+float score;
+}boy2,boy1={102,"Zhang ping",'M',78.5};
+　　 本例是把boy1，boy2都定义为静态局部的结构变量， 同样可以作初始化赋值。
+
+结构数组
+
+数组的元素也可以是结构类型的。 因此可以构成结构型数组。结构数组的每一个元素都是具有相同结构类型的下标结构变量。 在实际应用中，经常用结构数组来表示具有相同数据结构的一个群体。如一个班的学生档案，一个车间职工的工资表等。
+结构数组的定义方法和结构变量相似，只需说明它为数组类型即可。例如：
+struct stu
+{
+int num;
+char *name;
+char sex;
+float score;
+}boy[5];
+定义了一个结构数组boy1，共有5个元素，boy[0]～boy[4]。每个数组元素都具有struct stu的结构形式。 对外部结构数组或静态结构数组可以作初始化赋值，例如：
+struct stu
+{
+int num;
+char *name;
+char sex;
+float score;
+}boy[5]={
+{101,"Li ping","M",45},
+{102,"Zhang ping","M",62.5},
+{103,"He fang","F",92.5},
+{104,"Cheng ling","F",87},
+{105,"Wang ming","M",58};
+}
+当对全部元素作初始化赋值时，也可不给出数组长度。
+[例7.4]计算学生的平均成绩和不及格的人数。
+struct stu
+{
+int num;
+char *name;
+char sex;
+float score;
+}boy[5]={
+{101,"Li ping",'M',45},
+{102,"Zhang ping",'M',62.5},
+{103,"He fang",'F',92.5},
+{104,"Cheng ling",'F',87},
+{105,"Wang ming",'M',58},
+};
+main()
+{
+int i,c=0;
+float ave,s=0;
+for(i=0;i<5;i++)
+{
+s+=boy[i].score;
+if(boy[i].score<60) c+=1;
+}
+printf("s=%f\n",s);
+ave=s/5;
+printf("average=%f\ncount=%d\n",ave,c);
+}
+本例程序中定义了一个外部结构数组boy，共5个元素， 并作了初始化赋值。在main函数中用for语句逐个累加各元素的score 成员值存于s之中，如score的值小于60(不及格)即计数器C加1， 循环完毕后计算平均成绩，并输出全班总分，平均分及不及格人数。
+
+[例7.5]建立同学通讯录
+#include"stdio.h"
+#define NUM 3
+struct mem
+{
+char name[20];
+char phone[10];
+};
+main()
+{
+struct mem man[NUM];
+int i;
+for(i=0;i<NUM;i++)
+{
+printf("input name:\n");
+gets(man[i].name);
+printf("input phone:\n");
+gets(man[i].phone);
+}
+printf("name\t\t\tphone\n\n");
+for(i=0;i<NUM;i++)
+printf("%s\t\t\t%s\n",man[i].name,man[i].phone);
+}
+　　 本程序中定义了一个结构mem，它有两个成员name和phone 用来表示姓名和电话号码。在主函数中定义man为具有mem 类型的结构数组。在for语句中，用gets函数分别输入各个元素中两个成员的值。然后又在for语句中用printf语句输出各元素中两个成员值。
+
+结构指针变量
+
+结构指针变量的说明和使用一个指针变量当用来指向一个结构变量时， 称之为结构指针变量。
+结构指针变量中的值是所指向的结构变量的首地址。 通过结构指针即可访问该结构变量， 这与数组指针和函数指针的情况是相同的。结构指针变量说明的一般形式为：
+struct 结构名*结构指针变量名
+例如，在前面的例7.1中定义了stu这个结构， 如要说明一个指向stu的指针变量pstu，可写为：
+struct stu *pstu;
+
+　　当然也可在定义stu结构时同时说明pstu。与前面讨论的各类指针变量相同，结构指针变量也必须要先赋值后才能使用。赋值是把结构变量的首地址赋予该指针变量， 不能把结构名赋予该指针变量。如果boy是被说明为stu类型的结构变量，则： pstu=&boy是正确的，而： pstu=&stu是错误的。
+
+　　结构名和结构变量是两个不同的概念，不能混淆。 结构名只能表示一个结构形式，编译系统并不对它分配内存空间。 只有当某变量被说明为这种类型的结构时，才对该变量分配存储空间。 因此上面&stu这种写法是错误的，不可能去取一个结构名的首地址。 有了结构指针变量，就能更方便地访问结构变量的各个成员。
+
+其访问的一般形式为： (*结构指针变量).成员名 或为：
+结构指针变量->成员名
+例如： (*pstu).num或者： pstu->num
+应该注意(*pstu)两侧的括号不可少， 因为成员符“.”的优先级高于“*”。如去掉括号写作*pstu.num则等效于*(pstu.num)，这样，意义就完全不对了。 下面通过例子来说明结构指针变量的具体说明和使用方法。
+[例7.6]
+struct stu
+{
+int num;
+char *name;
+char sex;
+float score;
+} boy1={102,"Zhang ping",'M',78.5},*pstu;
+main()
+{
+pstu=&boy1;
+printf("Number=%d\nName=%s\n",boy1.num,boy1.name);
+printf("Sex=%c\nScore=%f\n\n",boy1.sex,boy1.score);
+printf("Number=%d\nName=%s\n",(*pstu).num,(*pstu).name);
+printf("Sex=%c\nScore=%f\n\n",(*pstu).sex,(*pstu).score);
+printf("Number=%d\nName=%s\n",pstu->num,pstu->name);
+printf("Sex=%c\nScore=%f\n\n",pstu->sex,pstu->score);
+}
+
+　　本例程序定义了一个结构stu，定义了stu类型结构变量boy1 并作了初始化赋值，还定义了一个指向stu类型结构的指针变量pstu。在main函数中，pstu被赋予boy1的地址，因此pstu指向boy1 。然后在printf语句内用三种形式输出boy1的各个成员值。 从运行结果可以看出：
+结构变量.成员名
+(*结构指针变量).成员名
+结构指针变量->成员名
+
+　　这三种用于表示结构成员的形式是完全等效的。结构数组指针变量结构指针变量可以指向一个结构数组， 这时结构指针变量的值是整个结构数组的首地址。 结构指针变量也可指向结构数组的一个元素，这时结构指针变量的值是该结构数组元素的首地址。设ps为指向结构数组的指针变量，则ps也指向该结构数组的0号元素，ps+1指向1号元素，ps+i则指向i号元素。 这与普通数组的情况是一致的。
+[例7.7]用指针变量输出结构数组。
+struct stu
+{
+int num;
+char *name;
+char sex;
+float score;
+}boy[5]={
+{101,"Zhou ping",'M',45},
+{102,"Zhang ping",'M',62.5},
+{103,"Liou fang",'F',92.5},
+{104,"Cheng ling",'F',87},
+{105,"Wang ming",'M',58},
+};
+main()
+{
+struct stu *ps;
+printf("No\tName\t\t\tSex\tScore\t\n");
+for(ps=boy;ps<boy+5;ps++)
+printf("%d\t%s\t\t%c\t%f\t\n",ps->num,ps->name,ps->sex,ps->
+score);
+}
+　　 在程序中，定义了stu结构类型的外部数组boy 并作了初始化赋值。在main函数内定义ps为指向stu类型的指针。在循环语句for的表达式1中，ps被赋予boy的首地址，然后循环5次，输出boy数组中各成员值。 应该注意的是， 一个结构指针变量虽然可以用来访问结构变量或结构数组元素的成员，但是，不能使它指向一个成员。 也就是说不允许取一个成员的地址来赋予它。因此，下面的赋值是错误的。 ps=&boy[1].sex;而只能是：ps=boy;(赋予数组首地址)
+或者是：
+ps=&boy[0];(赋予0号元素首地址)
+
+结构指针变量作函数参数
+
+　　在ANSI C标准中允许用结构变量作函数参数进行整体传送。 但是这种传送要将全部成员逐个传送， 特别是成员为数组时将会使传送的时间和空间开销很大，严重地降低了程序的效率。 因此最好的办法就是使用指针，即用指针变量作函数参数进行传送。 这时由实参传向形参的只是地址，从而减少了时间和空间的开销。
+[例7.8]题目与例7.4相同，计算一组学生的平均成绩和不及格人数。
+用结构指针变量作函数参数编程。
+struct stu
+{
+int num;
+char *name;
+char sex;
+float score;}boy[5]={
+{101,"Li ping",'M',45},
+{102,"Zhang ping",'M',62.5},
+{103,"He fang",'F',92.5},
+{104,"Cheng ling",'F',87},
+{105,"Wang ming",'M',58},
+};
+main()
+{
+struct stu *ps;
+void ave(struct stu *ps);
+ps=boy;
+ave(ps);
+}
+void ave(struct stu *ps)
+{
+int c=0,i;
+float ave,s=0;
+for(i=0;i<5;i++,ps++)
+{
+s+=ps->score;
+if(ps->score<60) c+=1;
+}
+printf("s=%f\n",s);
+ave=s/5;
+printf("average=%f\ncount=%d\n",ave,c);
+}
+　　 本程序中定义了函数ave，其形参为结构指针变量ps。boy 被定义为外部结构数组，因此在整个源程序中有效。在main 函数中定义说明了结构指针变量ps，并把boy的首地址赋予它，使ps指向boy 数组。然后以ps作实参调用函数ave。在函数ave 中完成计算平均成绩和统计不及格人数的工作并输出结果。与例7.4程序相比，由于本程序全部采用指针变量作运算和处理，故速度更快，程序效率更高。.
+
+topoic=动态存储分配
+
+　　在数组一章中，曾介绍过数组的长度是预先定义好的， 在整个程序中固定不变。Ｃ语言中不允许动态数组类型。例如： int n;scanf("%d",&n);int a[n]; 用变量表示长度，想对数组的大小作动态说明， 这是错误的。但是在实际的编程中，往往会发生这种情况， 即所需的内存空间取决于实际输入的数据，而无法预先确定。对于这种问题， 用数组的办法很难解决。为了解决上述问题，Ｃ语言提供了一些内存管理函数，这些内存管理函数可以按需要动态地分配内存空间， 也可把不再使用的空间回收待用，为有效地利用内存资源提供了手段。 常用的内存管理函数有以下三个：
+
+1.分配内存空间函数malloc
+调用形式： (类型说明符*) malloc (size) 功能：在内存的动态存储区中分配一块长度为"size" 字节的连续区域。函数的返回值为该区域的首地址。 “类型说明符”表示把该区域用于何种数据类型。(类型说明符*)表示把返回值强制转换为该类型指针。“size”是一个无符号数。例如： pc=(char *) malloc (100); 表示分配100个字节的内存空间，并强制转换为字符数组类型， 函数的返回值为指向该字符数组的指针， 把该指针赋予指针变量pc。
+
+2.分配内存空间函数 calloc
+calloc 也用于分配内存空间。调用形式： (类型说明符*)calloc(n,size) 功能：在内存动态存储区中分配n块长度为“size”字节的连续区域。函数的返回值为该区域的首地址。(类型说明符*)用于强制类型转换。calloc函数与malloc 函数的区别仅在于一次可以分配n块区域。例如： ps=(struet stu*) calloc(2,sizeof (struct stu)); 其中的sizeof(struct stu)是求stu的结构长度。因此该语句的意思是：按stu的长度分配2块连续区域，强制转换为stu类型，并把其首地址赋予指针变量ps。
+
+3.释放内存空间函数free
+调用形式： free(void*ptr); 功能：释放ptr所指向的一块内存空间，ptr 是一个任意类型的指针变量，它指向被释放区域的首地址。被释放区应是由malloc或calloc函数所分配的区域：[例7.9]分配一块区域，输入一个学生数据。
+main()
+{
+struct stu
+{
+int num;
+char *name;
+char sex;
+float score;
+} *ps;
+ps=(struct stu*)malloc(sizeof(struct stu));
+ps->num=102;
+ps->name="Zhang ping";
+ps->sex='M';
+ps->score=62.5;
+printf("Number=%d\nName=%s\n",ps->num,ps->name);
+printf("Sex=%c\nScore=%f\n",ps->sex,ps->score);
+free(ps);
+}
+　　 本例中，定义了结构stu，定义了stu类型指针变量ps。 然后分配一块stu大内存区，并把首地址赋予ps，使ps指向该区域。再以ps为指向结构的指针变量对各成员赋值，并用printf 输出各成员值。最后用free函数释放ps指向的内存空间。 整个程序包含了申请内存空间、使用内存空间、释放内存空间三个步骤， 实现存储空间的动态分配。链表的概念在例7.9中采用了动态分配的办法为一个结构分配内存空间。每一次分配一块空间可用来存放一个学生的数据， 我们可称之为一个结点。有多少个学生就应该申请分配多少块内存空间， 也就是说要建立多少个结点。当然用结构数组也可以完成上述工作， 但如果预先不能准确把握学生人数，也就无法确定数组大小。 而且当学生留级、退学之后也不能把该元素占用的空间从数组中释放出来。 用动态存储的方法可以很好地解决这些问题。 有一个学生就分配一个结点，无须预先确定学生的准确人数，某学生退学， 可删去该结点，并释放该结点占用的存储空间。从而节约了宝贵的内存资源。 另一方面，用数组的方法必须占用一块连续的内存区域。 而使用动态分配时，每个结点之间可以是不连续的(结点内是连续的)。 结点之间的联系可以用指针实现。 即在结点结构中定义一个成员项用来存放下一结点的首地址，这个用于存放地址的成员，常把它称为指针域。可在第一个结点的指针域内存入第二个结点的首地址， 在第二个结点的指针域内又存放第三个结点的首地址， 如此串连下去直到最后一个结点。最后一个结点因无后续结点连接，其指针域可赋为0。这样一种连接方式，在数据结构中称为“链表”。图7.3为链表的示意图。
+
+　　在图7.3中，第0个结点称为头结点， 它存放有第一个结点的首地址，它没有数据，只是一个指针变量。 以下的每个结点都分为两个域，一个是数据域，存放各种实际的数据，如学号num，姓名name，性别sex和成绩score等。另一个域为指针域， 存放下一结点的首地址。链表中的每一个结点都是同一种结构类型。例如， 一个存放学生学号和成绩的结点应为以下结构：
+struct stu
+{ int num;
+int score;
+struct stu *next;
+}
+　　 前两个成员项组成数据域，后一个成员项next构成指针域， 它是一个指向stu类型结构的指针变量。链表的基本操作对链表的主要操作有以下几种：
+1.建立链表；
+2.结构的查找与输出；
+3.插入一个结点；
+4.删除一个结点；
+下面通过例题来说明这些操作。
+[例7.10]建立一个三个结点的链表，存放学生数据。 为简单起见， 我们假定学生数据结构中只有学号和年龄两项。
+可编写一个建立链表的函数creat。程序如下：
+#define NULL 0
+#define TYPE struct stu
+#define LEN sizeof (struct stu)
+struct stu
+{
+int num;
+int age;
+struct stu *next;
+};
+TYPE *creat(int n)
+{
+struct stu *head,*pf,*pb;
+int i;
+for(i=0;i<n;i++)
+{
+pb=(TYPE*) malloc(LEN);
+printf("input Number and Age\n");
+scanf("%d%d",&pb->num,&pb->age);
+if(i==0)
+pf=head=pb;
+else pf->next=pb;
+pb->next=NULL;
+pf=pb;
+}
+return(head);
+}
+　　 在函数外首先用宏定义对三个符号常量作了定义。这里用TYPE表示struct stu，用LEN表示sizeof(struct stu)主要的目的是为了在以下程序内减少书写并使阅读更加方便。结构stu定义为外部类型，程序中的各个函数均可使用该定义。
+
+　　creat函数用于建立一个有n个结点的链表，它是一个指针函数，它返回的指针指向stu结构。在creat函数内定义了三个stu结构的指针变量。head为头指针，pf 为指向两相邻结点的前一结点的指针变量。pb为后一结点的指针变量。在for语句内，用malloc函数建立长度与stu长度相等的空间作为一结点，首地址赋予pb。然后输入结点数据。如果当前结点为第一结点(i==0)，则把pb值 (该结点指针)赋予head和pf。如非第一结点，则把pb值赋予pf 所指结点的指针域成员next。而pb所指结点为当前的最后结点，其指针域赋NULL。 再把pb值赋予pf以作下一次循环准备。
+　　 creat函数的形参n，表示所建链表的结点数，作为for语句的循环次数。图7.4表示了creat函数的执行过程。
+
+[例7.11]写一个函数，在链表中按学号查找该结点。
+TYPE * search (TYPE *head,int n)
+{
+TYPE *p;
+int i;
+p=head;
+while (p->num!=n && p->next!=NULL)
+p=p->next; /* 不是要找的结点后移一步*/
+if (p->num==n) return (p);
+if (p->num!=n&& p->next==NULL)
+printf ("Node %d has not been found!\n",n
+}
+　　 本函数中使用的符号常量TYPE与例7.10的宏定义相同，等于struct　stu。函数有两个形参，head是指向链表的指针变量，n为要查找的学号。进入while语句，逐个检查结点的num成员是否等于n，如果不等于n且指针域不等于NULL(不是最后结点)则后移一个结点，继续循环。如找到该结点则返回结点指针。 如循环结束仍未找到该结点则输出“未找到”的提示信息。
+
+[例7.12]写一个函数，删除链表中的指定结点。删除一个结点有两种情况：
+1. 被删除结点是第一个结点。这种情况只需使head指向第二个结点即可。即head=pb->next。其过程如图7.5所示。
+2. 被删结点不是第一个结点，这种情况使被删结点的前一结点指向被删结点的后一结点即可。即pf->next=pb->next。其过程如图7.6所示。
+函数编程如下：
+TYPE * delete(TYPE * head,int num)
+{
+TYPE *pf,*pb;
+if(head==NULL) /*如为空表， 输出提示信息*/
+{ printf("\nempty list!\n");
+goto end;}
+pb=head;
+while (pb->num!=num && pb->next!=NULL)
+/*当不是要删除的结点，而且也不是最后一个结点时，继续循环*/
+{pf=pb;pb=pb->next;}/*pf指向当前结点，pb指向下一结点*/
+if(pb->num==num)
+{if(pb==head) head=pb->next;
+/*如找到被删结点，且为第一结点，则使head指向第二个结点，
+否则使pf所指结点的指针指向下一结点*/
+else pf->next=pb->next;
+free(pb);
+printf("The node is deleted\n");}
+else
+printf("The node not been foud!\n");
+end:
+return head;
+}
+　　 函数有两个形参，head为指向链表第一结点的指针变量，num删结点的学号。 首先判断链表是否为空，为空则不可能有被删结点。若不为空，则使pb指针指向链表的第一个结点。进入while语句后逐个查找被删结点。找到被删结点之后再看是否为第一结点，若是则使head指向第二结点(即把第一结点从链中删去)，否则使被删结点的前一结点(pf所指)指向被删结点的后一结点(被删结点的指针域所指)。如若循环结束未找到要删的结点， 则输出“末找到”的提示信息。最后返回head值。
+
+[例7.13]写一个函数，在链表中指定位置插入一个结点。在一个链表的指定位置插入结点， 要求链表本身必须是已按某种规律排好序的。例如，在学生数据链表中， 要求学号顺序插入一个结点。设被插结点的指针为pi。 可在三种不同情况下插入。
+1. 原表是空表，只需使head指向被插结点即可。见图7.7(a)
+2. 被插结点值最小，应插入第一结点之前。这种情况下使head指向被插结点，被插结点的指针域指向原来的第一结点则可。即：pi->next=pb;
+head=pi; 见图7.7(b)
+3. 在其它位置插入，见图7.7(c)。这种情况下，使插入位置的前一结点的指针域指向被插结点，使被插结点的指针域指向插入位置的后一结点。即为：pi->next=pb;pf->next=pi；
+4. 在表末插入，见图7.7(d)。这种情况下使原表末结点指针域指向被插结点，被插结点指针域置为NULL。即：
+pb->next=pi;
+pi->next=NULL； TYPE * insert(TYPE * head,TYPE *pi)
+{
+TYPE *pf,*pb;
+pb=head;
+if(head==NULL) /*空表插入*/
+(head=pi;
+pi->next=NULL;}
+else
+{
+while((pi->num>pb->num)&&(pb->next!=NULL))
+{pf=pb;
+pb=pb->next; }/*找插入位置*/
+if(pi->num<=pb->num)
+{if(head==pb)head=pi;/*在第一结点之前插入*/
+else pf->next=pi;/*在其它位置插入*/
+pi->next=pb; }
+else
+{pb->next=pi;
+pi->next=NULL;} /*在表末插入*/
+}
+return head;}
+　　 本函数有两个形参均为指针变量，head指向链表，pi 指向被插结点。函数中首先判断链表是否为空，为空则使head指向被插结点。表若不空，则用while语句循环查找插入位置。找到之后再判断是否在第一结点之前插入，若是则使head 指向被插结点被插结点指针域指向原第一结点，否则在其它位置插入， 若插入的结点大于表中所有结点，则在表末插入。本函数返回一个指针， 是链表的头指针。 当插入的位置在第一个结点之前时， 插入的新结点成为链表的第一个结点，因此head的值也有了改变， 故需要把这个指针返回主调函数。
+[例7.14]将以上建立链表，删除结点，插入结点的函数组织在一起，再建一个输出全部结点的函数，然后用main函数调用它们。
+#define NULL 0
+#define TYPE struct stu
+#define LEN sizeof(struct stu)
+struct stu
+{
+int num;
+int age;
+struct stu *next;
+};
+TYPE * creat(int n)
+{
+struct stu *head,*pf,*pb;
+int i;
+for(i=0;i<n;i++)
+{
+pb=(TYPE *)malloc(LEN);
+printf("input Number and Age\n");
+scanf("%d%d",&pb->num,&pb->age);
+if(i==0)
+pf=head=pb;
+else pf->next=pb;
+pb->next=NULL;
+pf=pb;
+}
+return(head);
+}
+TYPE * delete(TYPE * head,int num)
+{
+TYPE *pf,*pb;
+if(head==NULL)
+{ printf("\nempty list!\n");
+goto end;}
+pb=head;
+while (pb->num!=num && pb->next!=NULL)
+{pf=pb;pb=pb->next;}
+if(pb->num==num)
+{ if(pb==head) head=pb->next;
+else pf->next=pb->next;
+printf("The node is deleted\n"); }
+else
+free(pb);
+printf("The node not been found!\n");
+end:
+return head;
+}
+TYPE * insert(TYPE * head,TYPE * pi)
+{
+TYPE *pb ,*pf;
+pb=head;
+if(head==NULL)
+{ head=pi;
+pi->next=NULL; }
+else
+{
+while((pi->num>pb->num)&&(pb->next!=NULL))
+{ pf=pb;
+pb=pb->next; }
+if(pi->num<=pb->num)
+{ if(head==pb) head=pi;
+else pf->next=pi;
+pi->next=pb; }
+else
+{ pb->next=pi;
+pi->next=NULL; }
+}
+return head;
+}
+void print(TYPE * head)
+{
+printf("Number\t\tAge\n");
+while(head!=NULL)
+{
+printf("%d\t\t%d\n",head->num,head->age);
+head=head->next;
+}
+}
+main()
+{
+TYPE * head,*pnum;
+int n,num;
+printf("input number of node: ");
+scanf("%d",&n);
+head=creat(n);
+print(head);
+printf("Input the deleted number: ");
+scanf("%d",&num);
+head=delete(head,num);
+print(head);
+printf("Input the inserted number and age: ");
+pnum=(TYPE *)malloc(LEN);
+scanf("%d%d",&pnum->num,&pnum->age);
+head=insert(head,pnum);
+print(head);
+}
+　　 本例中，print函数用于输出链表中各个结点数据域值。函数的形参head的初值指向链表第一个结点。在while语句中，输出结点值后，head值被改变，指向下一结点。若保留头指针head， 则应另设一个指针变量，把head值赋予它，再用它来替代head。在main函数中，n为建立结点的数目， num为待删结点的数据域值；head为指向链表的头指针，pnum为指向待插结点的指针。 main函数中各行的意义是：
+第六行输入所建链表的结点数；
+第七行调creat函数建立链表并把头指针返回给head；
+第八行调print函数输出链表；
+第十行输入待删结点的学号；
+第十一行调delete函数删除一个结点；
+第十二行调print函数输出链表；
+第十四行调malloc函数分配一个结点的内存空间， 并把其地址赋予pnum;
+第十五行输入待插入结点的数据域值；
+第十六行调insert函数插入pnum所指的结点；
+第十七行再次调print函数输出链表。
+
+　　从运行结果看，首先建立起3个结点的链表，并输出其值；再删103号结点，只剩下105，108号结点；又输入106号结点数据， 插入后链表中的结点为105，106，108。联合“联合”也是一种构造类型的数据结构。 在一个“联合”内可以定义多种不同的数据类型， 一个被说明为该“联合”类型的变量中，允许装入该“联合”所定义的任何一种数据。 这在前面的各种数据类型中都是办不到的。例如， 定义为整型的变量只能装入整型数据，定义为实型的变量只能赋予实型数据。
+
+　　在实际问题中有很多这样的例子。 例如在学校的教师和学生中填写以下表格： 姓 名 年 龄 职 业 单位 “职业”一项可分为“教师”和“学生”两类。 对“单位”一项学生应填入班级编号，教师应填入某系某教研室。 班级可用整型量表示，教研室只能用字符类型。 要求把这两种类型不同的数据都填入“单位”这个变量中， 就必须把“单位”定义为包含整型和字符型数组这两种类型的“联合”。
+
+　　“联合”与“结构”有一些相似之处。但两者有本质上的不同。在结构中各成员有各自的内存空间， 一个结构变量的总长度是各成员长度之和。而在“联合”中，各成员共享一段内存空间， 一个联合变量的长度等于各成员中最长的长度。应该说明的是， 这里所谓的共享不是指把多个成员同时装入一个联合变量内， 而是指该联合变量可被赋予任一成员值，但每次只能赋一种值， 赋入新值则冲去旧值。如前面介绍的“单位”变量， 如定义为一个可装入“班级”或“教研室”的联合后，就允许赋予整型值（班级)或字符串（教研室)。要么赋予整型值，要么赋予字符串，不能把两者同时赋予它。联合类型的定义和联合变量的说明一个联合类型必须经过定义之后， 才能把变量说明为该联合类型。
+
+一、联合的定义
+
+定义一个联合类型的一般形式为：
+union 联合名
+{
+成员表
+};
+成员表中含有若干成员，成员的一般形式为： 类型说明符 成员名 成员名的命名应符合标识符的规定。
+例如：
+union perdata
+{
+int class;
+char office[10];
+};
+　　 定义了一个名为perdata的联合类型，它含有两个成员，一个为整型，成员名为class；另一个为字符数组，数组名为office。联合定义之后，即可进行联合变量说明，被说明为perdata类型的变量，可以存放整型量class或存放字符数组office。
+
+二、联合变量的说明
+
+　　联合变量的说明和结构变量的说明方式相同， 也有三种形式。即先定义，再说明；定义同时说明和直接说明。以perdata类型为例，说明如下：
+union perdata
+{
+int class;
+char officae[10];
+};
+union perdata a,b; /*说明a,b为perdata类型*/
+或者可同时说明为：
+union perdata
+{ int class;
+char office[10]; }a,b;或直接说明为： union
+{ int class;
+char office[10]; }a,b
+经说明后的a,b变量均为perdata类型。 它们的内存分配示意图如图7—8所示。a,b变量的长度应等于 perdata 的成员中最长的长度， 即等于
+office数组的长度，共10个字节。从图中可见，a,b变量如赋予整型值时，只使用了2个字节，而赋予字符数组时，可用10个字节。
+
+联合变量的赋值和使用
+
+　　对联合变量的赋值，使用都只能是对变量的成员进行。 联合变量的成员表示为： 联合变量名.成员名 例如，a被说明为perdata类型的变量之后，可使用 a.class　a.office 不允许只用联合变量名作赋值或其它操作。 也不允许对联合变量作初始化赋值，赋值只能在程序中进行。还要再强调说明的是，一个联合变量， 每次只能赋予一个成员值。换句话说，一个联合变量的值就是联合变员的某一个成员值。
+[例7.15]设有一个教师与学生通用的表格，教师数据有姓名，年龄，职业，教研室四项。学生有姓名，年龄，职业，班级四项。
+编程输入人员数据， 再以表格输出。
+main()
+{
+struct
+{
+char name[10];
+int age;
+char job;
+union
+{
+int class;
+char office[10];
+} depa;
+}body[2];
+int n,i;
+for(i=0;i<2;i++)
+{
+printf("input name,age,job and department\n");
+scanf("%s %d %c",body[i].name,&body[i].age,&body[i].job);
+if(body[i].job=='s')
+scanf("%d",&body[i].depa.class);
+else
+scanf("%s",body[i].depa.office);
+}
+printf("name\tage job class/office\n");
+for(i=0;i<2;i++)
+{
+if(body[i].job=='s')
+printf("%s\t%3d %3c %d\n",body[i].name,body[i].age
+,body[i].job,body[i].depa.class);
+else
+printf("%s\t%3d %3c %s\n",body[i].name,body[i].age,
+body[i].job,body[i].depa.office);
+}
+}
+　　 本例程序用一个结构数组body来存放人员数据， 该结构共有四个成员。其中成员项depa是一个联合类型， 这个联合又由两个成员组成，一个为整型量class，一个为字符数组office。在程序的第一个for语句中，输入人员的各项数据，先输入结构的前三个成员name,age和job，然后判别job成员项，如为"s"则对联合depa·class输入(对学生赋班级编号)否则对depa·office输入(对教师赋教研组名)。
+
+　　在用scanf语句输入时要注意，凡为数组类型的成员，无论是结构成员还是联合成员，在该项前不能再加"&"运算符。如程序第18行中
+body[i].name是一个数组类型，第22行中的body[i].depa.office也是数组类型，因此在这两项之间不能加"&"运算符。程序中的第二个for语句用于输出各成员项的值：
+
+本章小结
+
+1. 结构和联合是两种构造类型数据，是用户定义新数据类型的重要手段。结构和联合有很多的相似之处，它们都由成员组成。成员可以具有不同的数据类型。成员的表示方法相同。都可用三种方式作变量说明。 2. 在结构中，各成员都占有自己的内存空间，它们是同时存在的。一个结构变量的总长度等于所有成员长度之和。在联合中，所有成员不能同时占用它的内存空间，它们不能同时存在。联合变量的长度等于最长的成员的长度。
+
+3. “.”是成员运算符，可用它表示成员项，成员还可用“->”运算符来表示。
+
+4. 结构变量可以作为函数参数，函数也可返回指向结构的指针变量。而联合变量不能作为函数参数，函数也不能返回指向联合的指针变量。但可以使用指向联合变量的指针，也可使用联合数组。 5. 结构定义允许嵌套，结构中也可用联合作为成员，形成结构和联合的嵌套。
+
+6. 链表是一种重要的数据结构，它便于实现动态的存储分配。本章介绍是单向链表，还可组成双向链表，循环链表等。
+ 

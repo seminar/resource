@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="record_layout_style">
+        <item name="android:layout_width">320dip</item>
+        <item name="android:layout_height">456dip</item>
+        <item name="android:layout_marginTop">28dip</item>
+        <item name="android:layout_marginLeft">0dip</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/record_img_bg</item>
+    </style>
+    <style name="record_img_top_layout_style">
+        <item name="android:layout_width">59dip</item>
+        <item name="android:layout_height">15dip</item>
+        <item name="android:layout_marginTop">7dip</item>
+        <item name="android:layout_marginLeft">236dip</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="record_common_img_pagepoint_style">
+        <item name="android:layout_width">15dip</item>
+        <item name="android:layout_height">15dip</item>
+    </style>
+    <style name="record_title_style">
+        <item name="android:layout_width">267dip</item>
+        <item name="android:layout_height">35dip</item>
+        <item name="android:layout_marginTop">15dip</item>
+        <item name="android:layout_marginLeft">27dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/str_textview_record_title</item>
+    </style>
+    <style name="record_channel_name_style">
+        <item name="android:layout_width">267dip</item>
+        <item name="android:layout_height">35dip</item>
+        <item name="android:layout_marginTop">8dip</item>
+        <item name="android:layout_marginLeft">27dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/str_textview_record_chaneel_name</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@drawable/programme_epg_selcet</item>
+    </style>
+    <style name="record_subtitle_style">
+        <item name="android:layout_width">267dip</item>
+        <item name="android:layout_height">18dip</item>
+        <item name="android:layout_marginLeft">27dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/str_textview_record_sbutitle</item>
+    </style>
+    <style name="record_context_style">
+        <item name="android:layout_width">267dip</item>
+        <item name="android:layout_height">31dip</item>
+        <item name="android:layout_marginLeft">27dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/str_textview_record_context</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@drawable/programme_epg_selcet</item>
+    </style>
+    <style name="record_mode_layout_style">
+        <item name="android:layout_width">267dip</item>
+        <item name="android:layout_height">31dip</item>
+        <item name="android:layout_marginLeft">27dip</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@drawable/programme_epg_selcet</item>
+    </style>
+    <style name="record_img_star_style">
+        <item name="android:layout_width">17dip</item>
+        <item name="android:layout_height">17dip</item>
+        <item name="android:layout_marginTop">7dip</item>
+        <item name="android:src">@drawable/record_img_star</item>
+    </style>
+    <style name="record_mode_text_style">
+        <item name="android:layout_width">249dip</item>
+        <item name="android:layout_height">31dip</item>
+        <item name="android:text">@string/str_textview_record_mode</item>
+        <item name="android:gravity">left|center</item>
+    </style>
+</resources>

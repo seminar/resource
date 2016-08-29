@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+
+
+<style name ="source_info_bg_style">
+
+
+<item name="android:layout_width">293dp</item>
+
+
+<item name="android:layout_height">71dp</item>
+
+
+<item name="android:layout_marginLeft">133dp</item>
+
+
+<item name="android:layout_marginTop">27dp</item>
+
+
+</style>
+
+
+<style name ="source_info_idle_img_press_ststus_bg_l_style">
+
+
+<item name="android:layout_width">13dp</item>
+
+
+<item name="android:layout_height">71dp</item>
+
+
+<item name="android:background">@drawable/idle_img_press_ststus_bg_l</item>
+
+
+</style>
+
+
+<style name ="source_info_idle_img_press_ststus_bg_m_style">
+
+
+<item name="android:layout_width">267dp</item>
+
+
+<item name="android:layout_height">71dp</item>
+
+
+<item name="android:background">@drawable/idle_img_press_ststus_bg_m</item>
+
+
+</style>
+
+
+<style name ="source_info_idle_img_press_ststus_bg_r_style">
+
+
+<item name="android:layout_width">13dp</item>
+
+
+<item name="android:layout_height">71dp</item>
+
+
+<item name="android:background">@drawable/idle_img_press_ststus_bg_r</item>
+
+
+</style>
+
+
+
+
+
+
+
+
+<style name ="source_info_sound_logo_style">
+
+
+<item name="android:layout_width">60dp</item>
+
+
+<item name="android:layout_height">60dp</item>
+
+
+<item name="android:layout_marginTop">5dp</item>
+
+
+</style>
+
+
+
+
+
+
+
+
+<style name ="source_info_idle_img_press_ststus_separator_style">
+
+
+<item name="android:layout_width">4dp</item>
+
+
+<item name="android:layout_height">60dp</item>
+
+
+<item name="android:layout_marginTop">5dp</item>
+
+
+<item name="android:layout_marginLeft">11dp</item>
+
+
+<item name="android:src">@drawable/idle_img_press_ststus_separator</item>
+
+
+</style>
+
+
+<style name ="source_info_text_view_layout_style">
+
+
+<item name="android:layout_width">183dp</item>
+
+
+<item name="android:layout_height">60dp</item>
+
+
+<item name="android:layout_marginTop">5dp</item>
+
+
+<item name="android:layout_marginLeft">9dp</item>
+
+
+<item name="android:orientation">vertical</item>
+
+
+</style>
+
+
+<style name ="source_info_text_view_style">
+
+
+<item name="android:layout_width">91dp</item>
+
+
+<item name="android:gravity">center</item>
+
+
+<item name="android:textSize">24dp</item>
+
+
+<item name="android:textColor">#ffffff</item>
+
+
+<item name="android:layout_height">27dp</item>
+
+
+</style>
+
+
+<style name ="source_info_text_view_indicator_normal_style">
+
+
+<item name="android:layout_width">183dp</item>
+
+
+<item name="android:gravity">center</item>
+
+<item name="android:textColor">#ffffff</item>
+
+
+<item name="android:layout_height">33dp</item>
+
+
+</style>	
+
+
+	<style name ="source_info_text_view_indicator_style">
+
+
+		<item name="android:layout_width">187dp</item>
+
+
+		<item name="android:gravity">center_vertical</item>
+
+
+		<item name="android:textSize">17dp</item>
+
+
+		<item name="android:textColor">#ffffff</item>
+
+
+		<item name="android:layout_height">33dp</item>
+
+
+	</style>
+
+
+</resources>
+
+

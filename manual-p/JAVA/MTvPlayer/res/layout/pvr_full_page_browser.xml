@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FF000000"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="480dip"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp" >
+
+        <LinearLayout
+            android:id="@+id/lcninfo"
+            android:layout_width="400dip"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/pvr_lcn_textview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="46dip"
+                    android:layout_weight="0.8"
+                    android:gravity="center"
+                    android:text="@string/str_pvr_lcn_textview"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/pvr_channel_textview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.8"
+                    android:gravity="center"
+                    android:text="@string/str_pvr_channel_textview"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/pvr_program_service_textview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.4"
+                    android:gravity="center"
+                    android:text="@string/srt_pvr_program_service_textview"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/pvr_listview"
+                android:layout_width="fill_parent"
+                android:layout_height="412dip"
+                android:listSelector="@drawable/button_state" />
+
+            <LinearLayout
+                android:layout_width="412dip"
+                android:layout_height="21dip"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="11dip"
+                    android:layout_height="11dip"
+                    android:layout_marginLeft="67dip"
+                    android:layout_marginTop="7dip"
+                    android:src="@drawable/icon_tips_red" />
+
+                <TextView
+                    android:layout_width="59dip"
+                    android:layout_height="24dip"
+                    android:gravity="center|left"
+                    android:text="@string/str_pvr_program_service_tips_red"
+                    android:textColor="#FFFFFF" />
+
+                <ImageView
+                    android:layout_width="11dip"
+                    android:layout_height="11dip"
+                    android:layout_marginTop="7dip"
+                    android:src="@drawable/icon_tips_green" />
+
+                <TextView
+                    android:id="@+id/pvr_tips_green"
+                    android:layout_width="59dip"
+                    android:layout_height="24dip"
+                    android:gravity="center|left"
+                    android:text="@string/str_pvr_program_service_tips_green"
+                    android:textColor="#FFFFFF" />
+
+                <ImageView
+                    android:layout_width="11dip"
+                    android:layout_height="11dip"
+                    android:layout_marginTop="7dip"
+                    android:src="@drawable/icon_tips_blue" />
+
+                <TextView
+                    android:id="@+id/pvr_tips_blue"
+                    android:layout_width="59dip"
+                    android:layout_height="24dip"
+                    android:gravity="center|left"
+                    android:text="@string/str_pvr_program_service_tips_blue"
+                    android:textColor="#FFFFFF" />
+
+                <ImageView
+                    android:layout_width="11dip"
+                    android:layout_height="11dip"
+                    android:layout_marginTop="7dip"
+                    android:src="@drawable/icon_tips_yellow" />
+
+                <TextView
+                    android:layout_width="59dip"
+                    android:layout_height="24dip"
+                    android:gravity="center|left"
+                    android:text="@string/str_pvr_program_service_tips_yellow"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/lcninfo"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="35dip"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/pvr_lcn_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/str_pvr_lcn_title"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/pvr_lcn_record_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="17dip"
+                        android:text="@string/str_pvr_lcn_record_data"
+                        android:textColor="#FFFFFF" />
+
+                    <TextView
+                        android:id="@+id/pvr_lcn_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="17dip"
+                        android:text="@string/str_pvr_lcn_data"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="349dip"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal" >
+                <SurfaceView
+                    android:id="@+id/pvr_lcn_img"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center" >
+
+                <ProgressBar
+                    android:id="@+id/pvr_progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="20dip" />
+            </LinearLayout>
+             <!-- add the textview to show the total time by owen.qin -->
+            <TextView android:id="@+id/total_time"
+                	  android:layout_width="wrap_content"
+                	  android:layout_height="wrap_content"
+                	  android:layout_gravity="right"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/pvr_gallery"
+        android:layout_width="fill_parent"
+        android:layout_height="154dip"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" >
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="380dp"
+    android:layout_gravity="center"
+    android:background="@drawable/picture_mode_img_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="28dp"
+            android:text="@string/str_set_work_time_title"
+            android:textColor="#FFFFFF"
+            android:textSize="12dp" >
+        </TextView>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="260dp"
+        android:layout_marginTop="12dp" >
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textview_ca_start_work_time"
+                android:layout_width="203dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.00"
+                android:gravity="left|center_vertical"
+                android:text="@string/str_ca_start_work_time"
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+
+            <!-- For start time(hour) -->
+
+            <LinearLayout
+                android:id="@+id/linearlayout_start_time_hour"
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button_state"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    style="@style/pic_mode_sty_leftarrow"
+                    android:layout_marginTop="9dp" >
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/textview_start_time_hour_text"
+                    android:layout_width="90dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/str_work_time_hour_text"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/textview_start_time_hour"
+                    android:layout_width="90dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    style="@style/pic_mode_sty_rightarrow"
+                    android:layout_marginTop="9dp" >
+                </ImageView>
+            </LinearLayout>
+
+            <!-- For Start Time(minute) -->
+            <LinearLayout
+                android:id="@+id/linearlayout_start_time_minute"
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/button_state"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    style="@style/pic_mode_sty_leftarrow"
+                    android:layout_marginTop="9dp" >
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/textview_start_time_minute_text"
+                    android:layout_width="90dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/str_work_time_minute_text"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/textview_start_time_minute"
+                    android:layout_width="90dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    style="@style/pic_mode_sty_rightarrow"
+                    android:layout_marginTop="9dp" >
+                </ImageView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textview_ca_end_work_time"
+                android:layout_width="203dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.00"
+                android:gravity="left|center_vertical"
+                android:text="@string/str_ca_end_work_time"
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+
+            <!-- For End Time(hour) -->
+            <LinearLayout
+                android:id="@+id/linearlayout_end_time_hour"
+                android:layout_width="fill_parent"
+                android:layout_height="28dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/button_state"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    style="@style/pic_mode_sty_leftarrow"
+                    android:layout_marginTop="9dp" >
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/textview_end_time_hour_text"
+                    android:layout_width="90dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/str_work_time_hour_text"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/textview_end_time_hour"
+                    android:layout_width="90dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    style="@style/pic_mode_sty_rightarrow"
+                    android:layout_marginTop="9dp" >
+                </ImageView>
+            </LinearLayout>
+
+            <!-- For End Time(minute) -->
+            <LinearLayout
+                android:id="@+id/linearlayout_end_time_minute"
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/button_state"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    style="@style/pic_mode_sty_leftarrow"
+                    android:layout_marginTop="9dp" >
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/textview_end_time_minute_text"
+                    android:layout_width="90dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/str_work_time_minute_text"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/textview_end_time_minute"
+                    android:layout_width="90dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    style="@style/pic_mode_sty_rightarrow"
+                    android:layout_marginTop="9dp" >
+                </ImageView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textview_ca_work_time_pin"
+                android:layout_width="204dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="left|center_vertical"
+                android:text="@string/str_ca_work_time_pin"
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/editText_ca_work_time_pin"
+                    android:layout_width="208dp"
+            		android:layout_height="30dp"
+            		android:layout_marginLeft="20dp"
+            		android:layout_weight="0.09"
+                    android:gravity="left|center_vertical"
+                    android:imeOptions="actionDone"
+            		android:inputType="numberPassword"
+            		android:password="true"
+            		android:maxLength="6"
+                    android:textColor="#000000"
+                    android:textSize="10dp" >
+                </EditText>
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="80dp"
+                android:textSize="10dp"
+                android:text="@string/str_ca_mg_submit" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/str_mainmenu_menu"
+        android:textColor="#ffffff"
+        android:textSize="10dp" />
+</LinearLayout>

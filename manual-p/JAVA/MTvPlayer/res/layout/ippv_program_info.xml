@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="336dp"
+    android:layout_height="336dp"
+    android:layout_gravity="center"
+    android:background="@drawable/picture_mode_img_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:gravity="left"
+            android:text="@string/str_ca_mg_ippv_program"
+            android:textColor="#ffffff"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ippv_program_info_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="3dp"
+            android:src="@drawable/common_img_arrow_l" />
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="35dp"
+                    android:gravity="right"
+                    android:text="@string/ippv_payviewed_slotid"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/ippv_program_info_purse_id"
+                    android:layout_width="70dp"
+                    android:layout_height="35dp"
+                    android:gravity="left"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="35dp"
+                    android:gravity="right"
+                    android:text="@string/ippv_payviewed_productid"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/ippv_program_info_productid"
+                    android:layout_width="75dp"
+                    android:layout_height="35dp"
+                    android:gravity="left"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="35dp"
+                    android:gravity="right"
+                    android:text="@string/ippv_product_state"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/ippv_program_info_product_state"
+                    android:layout_width="75dp"
+                    android:layout_height="35dp"
+                    android:gravity="left"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="35dp"
+                    android:gravity="right"
+                    android:text="@string/str_ca_entitle_video_id"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/ippv_program_info_tape"
+                    android:layout_width="75dp"
+                    android:layout_height="35dp"
+                    android:gravity="left"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="35dp"
+                    android:gravity="right"
+                    android:text="@string/ippv_payviewed_price"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/ippv_program_info_price"
+                    android:layout_width="75dp"
+                    android:layout_height="35dp"
+                    android:gravity="left"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="35dp"
+                    android:gravity="right"
+                    android:text="@string/ippv_payviewed_expireddate"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/ippv_program_info_expireddate"
+                    android:layout_width="75dp"
+                    android:layout_height="35dp"
+                    android:gravity="left"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="25dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:orientation="horizontal"
+                 >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="35dp"
+                    android:gravity="right"
+                    android:text="@string/ippv_info_page"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/ippv_program_info_page"
+                    android:layout_width="75dp"
+                    android:layout_height="35dp"
+                    android:gravity="left"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/common_img_arrow_r" />
+    </LinearLayout>
+
+</LinearLayout>

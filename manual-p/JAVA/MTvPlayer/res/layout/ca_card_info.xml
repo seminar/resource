@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="310dp"
+    android:layout_height="336dp"
+    android:layout_gravity="center"
+    android:background="@drawable/picture_mode_img_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:gravity="left"
+            android:text="@string/str_ca_mg_card_info"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ca_card_feed_child_or_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:gravity="right"
+            android:text="@string/str_ca_mg_child_or_parent_card"
+            android:textColor="#ffffff"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/ca_card_feed_child_or_parent_textview"
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:gravity="left"
+            android:textColor="#ffffff"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ca_card_num"
+        android:layout_width="fill_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/ca_card_num_textview1"
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:gravity="right"
+            android:text="@string/str_ca_mg_parent_cardnum"
+            android:textColor="#ffffff"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/ca_card_num_textview2"
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:gravity="left"
+            android:textColor="#ffffff"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ca_card_delaytime"
+        android:layout_width="fill_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:gravity="right"
+            android:text="@string/str_ca_mg_delaytime"
+            android:textColor="#ffffff"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/ca_card_delaytime_textview"
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:gravity="left"
+            android:textColor="#ffffff"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ca_card_delaytime_lastfeedtime"
+        android:layout_width="fill_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:gravity="right"
+            android:text="@string/str_ca_mg_lastfeedtime"
+            android:textColor="#ffffff"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/ca_card_delaytime_lastfeedtime_textview"
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:gravity="left"
+            android:textColor="#ffffff"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+</LinearLayout>

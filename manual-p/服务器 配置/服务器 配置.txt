@@ -1,0 +1,172 @@
+sudo apt-get update
+
+sudo apt-get install  vim vim-scripts vim-doc
+
+/home/Supernova_env/mips-4.3/bin:/home/Supernova_env/arm-2012.09/bin/
+
+
+mkpart part-type [fs-type] start end 
+
+创建一个part-type类型的分区，part-type可以是："primary", "logical", or "extended" 如果指定fs-type则在创建分区的同时进行格式化。start和end指的是分区的起始位置，单位默认是M。
+
+sudo blkid /dev/sdb1
+/dev/sdb1: UUID="8144a385-8f55-44df-8965-f2e7678271be" TYPE="ext4"
+
+sudo vim /etc/fstab   修改即可
+
+*********************************************
+gconf
+
+Ctrl+Alt+T调出终端   
+
+2.首先安装gconf-editor: sudo apt-get install gconf-editor 
+
+会提示叫你安装 gconf-editor 
+安装完成后再运行一遍 gconf-editor: sudo apt-get install gconf-editor 
+3.找到 apps/metacity/general/ 在这个下面找到键button-layout 将其值修改为menu:minimize,maximize,close 
+
+重启系统即可。
+
+
+
+***************************xrdc************************************
+xrdp安装配置方法
+
+打开终端：依次安装
+
+sudo apt-get install xrdp
+
+sudo apt-get install vnc4server tightvncserver 
+sudo apt-get install gnome-panel 
+echo "gnome-session --session=gnome-classic" > ~/.xsession
+
+重启 xrdp 
+sudo /etc/init.d/xrdp restart 
+
+//---注意事项---1
+新建用户后，更新此~/.xsession到用户的~/.xsession, 最后重启就可以了！
+//
+man vncserver 
+vncserver -geometry 1366x768 -depth 16:1
+修改窗口打下。
+
+*********************** vnc4server 配置文件 ***********************************
+ffs@adminroot:~$ cat .vnc/xstartup 
+#!/bin/sh
+# Uncomment the following two lines for normal desktop:
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+# exec /etc/X11/xinit/xinitrc
+
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &
+x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+# x-window-manager &
+export DESKTOP_SESSION=ubuntu-2d 
+export GDMSESSION=ubuntu-2d
+export STARTUP="/usr/bin/gnome-session --session=gnome-classic"
+$STARTUP
+
+
+//---注意事项---2
+新建用户后，更新此xstart 到用户的.vnc/xstart ，最后重启就可以了！
+//
+
+*************** ssh openserver **********************
+sudo apt-get install openssh-server
+sudo service ssh start
+sudo /etc/init.d/ssh start
+
+****************   samba   *******************
+
+sudo /etc/init.d/smbd  restart
+
+sudo apt-get install smbfs
+
+sudo apt-get install samba samba-common  
+
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf
+
+sudo vim /etc/samba/smb.conf
+
+sudo /etc/init.d/smbd  restart
+
+sudo smbpasswd -a ffs 
+
+
+-a 新建用户
+使用的时候创建的samba用户必须在系统用户中存在。否则samba找不到系统用户则创建失败
+　　-d 冻结用户，就是这个用户不能在登录了
+
+　　-e 恢复用户，解冻用户，让冻结的用户可以在使用
+
+　　-n 把用户的密码设置成空.
+// ---注意事项---3
+mide 快捷菜单添加；
+复制快捷菜单。
+samba映射 不成功就重新启动。
+//
+
+******************************  用户管理  ************
+
+ubuntu中管理用户和用户组                    mstar_dtv GIP 1001 ffs 1002
+1. 添加一个用户组并指定id为1002
+sudo groupadd －g 1002 www
+
+ 
+
+2. 添加一个用户到www组并指定id为1003
+
+sudo useradd wyx -g 1002 -u 1003 -m
+
+ 
+
+3. 修改用户的密码
+
+sudo passwd wyx
+
+
+
+ 
+
+4. 删除一个用户
+
+sudo userdel wyx
+
+ 
+
+5. 为该用户添加sudo权限
+
+sudo usermod -a -G adm wyx
+
+sudo usermod -a -G sudo wyx
+
+ 
+
+6. 查看所有用户和用户组：
+
+cat /etc/passwd
+
+cat /etc/group
+
+/etc/passwd中发现，该新建用户使用的shell为/bin/sh，而能正常使用的用户shell为/bin/bash，通过ls -l /bin/sh查看/bin/sh得知，在ubuntu系统中，/bin/sh默认链接为bash。
+
+
+---------------疑难——————————————————————————————————————————
+ubuntu报错Syntax error: "  ：
+Ubuntu为了加快开机速度，用dash代替了传统的bash，是dash在捣鬼。
+解决方法是 取消dash
+sudo dpkg-reconfigure dash
+在选择项中选No，即可。
+
+sudo dpkg-reconfigure dash
+
+fromdos  指令找不到问题：
+sudo aptitude install tofrodos
+Then if you want "dos2unix" type "fromdos" and if you want "unix2dos", type "todos". If you have a habit of typing in the old commands, its best to create links.
+Go to /usr/bin:
+--->sudo ln -s fromdos dos2unix
+---> sudo ln -s todos unix2dos
+

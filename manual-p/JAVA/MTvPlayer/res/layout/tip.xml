@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/linear_layout_root"
+  android:orientation="vertical"
+  android:layout_width="1000px"
+  android:gravity="center"
+  android:background="@drawable/player_bg"
+  android:layout_height="match_parent">
+    <TextView
+        android:text="@string/str_pvr_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="30sp" >
+	</TextView>
+	<LinearLayout android:layout_width="fill_parent"
+	    		  android:layout_height="wrap_content"
+	    		  android:orientation="horizontal"
+	    		  android:gravity="center">
+	    		  <Button android:id="@+id/stopRecording"
+	    		          android:layout_width="wrap_content"
+	    		          android:layout_weight="1"
+	    		          android:layout_height="wrap_content"
+	    		          
+	    		          android:text="@string/str_player_stop"/>
+	    		  <Button android:id="@+id/StandyBy"
+	    		          android:layout_width="wrap_content"
+	    		          android:layout_height="wrap_content"
+	    		          android:layout_weight="1"
+	    		          
+	    		          android:text="@string/str_pvr_is_standby"/>
+	    		  <Button android:id="@+id/cancel"
+	    		          android:layout_width="wrap_content"
+	    		          android:layout_height="wrap_content"
+	    		          android:layout_weight="1"
+	    		          android:text="@string/str_root_alert_dialog_cancel"/>
+
+	</LinearLayout>
+</LinearLayout>

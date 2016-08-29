@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dip"
+    android:layout_height="400dip"
+    android:layout_gravity="center"
+    android:background="@drawable/tv_record_list_r_bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/ippv_buy_dialog_segment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dip"
+        android:focusable="false"
+        android:gravity="center"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/ippv_buy_dialog_tvsid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:focusable="false"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/ippv_buy_dialog_productid"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/ippv_buy_dialog_slotid"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/ippv_buy_dialog_expireddate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:focusable="false"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/ippv_buy_dialog_price"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:focusable="true"
+        android:layout_height="wrap_content"
+        android:textSize="25sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dip" >
+
+        <Button
+            android:id="@+id/ippv_buy_dialog_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="80dip"
+            android:text="@string/str_root_alert_dialog_confirm"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/ippv_buy_dialog_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="80dip"
+            android:text="@string/str_root_alert_dialog_cancel"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

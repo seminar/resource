@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+
+	      <TextView
+	          android:id="@+id/textview_ca_purse_item_id"
+	          android:layout_height="18dp"
+	          android:layout_width="69dp"
+	          android:background="@drawable/button_state"
+	          android:gravity="center"
+	          android:textColor="#ffffff"
+	          android:textSize="9dp" />
+
+           <TextView
+               android:id="@+id/textview_ca_purse_item_points"
+               android:layout_width="113dp"
+               android:layout_height="20dp"
+               android:background="@drawable/button_state"
+               android:gravity="center"
+               android:textColor="#ffffff"
+               android:textSize="12dp" />
+           <TextView
+               android:id="@+id/textview_ca_purse_item_credit"
+               android:layout_width="match_parent"
+               android:layout_height="20dp"
+               android:background="@drawable/button_state"
+               android:gravity="center"
+               android:textColor="#ffffff"
+               android:textSize="12dp" />
+
+</LinearLayout>

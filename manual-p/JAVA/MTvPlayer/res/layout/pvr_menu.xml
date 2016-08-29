@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/pvrrootmenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/player_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/lineartitle"
+            android:layout_width="wrap_content"
+            android:layout_height="20dip"
+            android:layout_marginLeft="13dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_pvr_listview_item"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dip"
+                android:text="@string/str_pvr_listview_item"
+                android:textColor="#ffffff" />
+            
+            <TextView
+                android:id="@+id/play_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dip"
+                android:visibility="gone"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearprogress"
+            android:layout_width="wrap_content"
+            android:layout_height="13dip"
+            android:layout_below="@+id/lineartitle"
+            android:layout_marginLeft="60dip"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="13dip"
+                android:layout_height="13dip"
+                android:src="@drawable/common_img_arrow_l" />
+
+            <RelativeLayout
+		        android:id="@+id/pvrprocess_layout"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_marginLeft="33dip"
+	            android:layout_marginTop="1dip" >
+
+                <com.mstar.tv.tvplayer.ui.pvr.TextProgressBar
+                    android:id="@+id/play_record_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="256dip"
+                    android:layout_height="12dip"
+                    android:secondaryProgress="100"
+                    android:src="@drawable/tv_record_list_timeline_bg" />
+
+                <!-- <ImageView
+                    android:id="@+id/image_view_loop_ab"
+                    android:layout_width="0dip"
+                    android:layout_height="13dip"
+                    android:layout_marginLeft="0dip"
+                    android:background="#4ff11111"
+                    android:visibility="gone" /> -->
+
+                <ProgressBar
+                    android:id="@+id/progressbar_loopab"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dip"
+                    android:layout_height="1dip"
+                    android:progressDrawable="@drawable/loopab_progressbar_style"
+                    android:progress="0" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="13dip"
+                android:layout_height="13dip"
+                android:layout_marginLeft="33dip"
+                android:src="@drawable/common_img_arrow_r" />
+
+            <TextView
+                android:id="@+id/record_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginLeft="20dip"
+                android:textColor="#FFFFFF"
+                android:textSize="12dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearmenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearprogress"
+            android:layout_marginTop="7dip"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/player_recorder_icon"
+                android:layout_width="53dip"
+                android:layout_height="53dip"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/player_recorder"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:src="@drawable/player_recorder" />
+
+                <TextView
+                    android:layout_width="53dip"
+                    android:layout_height="13dip"
+                    android:gravity="center"
+                    android:text="@string/str_player_recorder"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="53dip"
+                android:layout_height="53dip"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/player_play"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:src="@drawable/player_play" />
+
+                <TextView
+                    android:id="@+id/text_view_player_play"
+                    android:layout_width="53dip"
+                    android:layout_height="13dip"
+                    android:gravity="center"
+                    android:text="@string/str_player_play"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="53dip"
+                android:layout_height="53dip"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/player_stop"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:src="@drawable/player_stop" />
+
+                <TextView
+                    android:layout_width="53dip"
+                    android:layout_height="13dip"
+                    android:gravity="center"
+                    android:text="@string/str_player_stop"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="53dip"
+                android:layout_height="53dip"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/player_pause"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:src="@drawable/player_pause" />
+
+                <TextView
+                    android:layout_width="53dip"
+                    android:layout_height="13dip"
+                    android:gravity="center"
+                    android:text="@string/str_player_pause"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="53dip"
+                android:layout_height="53dip"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/player_rev"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:src="@drawable/player_rev" />
+
+                <TextView
+                    android:layout_width="53dip"
+                    android:layout_height="13dip"
+                    android:gravity="center"
+                    android:text="@string/str_player_rev"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="53dip"
+                android:layout_height="53dip"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/player_ff"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:src="@drawable/player_ff" />
+
+                <TextView
+                    android:layout_width="53dip"
+                    android:layout_height="13dip"
+                    android:gravity="center"
+                    android:text="@string/str_player_ff"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="53dip"
+                android:layout_height="53dip"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/player_slow"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:src="@drawable/player_slow" />
+
+                <TextView
+                    android:layout_width="53dip"
+                    android:layout_height="13dip"
+                    android:gravity="center"
+                    android:text="@string/str_player_slow"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="53dip"
+                android:layout_height="53dip"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/player_time"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:src="@drawable/playertime" />
+
+                <TextView
+                    android:layout_width="53dip"
+                    android:layout_height="13dip"
+                    android:gravity="center"
+                    android:text="@string/str_player_time"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="53dip"
+                android:layout_height="53dip"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/player_forward"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:src="@drawable/player_forward" />
+
+                <TextView
+                    android:layout_width="53dip"
+                    android:layout_height="13dip"
+                    android:gravity="center"
+                    android:text="@string/str_player_forward"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="53dip"
+                android:layout_height="53dip"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/player_backward"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:src="@drawable/player_backward" />
+
+                <TextView
+                    android:layout_width="53dip"
+                    android:layout_height="13dip"
+                    android:gravity="center"
+                    android:text="@string/str_player_backward"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="53dip"
+                android:layout_height="53dip"
+                android:orientation="vertical" >
+
+                <!-- <ImageButton
+                    android:id="@+id/player_capture"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_gravity="center_horizontal"
+                    android:focusable="true"
+                    android:src="@drawable/player_capture" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="13dip"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/str_player_capture"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" /> -->
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/usbInfoLayout"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/linearmenu"
+            android:layout_toRightOf="@+id/linearmenu"
+            android:paddingBottom="4dip" >
+
+            <ImageView
+                android:id="@+id/usbImage"
+                android:layout_width="wrap_content"
+                android:layout_height="60dip"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/usb_drive" />
+
+            <ProgressBar
+                android:id="@+id/usbFreeSpace"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="8dip"
+                android:layout_below="@+id/usbImage"
+                android:layout_centerHorizontal="true"
+                android:secondaryProgress="100" />
+
+            <TextView
+                android:id="@+id/usbFreeSpacePercent"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/usbFreeSpace"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dip"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="#FFFFFF"
+                android:textSize="9dip" />
+
+            <TextView
+                android:id="@+id/usbLabelName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/usbFreeSpace"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textSize="9dip" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pvrisrecording"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="15dip"
+        android:focusable="false"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/pvrrecordimage"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/idle_img_press_ststus_pvr" />
+
+        <TextView
+            android:id="@+id/pvrrecordtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dip"
+            android:layout_toRightOf="@+id/pvrrecordimage"
+            android:gravity="center_vertical"
+            android:shadowColor="#000000"
+            android:text="@string/str_pvr_is_recording"
+            android:textColor="#FFFFFF"
+            android:textSize="26dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/thumbnailRoot"
+        android:layout_width="800dip"
+        android:layout_height="210dip"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp" >
+    </RelativeLayout>
+
+</RelativeLayout>

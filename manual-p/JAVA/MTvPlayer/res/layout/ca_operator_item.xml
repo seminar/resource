@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	      <TextView
+	          android:id="@+id/textview_ca_operator_item_id"
+	          android:layout_height="20dp"
+	          android:layout_width="60dp"
+	          android:background="@drawable/button_state"
+	          android:gravity="center"
+	          android:textColor="#ffffff"
+	          android:textSize="10dp" />
+
+           <TextView
+               android:id="@+id/textview_ca_operator_item_operator_id"
+               android:layout_width="match_parent"
+               android:layout_height="20dp"
+               android:background="@drawable/button_state"
+               android:gravity="center"
+               android:textColor="#ffffff"
+               android:textSize="9dp" />
+</LinearLayout>

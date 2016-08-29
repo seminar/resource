@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/reminder_bg_style">
+    <TextView
+        style="@style/reminder_title_style"
+        android:text="@string/str_reminder_title" />
+    <LinearLayout
+        android:id="@+id/reminder_channel_layout"
+        style="@style/reminder_text_view_layout_style">
+        <TextView
+            android:id="@+id/reminder_channel"
+            android:text="@string/str_reminder_channel"
+            style="@style/reminder_text_view_style" />
+        <TextView
+            android:id="@+id/reminder_channel_value"
+            style="@style/reminder_value_style" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/reminder_minute_layout"
+        style="@style/reminder_text_view_layout_style">
+        <TextView
+            android:id="@+id/reminder_minute"
+            android:text="@string/str_reminder_minute"
+            style="@style/reminder_text_view_style" />
+        <TextView
+            android:id="@+id/reminder_minute_value"
+            style="@style/reminder_value_style" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/reminder_hour_layout"
+        style="@style/reminder_text_view_layout_style">
+        <TextView
+            android:id="@+id/reminder_hour"
+            android:text="@string/str_reminder_hour"
+            style="@style/reminder_text_view_style" />
+        <TextView
+            android:id="@+id/reminder_hour_value"
+            style="@style/reminder_value_style" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/reminder_month_layout"
+        style="@style/reminder_text_view_layout_style">
+        <TextView
+            android:id="@+id/reminder_month"
+            android:text="@string/str_reminder_month"
+            style="@style/reminder_text_view_style" />
+        <TextView
+            android:id="@+id/reminder_month_value"
+            style="@style/reminder_value_style" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/reminder_date_layout"
+        style="@style/reminder_text_view_layout_style">
+        <TextView
+            android:id="@+id/reminder_date"
+            android:text="@string/str_reminder_date"
+            style="@style/reminder_text_view_style" />
+        <TextView
+            android:id="@+id/reminder_date_value"
+            style="@style/reminder_value_style" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/reminder_mode_layout"
+        style="@style/reminder_text_view_layout_style">
+        <ImageView
+            android:layout_width="17dip"
+            android:layout_marginLeft="40dip"
+            android:layout_marginTop="9dip"
+            android:layout_height="17dip"
+            android:src="@drawable/reminder_img_star" />
+        <TextView
+            android:text="@string/str_reminder_mode"
+            android:layout_width="56dip"
+            android:layout_height="35dip"
+            android:textSize="12dip" />
+        <TextView
+            android:id="@+id/reminder_mode_value"
+            style="@style/reminder_value_style" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="248dip"
+        android:layout_marginLeft="13dip"
+        android:layout_marginTop="32dip"
+        android:layout_height="24dip"
+        android:orientation="horizontal">
+        <ImageView
+            android:src="@drawable/common_img_ok"
+            android:layout_width="41dip"
+            android:layout_height="21dip" />
+    </LinearLayout>
+</LinearLayout>

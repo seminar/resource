@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+
+	android:id="@+id/program_favorite_list_view_item"
+	style="@style/program_edit_list_view_item_bg_style"
+
+	android:baselineAligned="false">
+	<ImageView
+		android:id="@+id/is_pclocked"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:src="@drawable/list_menu_img_lock_focus"
+		></ImageView>
+	<TextView
+		android:id="@+id/program_parentalcontrol_number"
+		android:layout_width="133dip"
+		android:layout_height="35dip"
+		android:gravity="center"
+		android:textColor="#ffffff"></TextView>
+	<TextView
+		android:id="@+id/program_parentalcontrol_data"
+		android:layout_width="133dip"
+		android:layout_height="35dip"
+		android:gravity="center"
+		android:textColor="#ffffff"></TextView>
+
+</LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="600dip"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" >
+
+        <TextView
+            android:id="@+id/emaillist_item_theme"
+            android:layout_width="300dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/email_theme"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/emaillist_item_time"
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/email_time"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/emaillist_item_level"
+            android:layout_width="75dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/email_level"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/emaillist_item_state"
+            android:layout_width="75dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/email_state"
+            android:textSize="12dip" />
+
+</LinearLayout>

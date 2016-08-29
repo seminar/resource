@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"	 android:id="@+id/equalizer_menu" 
+	 android:background="@drawable/programme_img_info_bg"
+      android:layout_width="428dp"
+      android:layout_height="310dp"
+      android:layout_gravity="center"
+      android:orientation="vertical">
+   		<LinearLayout android:orientation="horizontal"
+        android:layout_width="fill_parent"
+    	android:layout_height="50dp"
+    	android:layout_marginBottom="5dp">
+    		<TextView 
+    			android:text="@string/str_sound_equalizer"
+    			android:layout_width="fill_parent"
+    			android:layout_height="45dp"
+    			android:gravity="center"
+    			android:textSize="16dp"
+    			android:textColor="#FFFFFF">
+	      
+    		</TextView>
+       </LinearLayout> 
+    	 <!-- For 120hz -->
+		 <LinearLayout android:layout_marginTop="5dp" 
+		     android:id="@+id/linearlayout_sound_equalizer120hz" 
+		     style="@style/sound_sty_seekbar_btn">
+    		 <ImageView style="@style/pic_mode_sty_leftarrow" ></ImageView>
+				<TextView style="@style/sound_sty_seekbar_name1"  
+				    android:text="@string/str_sound_equalizer120hz"/>
+				<TextView  style="@style/sound_sty_seekbar_indicator" />	
+				<ImageView style="@style/pic_mode_sty_rightarrow" >
+                </ImageView>	   											
+		</LinearLayout>
+		<!-- For 500hz -->
+		 <LinearLayout android:id="@+id/linearlayout_sound_equalizer500hz" 
+		     style="@style/sound_sty_seekbar_btn">
+				 <ImageView style="@style/pic_mode_sty_leftarrow" ></ImageView>
+				<TextView style="@style/sound_sty_seekbar_name1"  
+				    android:text="@string/str_sound_equalizer500hz"/>
+				<TextView  style="@style/sound_sty_seekbar_indicator" />	
+				<ImageView style="@style/pic_mode_sty_rightarrow" >
+                </ImageView>	   											
+		</LinearLayout>
+		<!-- For 1.5khz -->
+		 <LinearLayout 
+		     android:id="@+id/linearlayout_sound_equalizer1_5khz"
+		     style="@style/sound_sty_seekbar_btn">
+				 <ImageView style="@style/pic_mode_sty_leftarrow" ></ImageView>
+				<TextView style="@style/sound_sty_seekbar_name1" 
+				     android:text="@string/str_sound_equalizer1.5khz"/>
+				<TextView  style="@style/sound_sty_seekbar_indicator" />	
+				<ImageView style="@style/pic_mode_sty_rightarrow" >
+                </ImageView> 	   											
+		</LinearLayout>
+		<!-- For 5khz -->
+		 <LinearLayout android:id="@+id/linearlayout_sound_equalizer5khz"
+		      style="@style/sound_sty_seekbar_btn">
+				 <ImageView style="@style/pic_mode_sty_leftarrow" ></ImageView>
+				<TextView style="@style/sound_sty_seekbar_name1"  
+				    android:text="@string/str_sound_equalizer5khz"/>
+				<TextView  style="@style/sound_sty_seekbar_indicator" />	
+				<ImageView style="@style/pic_mode_sty_rightarrow" >
+                </ImageView>	   											
+		</LinearLayout>
+		<!-- For 10khz -->
+		 <LinearLayout android:id="@+id/linearlayout_sound_equalizer10khz" 
+		     style="@style/sound_sty_seekbar_btn">
+				 <ImageView style="@style/pic_mode_sty_leftarrow" ></ImageView>
+				<TextView style="@style/sound_sty_seekbar_name1" 
+				     android:text="@string/str_sound_equalizer10khz"/>
+				<TextView  style="@style/sound_sty_seekbar_indicator" />	
+				<ImageView style="@style/pic_mode_sty_rightarrow" >
+                </ImageView>	   											
+		</LinearLayout>
+    
+</LinearLayout>

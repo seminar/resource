@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:text="@string/str_pvr_listview_item"
+    android:id="@+id/textView1"
+    android:layout_width="267dip"
+    android:layout_height="35dip"
+    android:textColor="@android:color/white"
+    android:gravity="center"></TextView>
+

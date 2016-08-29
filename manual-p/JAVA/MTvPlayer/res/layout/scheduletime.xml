@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <!-- For On Time Setting -->
+    <LinearLayout
+        android:id="@+id/linearlayout_time_schedule_ontime"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_time_schedule_ontime"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_time_schedule_ontime"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_time_schedule_ontime_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+    <!-- For Hour -->
+    <LinearLayout
+        android:id="@+id/linearlayout_time_schedule_hour"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_time_schedule_hour"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_time_schedule_hour"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_time_schedule_hour_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+    <!-- For Minute -->
+    <LinearLayout
+        android:id="@+id/linearlayout_time_schedule_minute"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_time_schedule_minute"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_time_schedule_minute"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_time_schedule_minute_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+    <!-- For Source -->
+    <LinearLayout
+        android:id="@+id/linearlayout_time_schedule_source"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_time_schedule_source"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_time_schedule_source"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_time_schedule_source_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+    <!-- For Channel -->
+    <LinearLayout
+        android:id="@+id/linearlayout_time_schedule_channel"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_time_schedule_channel"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_time_schedule_channel"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_time_schedule_channel_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+    <!-- For Volume -->
+    <LinearLayout
+        android:id="@+id/linearlayout_time_schedule_volume"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="33dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/button_state">
+        <TextView
+            android:id="@+id/textview_time_schedule_volume"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="@string/str_time_schedule_volume"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+        <TextView
+            android:id="@+id/textview_time_schedule_volume_val"
+            android:layout_width="133dip"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13dip" />
+    </LinearLayout>
+</LinearLayout>
+

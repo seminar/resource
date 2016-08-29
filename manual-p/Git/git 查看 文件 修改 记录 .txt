@@ -1,0 +1,11 @@
+git blame filename.c 显示文件的每一行是在那个版本最后修改。
+
+git whatchanged charge.lua 显示某个文件的每个版本提交信息：提交日期，提交人员，版本号，提交备注（没有修改细节）
+
+git show 7aee80cd2afe3202143f379ec671917bc86f9771 显示某个版本的修改详情
+和
+git log -p 7aee80cd2afe3202143f379ec671917bc86f9771 
+git log --pretty=oneline  显示每个版本都修改了那些文件
+git log --pretty=oneline  charge.lua 与上一样，不过每个修改版本都包含了
+
+git show 5aa1be6674ecf6c36a579521708bf6e5efb6795f charge.lua  显示某个版本的某个文件修改情况

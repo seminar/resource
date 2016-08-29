@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearlayout_demo"
+    android:layout_width="300dp"
+    android:layout_height="336dp"
+    android:layout_gravity="center"
+    android:background="@drawable/picture_mode_img_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearlayout_watch_level_title"
+        android:layout_width="fill_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:gravity="left"
+            android:text="@string/str_watch_level_title"
+            android:textColor="#ffffff"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="254dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+
+        <!-- For Watch Level -->
+        <LinearLayout
+            android:id="@+id/linearlayout_watch_level"
+            android:layout_width="fill_parent"
+            android:layout_height="33dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button_state"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal" >
+			
+            <ImageView
+                style="@style/pic_mode_sty_leftarrow"
+                android:layout_marginTop="10dp" >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/textview_watch_level_text"
+                android:layout_width="80dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="left|center_vertical"
+                android:text="@string/str_watch_level_text"
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/textview_watch_level"
+                android:layout_width="80dp"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="@string/str_watch_level_init"
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+
+            <ImageView
+                style="@style/pic_mode_sty_rightarrow"
+                android:layout_marginTop="9dp" >
+            </ImageView>
+        </LinearLayout>
+        
+            <TextView
+                android:id="@+id/textview_ca_work_time_pin"
+                android:layout_width="204dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="left|center_vertical"
+                android:text="@string/str_ca_work_time_pin"
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+
+                <EditText
+                    android:id="@+id/editText_ca_watch_level_pin"
+                    android:layout_width="240dp"
+            		android:layout_height="15dp"
+            		android:layout_marginLeft="20dp"
+            		android:layout_weight="0.09"
+                    android:gravity="left|center_vertical"
+                    android:imeOptions="actionDone"
+            		android:inputType="numberPassword"
+            		android:password="true"
+            		android:maxLength="6"
+                    android:textColor="#000000"
+                    android:textSize="10dp" >
+                </EditText>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="90dp"
+            android:text="@string/str_ca_mg_submit"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="@string/str_mainmenu_menu"
+        android:textColor="#ffffff"
+        android:textSize="12dp" />
+</LinearLayout>

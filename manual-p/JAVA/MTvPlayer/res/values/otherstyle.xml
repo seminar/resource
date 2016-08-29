@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="style_menu">
+        <item name="android:layout_width">275dip</item>
+        <item name="android:layout_height">336dip</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/picture_mode_img_bg</item>
+    </style>
+    <!--for two text in linear layout -->
+    <style name="style_linearlayout">
+        <item name="android:layout_width">275dip</item>
+        <item name="android:layout_height">35dip</item>
+        <item name="android:background">@drawable/pic_mode_focus_state</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginBottom">8dip</item>
+    </style>
+    <style name="style_linearlayout_name">
+        <item name="android:layout_width">124dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">15dip</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="style_linearlayout_indicator">
+        <item name="android:layout_width">124dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">15dip</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <!-- 4 dots -->
+    <style name="sty_dots_layout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">133dip</item>
+        <item name="android:layout_marginTop">7dip</item>
+    </style>
+    <style name="sty_enabledot">
+        <item name="android:layout_width">15dip</item>
+        <item name="android:layout_height">15dip</item>
+        <item name="android:layout_marginLeft">4dip</item>
+        <item name="android:background">@drawable/common_img_pagepoint_enable</item>
+    </style>
+    <style name="sty_disabledot">
+        <item name="android:layout_width">15dip</item>
+        <item name="android:layout_height">15dip</item>
+        <item name="android:layout_marginLeft">4dip</item>
+        <item name="android:background">@drawable/common_img_pagepoint_disable</item>
+    </style>
+    <!-- arrows -->
+    <style name="sty_leftarrow">
+        <item name="android:layout_width">13dip</item>
+        <item name="android:layout_height">13dip</item>
+        <item name="android:layout_marginLeft">0dip</item>
+        <item name="android:background">@drawable/common_img_arrow_l</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    <style name="sty_rightarrow">
+        <item name="android:layout_width">13dip</item>
+        <item name="android:layout_height">13dip</item>
+        <item name="android:layout_marginLeft">0dip</item>
+        <item name="android:background">@drawable/common_img_arrow_r</item>
+        <item name="android:visibility">gone</item>
+    </style>
+</resources>

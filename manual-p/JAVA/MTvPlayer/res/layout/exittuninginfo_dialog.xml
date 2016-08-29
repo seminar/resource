@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+ 	android:orientation="vertical"
+    android:layout_width="275dp"
+    android:layout_height="336dp"
+    android:layout_gravity="center_horizontal"
+    android:background = "@android:color/transparent"
+    >
+  <TextView
+      android:id="@+id/textview_cha_exittuning_info"
+      android:layout_width="267dp" 
+      android:layout_height="233dp" 
+      android:gravity="center"
+      android:text="@string/str_cha_exittuning_info"
+      android:textColor="#ffffff"
+      android:textSize="13dp"
+    />
+   <LinearLayout 
+	 		android:id="@+id/linearlayout_cha_exittune"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="33dp"
+			>
+			<TextView
+			  	android:id="@+id/textview_cha_exittune_yes"
+			    android:layout_width="133dp" 
+			    android:layout_height="33dp" 
+			    android:gravity="center"
+			    android:text="@string/str_cha_exittuning_yes"
+			    android:textColor="#ffffff"
+			    android:textSize="17dp"
+			    android:focusable="true"
+			    android:focusableInTouchMode="true"
+			    android:background="@drawable/button_state"
+			    />
+			<TextView 
+				android:id="@+id/textview_cha_exittune_no" 
+			    android:layout_width="133dp" 
+			    android:layout_height="33dp" 
+			    android:gravity="center"
+			    android:text="@string/str_cha_exittuning_no"
+			    android:textColor="#ffffff"
+			    android:textSize="17dp"
+			    android:focusable="true"
+			    android:focusableInTouchMode="true"
+			    android:background="@drawable/button_state"
+			    />												
+		</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    <MStar Software>
+    ******************************************************************************
+     MStar Software
+     Copyright (c) 2010 - 2013 MStar Semiconductor, Inc. All rights reserved.
+     All software, firmware and related documentation herein ("MStar Software") are
+     intellectual property of MStar Semiconductor, Inc. ("MStar") and protected by
+     law, including, but not limited to, copyright law and international treaties.
+     Any use, modification, reproduction, retransmission, or republication of all
+     or part of MStar Software is expressly prohibited, unless prior written
+     permission has been granted by MStar.
+
+     By accessing, browsing and/or using MStar Software, you acknowledge that you
+     have read, understood, and agree, to be bound by below terms ("Terms") and to
+     comply with all applicable laws and regulations:
+
+     1. MStar shall retain any and all right, ownership and interest to MStar
+        Software and any modification/derivatives thereof.
+        No right, ownership, or interest to MStar Software and any
+        modification/derivatives thereof is transferred to you under Terms.
+
+     2. You understand that MStar Software might include, incorporate or be
+        supplied together with third party's software and the use of MStar
+        Software may require additional licenses from third parties.
+        Therefore, you hereby agree it is your sole responsibility to separately
+        obtain any and all third party right and license necessary for your use of
+        such third party's software.
+
+     3. MStar Software and any modification/derivatives thereof shall be deemed as
+        MStar's confidential information and you agree to keep MStar's
+        confidential information in strictest confidence and not disclose to any
+        third party.
+
+     4. MStar Software is provided on an "AS IS" basis without warranties of any
+        kind. Any warranties are hereby expressly disclaimed by MStar, including
+        without limitation, any warranties of merchantability, non-infringement of
+        intellectual property rights, fitness for a particular purpose, error free
+        and in conformity with any international standard.  You agree to waive any
+        claim against MStar for any loss, damage, cost or expense that you may
+        incur related to your use of MStar Software.
+        In no event shall MStar be liable for any direct, indirect, incidental or
+        consequential damages, including without limitation, lost of profit or
+        revenues, lost or damage of data, and unauthorized system use.
+        You agree that this Section 4 shall still apply without being affected
+        even if MStar Software has been modified by MStar in accordance with your
+        request or instruction for your use, except otherwise agreed by both
+        parties in writing.
+
+     5. If requested, MStar may from time to time provide technical supports or
+        services in relation with MStar Software to you for your use of
+        MStar Software in conjunction with your or your customer's product
+        ("Services").
+        You understand and agree that, except otherwise agreed by both parties in
+        writing, Services are provided on an "AS IS" basis and the warranty
+        disclaimer set forth in Section 4 above shall apply.
+
+     6. Nothing contained herein shall be construed as by implication, estoppels
+        or otherwise:
+        (a) conferring any license or right to use MStar name, trademark, service
+            mark, symbol or any other identification;
+        (b) obligating MStar or any of its affiliates to furnish any person,
+            including without limitation, you and your customers, any assistance
+            of any kind whatsoever, or any information; or
+        (c) conferring any license or right under any intellectual property right.
+
+     7. These terms shall be governed by and construed in accordance with the laws
+        of Taiwan, R.O.C., excluding its conflict of law rules.
+        Any and all dispute arising out hereof or related hereto shall be finally
+        settled by arbitration referred to the Chinese Arbitration Association,
+        Taipei in accordance with the ROC Arbitration Law and the Arbitration
+        Rules of the Association by three (3) arbitrators appointed in accordance
+        with the said Rules.
+        The place of arbitration shall be in Taipei, Taiwan and the language shall
+        be English.
+        The arbitration award shall be final and binding to both parties.
+
+    ******************************************************************************
+    <MStar Software>
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/menu_vchip_sty_menu"
+    android:layout_width="350dp"
+    android:layout_height="380dp" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="60dp"
+            android:gravity="left"
+            android:text="@string/str_vchip_usa_parental_control"
+            android:textColor="#FFFFFF"
+            android:textSize="13dp" >
+        </TextView>
+
+        <ImageView style="@style/pic_mode_sty_disabledot" >
+        </ImageView>
+
+        <ImageView style="@style/pic_mode_sty_disabledot" >
+        </ImageView>
+
+        <ImageView style="@style/pic_mode_sty_disabledot" >
+        </ImageView>
+
+        <ImageView style="@style/pic_mode_sty_disabledot" >
+        </ImageView>
+
+        <ImageView style="@style/pic_mode_sty_disabledot" >
+        </ImageView>
+
+        <ImageView style="@style/pic_mode_sty_disabledot" >
+        </ImageView>
+
+        <ImageView style="@style/pic_mode_sty_disabledot" >
+        </ImageView>
+
+        <ImageView style="@style/sound_sty_enabledot" >
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/setting_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="5dp" >
+
+        <TextView
+            android:id="@+id/setting_title_txt"
+            android:layout_width="342dp"
+            android:layout_height="0dp"
+            android:focusable="false"
+            android:gravity="center_vertical"
+            android:textIsSelectable="true"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="342dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="2dp" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/setting_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:singleLine="false"
+                    android:text="@string/usa_movie_ratings" />
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="19dp"
+                    android:background="@drawable/menu_divideline_f10" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <ImageButton
+                        android:id="@+id/islock_movie_none_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <TextView
+                        style="@style/lock_textview"
+                        android:text="@string/usa_movie_ratings_none" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <ImageButton
+                        android:id="@+id/islock_movie_g_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <TextView
+                        style="@style/lock_textview"
+                        android:text="@string/usa_movie_ratings_g" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <ImageButton
+                        android:id="@+id/islock_movie_pg_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <TextView
+                        android:id="@+id/islock_title_txt"
+                        style="@style/lock_textview"
+                        android:text="@string/usa_movie_ratings_pg" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <ImageButton
+                        android:id="@+id/islock_movie_pg_13_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <TextView
+                        style="@style/lock_textview"
+                        android:text="@string/usa_movie_ratings_pg_13" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <ImageButton
+                        android:id="@+id/islock_movie_r_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <TextView
+                        style="@style/lock_textview"
+                        android:text="@string/usa_movie_ratings_r" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <ImageButton
+                        android:id="@+id/islock_movie_nc_17_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <TextView
+                        style="@style/lock_textview"
+                        android:text="@string/usa_movie_ratings_nc_17" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <ImageButton
+                        android:id="@+id/islock_movie_x_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <TextView
+                        style="@style/lock_textview"
+                        android:text="@string/usa_movie_ratings_x" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <ImageButton
+                        android:id="@+id/islock_movie_nr_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <TextView
+                        style="@style/lock_textview"
+                        android:text="@string/usa_movie_ratings_nr" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="2dp"
+                android:layout_height="230dp"
+                android:layout_marginTop="47dp"
+                android:background="@drawable/menu_divideline_f10" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/setting_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/usa_tv_ratings" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:layout_width="30dp"
+                        android:layout_marginLeft="45dp"
+                        android:gravity="center"
+                        android:text="@string/usa_tv_ratings_tv_title_all" />
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:layout_width="30dp"
+                        android:gravity="center"
+                        android:text="@string/usa_tv_ratings_tv_title_fv" />
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:layout_width="30dp"
+                        android:gravity="center"
+                        android:text="@string/usa_tv_ratings_tv_title_l" />
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:layout_width="30dp"
+                        android:gravity="center"
+                        android:text="@string/usa_tv_ratings_tv_title_s" />
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:layout_width="30dp"
+                        android:gravity="center"
+                        android:text="@string/usa_tv_ratings_tv_title_v" />
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:layout_width="30dp"
+                        android:gravity="center"
+                        android:text="@string/usa_tv_ratings_tv_title_d" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="230dp"
+                    android:layout_height="2dp"
+                    android:background="@drawable/menu_divideline_f10" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:text="@string/usa_tv_ratings_none" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_none_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:text="@string/usa_tv_ratings_tv_y" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_y_all_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:text="@string/usa_tv_ratings_tv_y7" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_y7_all_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_y7_fv_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:text="@string/usa_tv_ratings_tv_g" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_g_all_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:text="@string/usa_tv_ratings_tv_pg" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_pg_all_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_pg_l_img"
+                        style="@style/lock_imagebutton"
+                        android:layout_marginLeft="34dp"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_pg_s_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_pg_v_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_pg_d_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:text="@string/usa_tv_ratings_tv_14" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_14_all_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_14_l_img"
+                        style="@style/lock_imagebutton"
+                        android:layout_marginLeft="34dp"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_14_s_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_14_v_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_14_d_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        style="@style/lock_textview_tv"
+                        android:text="@string/usa_tv_ratings_tv_ma" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_ma_all_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_ma_l_img"
+                        style="@style/lock_imagebutton"
+                        android:layout_marginLeft="34dp"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_ma_s_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+
+                    <ImageButton
+                        android:id="@+id/islock_tv_ma_v_img"
+                        style="@style/lock_imagebutton"
+                        android:contentDescription="@string/contentdescription" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

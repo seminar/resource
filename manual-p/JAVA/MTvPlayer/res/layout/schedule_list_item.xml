@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/schedule_list_img_date_layout_style">
+    <ImageView
+        android:id="@+id/schdeule_list_view_item_mode"
+        android:src="@drawable/schedule_list_img_icon_mode_unfocus"
+        android:layout_marginLeft="76dip"
+        style="@style/schdeule_list_text_view_item_icon_style" />
+    <ImageView
+        android:id="@+id/schdeule_list_view_item_reminder"
+        android:src="@drawable/schedule_list_img_icon_reminder_unfocus"
+        style="@style/schdeule_list_text_view_item_icon_style" />
+    <ImageView
+        android:id="@+id/schdeule_list_view_item_video"
+        android:src="@drawable/schedule_list_img_icon_video_unfocus"
+        style="@style/schdeule_list_text_view_item_icon_style" />
+    <TextView
+        android:id="@+id/schdeule_list_view_item_time"
+        android:layout_width="180dip"
+        android:layout_marginLeft="39dip"
+        style="@style/schdeule_list_text_view_time_style" />
+    <TextView
+        android:id="@+id/schdeule_list_view_item_date"
+           android:layout_width="180dip"
+        style="@style/schdeule_list_text_view_date_style" />
+    <TextView
+        android:id="@+id/schdeule_list_view_item_channel_name"
+        style="@style/schdeule_list_text_view_channel_name_style" />
+    <TextView
+        android:id="@+id/schdeule_list_view_item_programmer_title"
+        style="@style/schdeule_list_text_view_programmer_title_style" />
+</LinearLayout>

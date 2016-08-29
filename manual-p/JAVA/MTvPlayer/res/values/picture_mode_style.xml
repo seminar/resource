@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="pic_mode_sty_menu">
+        <item name="android:layout_width">580dp</item>
+        <item name="android:layout_height">450dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_gravity">center</item>
+      <!--   <item name="android:background">@drawable/picture_mode_img_bg</item> -->
+    </style>
+    <!-- all -->
+    <style name="pic_mode_sty_combo_btn">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">30dip</item>
+        <item name="android:background">@drawable/pic_mode_focus_state</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginBottom">6dip</item>
+    </style>
+    <!-- left -->
+    <style name="pic_mode_sty_combo_name">
+        <item name="android:layout_width">414dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginLeft">50dip</item>
+    </style>
+    <!-- right -->
+    <style name="pic_mode_sty_combo_indicator">
+        <item name="android:layout_width">120dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20dip</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <!-- left -->
+    <style name="pic_image11">
+        <item name="android:layout_width">263dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginLeft">50dip</item>
+    </style>
+    <!-- right -->
+    <style name="pic_image22">
+        <item name="android:layout_width">120dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">18dip</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <!-- seekbar button -->
+    <style name="pic_mode_sty_seekbar_btn">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">28dip</item>
+        <item name="android:background">@drawable/pic_mode_focus_state</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_marginBottom">0dip</item>
+    </style>
+    <style name="pic_mode_sty_bar">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">13dip</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:max">100</item>
+        <item name="android:progress">50</item>
+        <item name="android:thumb">@drawable/picture_mode_img_bar</item>
+        <item name="android:thumbOffset">0dip</item>
+        <item name="android:layout_marginRight">15dip</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    <style name="pic_mode_sty_seekbar_name">
+        <item name="android:layout_width">400dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_marginLeft">64dip</item>
+    </style>
+    <style name="pic_mode_sty_seekbar_indicator">
+        <item name="android:layout_width">120dip</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">18dip</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <!-- 4 dots -->
+    <style name="pic_mode_sty_dots_layout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">133dip</item>
+        <item name="android:layout_marginTop">7dip</item>
+    </style>
+    <style name="pic_mode_sty_enabledot">
+        <item name="android:layout_width">15dip</item>
+        <item name="android:layout_height">15dip</item>
+        <item name="android:layout_marginLeft">4dip</item>
+        <item name="android:background">@drawable/common_img_pagepoint_enable</item>
+    </style>
+    <style name="pic_mode_sty_disabledot">
+        <item name="android:layout_width">15dip</item>
+        <item name="android:layout_height">15dip</item>
+        <item name="android:layout_marginLeft">4dip</item>
+        <item name="android:background">@drawable/common_img_pagepoint_disable</item>
+    </style>
+    <!-- arrows -->
+    <style name="pic_mode_sty_leftarrow">
+        <item name="android:layout_width">13dip</item>
+        <item name="android:layout_height">13dip</item>
+        <item name="android:layout_marginLeft">0dip</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/common_img_arrow_l</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    <style name="pic_mode_sty_rightarrow">
+        <item name="android:layout_width">13dip</item>
+        <item name="android:layout_height">13dip</item>
+        <item name="android:layout_marginLeft">0dip</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/common_img_arrow_r</item>
+        <item name="android:visibility">gone</item>
+    </style>
+</resources>

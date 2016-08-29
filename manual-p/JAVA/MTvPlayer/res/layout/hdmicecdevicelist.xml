@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_gravity="center_vertical|center_horizontal"
+	android:layout_width="320dp"
+	android:layout_height="489dp"
+	android:background="@drawable/list_menu_img_bg"
+	android:orientation="vertical"
+   >
+
+        <TextView
+	android:id="@+id/hdmicec_devicelist_title"
+	android:layout_marginTop="36dp" 
+	android:layout_marginLeft="27dp" 
+	android:gravity="center" 
+	android:layout_width="267dp" 
+	android:layout_height="35dp" 
+	android:text="@string/str_set_hdmicec_devicelist" android:textSize="20dp"/>
+        
+        <ListView
+            android:id="@+id/hdmicec_devicelist"
+            android:layout_width="260dp"
+            android:layout_height="330dp"
+            android:layout_marginLeft="27dp"
+            android:layout_marginTop="8dp"
+            android:listSelector="@drawable/select_item" 
+            />
+	          
+</LinearLayout>

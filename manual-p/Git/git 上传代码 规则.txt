@@ -1,0 +1,10 @@
+git导出更新文件：
+ ./git_status_check.sh   //导出修改的patch 包，自己确认修改 是否正确。 如有新添加或删除文件，自己另行确认。
+
+git 上传 ：
+1.git reset --hard
+2. git clean -nxfd   //会列出一些未跟随的文件
+3.  git clean -xfd   //删除未追踪的文件。
+4.  git pull origin master
+5.  更新自己的文件。
+6. git push origin master

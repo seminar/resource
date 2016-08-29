@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="600dip"
+    android:layout_height="500dip"
+    android:layout_gravity="center"
+    android:background="@drawable/tv_record_list_r_bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip"
+        android:gravity="center"
+        android:text="@string/email"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="300dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/email_theme"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/email_time"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="75dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/email_level"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="75dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/email_state"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/horizontal_line" />
+
+    <ListView
+        android:id="@+id/email_listview"
+        android:layout_width="match_parent"
+        android:layout_height="330dip"
+        android:listSelector="@drawable/select_item" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/horizontal_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dip"
+            android:textSize="12dip"
+            android:text="@string/email_aid" />
+
+        <TextView
+            android:id="@+id/emaillist_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="12dip"
+            android:layout_marginRight="20dip" />
+    </RelativeLayout>
+
+</LinearLayout>

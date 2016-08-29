@@ -1,0 +1,238 @@
+在向大家详细介绍Linux Makefile之前，首先让大家了解下Linux Makefile，然后全面介绍Linux Makefile，希望对大家有用。由于毕业设计开发的平台是Linux, 为了在Linux进行,Linux Makefile的编写是必不可少的,为偷懒,我想使用autotools来进行Makefile的自动生成,在阅读大量的资料后,在理解的基础之上,做了一个小实验,过程记录得非常详细!
+
+我的平台是:HP 6510B Notebook Fedora 8 32 位的Autotools工具的版本均为Fedora 8 完全自带的,尚未进行过升级!为了编译一个简单的源文件main.c,需要自动生成一个makefile,以下是步骤：
+
+Linux Makefile第一步
+
+在/root/project/main目录下创建一个文件main.c,其内容如下：
+
+#include <stdio.h>   
+int main(int argc, char** argv)   
+{   
+printf("Hello, Auto Makefile!\n");   
+return 0;   
+}  
+此时状态如下：
+
+[root@localhost main]# pwd  
+/root/project/main  
+[root@localhost main]# ls  
+main.c  
+[root@localhost main]#  
+Linux Makefile第二步：
+
+运行 autoscan , 自动创建两个文件：   
+autoscan.log  configure.scan此时状态如下：  
+[root@localhost main]# autoscan  
+[root@localhost main]# ls  
+autoscan.log  configure.scan  main.c  
+[root@localhost main]#  
+第三步：修改configure.scan的文件名为configure.in查看configure.in的内容：
+
+# -*- Autoconf -*-  
+# Process this file with autoconf to produce a configure script.  
+ 
+AC_PREREQ(2.61)  
+AC_INIT(FULL-PACKAGE-NAME, VERSION, BUG-REPORT-ADDRESS)  
+AC_CONFIG_SRCDIR([main.c])  
+AC_CONFIG_HEADER([config.h])  
+ 
+# Checks for programs.  
+AC_PROG_CC  
+ 
+# Checks for libraries.  
+# Checks for header files.  
+# Checks for typedefs, structures, and compiler characteristics.  
+# Checks for library functions.  
+AC_OUTPUT  
+解读以上的文件：
+
+# -*- Autoconf -*-  
+# Process this file with autoconf to produce a configure script.  
+# AC_PREREQ:  
+# 确保使用的是足够新的Autoconf版本。如果用于创建configure的Autoconf的版  
+# 本比version 要早，就在标准错误输出打印一条错误消息并不会创建configure。  
+AC_PREREQ(2.61)  
+#  
+# 初始化,定义软件的基本信息,包括设置包的全称,版本号以及报告BUG时需要用的邮箱地址  
+#  
+AC_INIT(FULL-PACKAGE-NAME, VERSION, BUG-REPORT-ADDRESS)  
+#  
+# 用来侦测所指定的源码文件是否存在，来确定源码目录的有效性  
+#  
+AC_CONFIG_SRCDIR([main.c])  
+#  
+# 用于生成config.h文件，以便autoheader使用  
+#  
+AC_CONFIG_HEADER([config.h])  
+# Checks for programs.  
+AC_PROG_CC  
+# Checks for libraries.  
+# Checks for header files.  
+# Checks for typedefs, structures, and compiler characteristics.  
+# Checks for library functions.  
+# 创建输出文件。在`configure.in'的末尾调用本宏一次。  
+#  
+AC_OUTPUT  
+ 
+修改动作:
+1.修改AC_INIT里面的参数: AC_INIT(main,1.0, pgpxc@163.com)
+2.添加宏AM_INIT_AUTOMAKE, 它是automake所必备的宏，也同前面一样，PACKAGE是所要产生软件套件的名称，VERSION是版本编号。
+3.在AC_OUTPUT后添加输出文件Linux Makefile
+
+修改后的结果:
+
+#                                               -*- Autoconf -*-  
+# Process this file with autoconf to produce a configure script.  
+ 
+AC_PREREQ(2.61)  
+AC_INIT(main, 1.0, pgpxc@163.com)  
+AC_CONFIG_SRCDIR([main.c])  
+AC_CONFIG_HEADER([config.h])  
+AM_INIT_AUTOMAKE(main,1.0)  
+ 
+# Checks for programs.  
+AC_PROG_CC  
+# Checks for libraries.  
+# Checks for header files.  
+# Checks for typedefs, structures, and compiler characteristics.  
+# Checks for library functions.  
+AC_OUTPUT([Makefile]) 
+
+第四步:运行 aclocal,
+
+生成一个“aclocal.m4”文件和一个缓冲文件夹autom4te.cache，该文件主要处理本地的宏定义。此时的状态是：
+
+[root@localhost main]# aclocal  
+[root@localhost main]# ls  
+aclocal.m4  autom4te.cache  autoscan.log  configure.in  configure.in~  main.c  
+[root@localhost main]#  
+第五步：运行 autoconf, 目的是生成 configure 此时的状态是：
+
+[root@localhost main]# autoconf  
+[root@localhost main]# ls  
+aclocal.m4      autoscan.log  configure.in   main.c  
+autom4te.cache  configure     configure.in~  
+[root@localhost main]#  
+第六步：运行 autoheader，它负责生成config.h.in文件。
+
+该工具通常会从“acconfig.h”文件中复制用户附加的符号定义，因此此处没有附加符号定义，所以不需要创建“acconfig.h”文件。此时的状态是：
+
+[root@localhost main]# autoheader  
+[root@localhost main]# ls  
+aclocal.m4      autoscan.log  configure     configure.in~  
+autom4te.cache  config.h.in   configure.in  main.c  
+[root@localhost main]#  
+第七步：下面即将运行 automake, 但在此之前应该做一下准备工作!
+
+首先创建一个 Linux Makefile.am.这一步是创建Linux Makefile很重要的一步，automake要用的脚本配置文件是Linux Makefile.am，用户需要自己创建相应的文件。之后，automake工具转换成Linux Makefile.in。
+
+这个Linux Makefile.am的内容如下：
+
+AUTOMAKE_OPTIONS=foreign 
+bin_PROGRAMS=main 
+mainmain_SOURCES=main.c 
+下面对该脚本文件的对应项进行解释。其中的AUTOMAKE_OPTIONS为设置automake的选项。由于GNU（在第1章中已经有所介绍）对自己发布的软件有严格的规范，比如必须附带许可证声明文件COPYING等，否则automake执行时会报错。
+
+automake提供了三种软件等级：foreign、gnu和gnits，让用户选择采用，默认等级为gnu。在本例使用foreign等级，它只检测必须的文件。定义要产生的执行文件名。如果要产生多个执行文件，每个文件名用空格隔开。
+
+main_SOURCES定义“main”这个执行程序所需要的原始文件。如果”main”这个程序是由多个原始文件所产生的，则必须把它所用到的所有原始文件都列出来，并用空格隔开。例如：若目标体“main”需要“main.c”、“sunq.c”、“main.h”三个依赖文件，则定义main_SOURCES=main.c sunq.c main.h。要注意的是，如果要定义多个执行文件，则对每个执行程序都要定义相应的file_SOURCES。
+
+其次使用automake对其生成“configure.in”文件，在这里使用选项“—adding-missing”可以让automake自动添加有一些必需的脚本文件。
+运行后的状态是：
+
+[root@localhost main]# automake --add-missing  
+configure.in:8: installing `./missing'  
+configure.in:8: installing `./install-sh'  
+Makefile.am: installing `./depcomp'  
+[root@localhost main]# ls  
+aclocal.m4      config.h.in   configure.in~  main.c        Makefile.in  
+autom4te.cache  configure     depcomp        Makefile.am   missing  
+autoscan.log    configure.in  install-sh     Makefile.am~  
+[root@localhost main]#  
+Linux Makefile第八步运行configure，
+
+在这一步中，通过运行自动配置设置文件configure，把Makefile.in变成了最终的Makefile。运行的结果如下：
+
+[root@localhost main]# ./configure   
+checking for a BSD-compatible install... /usr/bin/install -c  
+checking whether build environment is sane... yes  
+checking for a thread-safe mkdir -p... /bin/mkdir -p  
+checking for gawk... gawk  
+checking whether make sets $(MAKE)... yes  
+checking for gcc... gcc  
+checking for C compiler default output file name... a.out  
+checking whether the C compiler works... yes  
+checking whether we are cross compiling... no  
+checking for suffix of executables...   
+checking for suffix of object files... o  
+checking whether we are using the GNU C compiler... yes  
+checking whether gcc accepts -g... yes  
+checking for gcc option to accept ISO C89... none needed  
+checking for style of include used by make... GNU  
+checking dependency style of gcc... gcc3  
+configure: creating ./config.status  
+config.status: creating Makefile  
+config.status: creating config.h  
+config.status: executing depfiles commands  
+[root@localhost main]# ls  
+aclocal.m4      config.h.in    configure.in   main.c        Makefile.in  
+autom4te.cache  config.log     configure.in~  Makefile      missing  
+autoscan.log    config.status  depcomp        Makefile.am   stamp-h1  
+config.h        configure      install-sh     Makefile.am~  
+[root@localhost main]#  
+Linux Makefile第九步运行 make，
+
+对配置文件Makefile进行测试一下此时的状态如下:
+
+[root@localhost main]# make  
+cd . && /bin/sh /root/project/main/missing --run aclocal-1.10   
+cd . && /bin/sh /root/project/main/missing --run automake-1.10 --foreign   
+cd . && /bin/sh /root/project/main/missing --run autoconf  
+/bin/sh ./config.status --recheck  
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure   --no-create --no-recursion  
+checking for a BSD-compatible install... /usr/bin/install -c  
+checking whether build environment is sane... yes  
+checking for a thread-safe mkdir -p... /bin/mkdir -p  
+checking for gawk... gawk  
+checking whether make sets $(MAKE)... yes  
+checking for gcc... gcc  
+checking for C compiler default output file name... a.out  
+checking whether the C compiler works... yes  
+checking whether we are cross compiling... no  
+checking for suffix of executables...   
+checking for suffix of object files... o  
+checking whether we are using the GNU C compiler... yes  
+checking whether gcc accepts -g... yes  
+checking for gcc option to accept ISO C89... none needed  
+checking for style of include used by make... GNU  
+checking dependency style of gcc... gcc3  
+configure: creating ./config.status  
+/bin/sh ./config.status  
+config.status: creating Makefile  
+config.status: creating config.h  
+config.status: config.h is unchanged  
+config.status: executing depfiles commands  
+cd . && /bin/sh /root/project/main/missing --run autoheader  
+rm -f stamp-h1  
+touch config.h.in  
+make  all-am  
+make[1]: Entering directory `/root/project/main'  
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c  
+mv -f .deps/main.Tpo .deps/main.Po  
+gcc  -g -O2   -o main main.o    
+cd . && /bin/sh ./config.status config.h  
+config.status: creating config.h  
+config.status: config.h is unchanged  
+make[1]: Leaving directory `/root/project/main'  
+[root@localhost main]# ls  
+aclocal.m4      autoscan.log  config.h.in  config.status  configure.in   depcomp     main    main.o    Makefile.am   Makefile.in  stamp-h1  
+autom4te.cache  config.h      config.log   configure      configure.in~  install-sh  main.c  Makefile  Makefile.am~  missing  
+[root@localhost main]#   
+ 
+Linux Makefile第十步运行生成的文件 main：
+
+[root@localhost main]# ./main  
+Hello, Auto Makefile!  
+[root@localhost main]#  
+至此，所有的步骤完成了，为了理解并做好这个实验，我花费了两天的时间了！！能够看到最终的成果，这是最让人开心的！！赞自己一下！

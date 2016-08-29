@@ -1,0 +1,5 @@
+	@echo "[BIN] $@"
+	$(shell cp $(ROOT)/boot/sboot/out/all.bin $(MERGE_BIN);)
+
+      Ìæ»»$(BinIDPackFiles) -BIGENDIAN -CRC16ENABLE -multiflash 8 65536 0958336900 $@ $(BIN_INFO) $(IMGINFO_OFFSET) $(APC_BIN) 1 $(OS_TYPE)
+

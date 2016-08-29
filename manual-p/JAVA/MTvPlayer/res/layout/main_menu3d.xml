@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/MainMenu"
+  android:orientation="vertical"
+  android:layout_width="510dp"
+  android:layout_height="420dp"
+  android:layout_gravity="center"
+  android:background="@drawable/programme_img_info_bg">
+      <LinearLayout
+          android:layout_width="450dp"
+          android:layout_height="70dp"
+          android:layout_gravity="center"
+          android:orientation="horizontal" >
+    	<ImageView 
+     	    android:id="@+id/picture_icon"
+     	    style="@style/menu_icon_sty_3d"
+     	    android:background="@drawable/picture_icon_bg"
+     	    />
+     	<ImageView 
+     	    android:id="@+id/sound_icon"
+     	    style="@style/menu_icon_sty_3d"
+     	    android:background="@drawable/sound_icon_bg"
+     	    />
+     	<ImageView 
+     	    android:id="@+id/channel_icon"
+     	    style="@style/menu_icon_sty_3d"
+     	    android:background="@drawable/channel_icon_bg"
+     	    />
+     	<ImageView 
+     	    android:id="@+id/setting_icon"
+     	    style="@style/menu_icon_sty_3d"
+     	    android:background="@drawable/setting_icon_bg"
+     	    />
+     	<ImageView 
+     	    android:id="@+id/time_icon"
+     	    style="@style/menu_icon_sty_3d"
+     	    android:background="@drawable/time_icon_bg"
+     	    />
+     	<ImageView 
+     	    android:id="@+id/threed_icon"
+     	    style="@style/menu_icon_sty_3d"
+     	    android:background="@drawable/threed_icon_bg"
+     	    />
+      </LinearLayout> 
+	     <ViewFlipper android:id="@+id/view_flipper_main_menu"  
+	       android:layout_width="fill_parent"    
+	       android:layout_height="310dp"  
+	       android:persistentDrawingCache="animation"  
+	       android:flipInterval="1000"  >   
+	      <!--   <include layout="@layout/picture"></include>
+	      <include layout="@layout/sound"></include>
+	       <include layout="@layout/channel"></include>
+	       <include layout="@layout/setting"></include>
+	       <include layout="@layout/time"></include>
+	       <include layout="@layout/demo"></include>
+	       <include layout="@layout/menu_of_3d"></include> -->
+	     </ViewFlipper>
+</LinearLayout>
+

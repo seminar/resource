@@ -1,0 +1,88 @@
+std::map 再学习2010-12-07 10:57
+
+1. map中的元素其实就是一个pair.
+2. map的键一般不能是指针, 比如int*, char*之类的, 会出错. 常用的就用string了,int也行.
+3. map是个无序的容器, 而vector之类是有序的. 所谓有序无序是指放入的元素并不是按一定顺序放进去的, 而是乱序, 随机存放的(被映射后近似随机存放).所以遍历的时候有些效率差别.
+4. 判断有没有找到该键的内容可以这样: 
+std::map<std::string,Record>::const_iterator cIter;
+cIter = stdfile.m_map.find(s);
+if (cIter == stdfile.m_map.end()) // 没找到就是指向END了  
+{
+m_vecMoreFile.push_back(s);
+}
+如果键的内容是指针的话, 应该用NULL指针也可以判断了.
+5. 遍历:
+std::map<std::string,Record>::iterator iter;
+for (iter = m_map.begin(); iter != m_map.end(); iter++)
+{
+std::string s = iter->second.filename;
+}
+由于map内容可以相当一个PAIR, 那就简单了, 用iter->second就可以取得值了.
+
+可顺便转个其它的几种用法: 
+1 头文件
+＃include <map>
+
+2 定义
+map<string, int> my_Map;
+或者是typedef map<string, int> MY_MAP;
+MY_MAP my_Map;
+
+3 插入数据
+(1) my_Map["a"] = 1;
+(2) my_Map.insert(map<string, int>::value_type("b",2));
+(3) my_Map.insert(pair<string,int>("c",3));
+(4) my_Map.insert(make_pair("d",4));
+
+4 查找数据和修改数据
+(1) int i = my_Map["a"];
+my_Map["a"] = i;
+(2) MY_MAP::iterator my_Itr;
+my_Itr.find("b");
+int j = my_Itr->second;
+my_Itr->second = j;
+不过注意，键本身是不能被修改的，除非删除。
+
+5 删除数据
+(1) my_Map.erase(my_Itr);
+(2) my_Map.erase("c");
+还是注意，第一种情况在迭代期间是不能被删除的，道理和foreach时不能删除元素一样。
+
+6 迭代数据
+for (my_Itr=my_Map.begin(); my_Itr!=my_Map.end(); ++my_Itr) {}
+
+7 其它方法
+my_Map.size() 返回元素数目
+my_Map.empty() 判断是否为空
+my_Map.clear() 清空所有元素
+可以直接进行赋值和比较：=, >, >=, <, <=, != 等等 
+
+遍历:
+
+#include<iostream>
+#include <map>
+using namespace std;
+
+int main(){
+map<int,int>M;
+M[1]=2;
+M[2]=3;
+map<int,int>::iterator iter;
+for (iter = M.begin(); iter != M.end(); iter++)
+{
+  cout<<iter->first<<" "<<iter->second<<endl;
+}
+return 0;
+}
+
+总结：
+
+      find();
+
+      erase();
+
+      std::map<std::string, int> map;
+
+      map[std::string] = int;
+
+      第一个参数

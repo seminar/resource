@@ -1,0 +1,265 @@
+ 
+经典C语言程序设计100例51-60
+
+【程序51】
+题目：学习使用按位与 & 。　　　
+1.程序分析：0&0=0; 0&1=0; 1&0=0; 1&1=1
+2.程序源代码：
+#include "stdio.h"
+main()
+{
+int a,b;
+a=077;
+b=a&3;
+printf("\40: The a & b(decimal) is %d \n",b);
+b&=7;
+printf("\40: The a & b(decimal) is %d \n",b);
+}
+-----------------------------------------------------------------------------
+【程序52】
+题目：学习使用按位或 | 。
+1.程序分析：0|0=0; 0|1=1; 1|0=1; 1|1=1　　　　　　　　　　　　
+2.程序源代码：
+#include "stdio.h"
+main()
+{
+int a,b;
+a=077;
+b=a|3;
+printf("\40: The a & b(decimal) is %d \n",b);
+b|=7;
+printf("\40: The a & b(decimal) is %d \n",b);
+}
+-----------------------------------------------------------------------------
+【程序53】
+题目：学习使用按位异或 ^ 。　　　
+1.程序分析：0^0=0; 0^1=1; 1^0=1; 1^1=0
+2.程序源代码：
+#include "stdio.h"
+main()
+{
+int a,b;
+a=077;
+b=a^3;
+printf("\40: The a & b(decimal) is %d \n",b);
+b^=7;
+printf("\40: The a & b(decimal) is %d \n",b);
+}
+-----------------------------------------------------------------------------
+【程序54】
+题目：取一个整数a从右端开始的4～7位。
+程序分析：可以这样考虑： 
+(1)先使a右移4位。
+(2)设置一个低4位全为1,其余全为0的数。可用~(~0<<4)
+(3)将上面二者进行&运算。
+2.程序源代码：
+main()
+{
+unsigned a,b,c,d;
+scanf("%o",&a);
+b=a>>4;
+c=~(~0<<4);
+d=b&c;
+printf("%o\n%o\n",a,d);
+}
+-----------------------------------------------------------------------------
+【程序55】
+题目：学习使用按位取反~。　　　
+1.程序分析：~0=1; ~1=0;
+2.程序源代码：
+#include "stdio.h"
+main()
+{
+int a,b;
+a=234;
+b=~a;
+printf("\40: The a's 1 complement(decimal) is %d \n",b);
+a=~a;
+printf("\40: The a's 1 complement(hexidecimal) is %x \n",a);
+} 
+-----------------------------------------------------------------------------
+【程序56】
+题目：画图，学用circle画圆形。　　　
+1.程序分析：
+2.程序源代码：
+/*circle*/
+#include "graphics.h"
+main()
+{int driver,mode,i;
+float j=1,k=1;
+driver=VGA;mode=VGAHI;
+initgraph(&driver,&mode,"");
+setbkcolor(YELLOW);
+for(i=0;i<=25;i++)
+{
+setcolor(8);
+circle(310,250,k);
+k=k+j;
+j=j+0.3;
+}
+} 
+-----------------------------------------------------------------------------
+【程序57】
+题目：画图，学用line画直线。
+1.程序分析：　　　　　　　　　　　
+2.程序源代码：
+#include "graphics.h"
+main()
+{int driver,mode,i;
+float x0,y0,y1,x1;
+float j=12,k;
+driver=VGA;mode=VGAHI;
+initgraph(&driver,&mode,"");
+setbkcolor(GREEN);
+x0=263;y0=263;y1=275;x1=275;
+for(i=0;i<=18;i++)
+{
+setcolor(5);
+line(x0,y0,x0,y1);
+x0=x0-5;
+y0=y0-5;
+x1=x1+5;
+y1=y1+5;
+j=j+10;
+}
+x0=263;y1=275;y0=263;
+for(i=0;i<=20;i++)
+{
+setcolor(5);
+line(x0,y0,x0,y1);
+x0=x0+5;
+y0=y0+5;
+y1=y1-5;
+}
+}
+-----------------------------------------------------------------------------
+【程序58】
+题目：画图，学用rectangle画方形。　　　
+1.程序分析：利用for循环控制100-999个数，每个数分解出个位，十位，百位。
+2.程序源代码：
+#include "graphics.h"
+main()
+{int x0,y0,y1,x1,driver,mode,i;
+driver=VGA;mode=VGAHI;
+initgraph(&driver,&mode,"");
+setbkcolor(YELLOW);
+x0=263;y0=263;y1=275;x1=275;
+for(i=0;i<=18;i++)
+{
+setcolor(1);
+rectangle(x0,y0,x1,y1);
+x0=x0-5;
+y0=y0-5;
+x1=x1+5;
+y1=y1+5;
+}
+settextstyle(DEFAULT_FONT,HORIZ_DIR,2);
+outtextxy(150,40,"How beautiful it is!");
+line(130,60,480,60);
+setcolor(2);
+circle(269,269,137);
+}
+-----------------------------------------------------------------------------
+【程序59】
+题目：画图，综合例子。
+1.程序分析：
+2.程序源代码：
+# define PAI 3.1415926
+# define B 0.809
+# include "graphics.h"
+#include "math.h"
+main()
+{
+int i,j,k,x0,y0,x,y,driver,mode;
+float a;
+driver=CGA;mode=CGAC0;
+initgraph(&driver,&mode,"");
+setcolor(3);
+setbkcolor(GREEN);
+x0=150;y0=100;
+circle(x0,y0,10);
+circle(x0,y0,20);
+circle(x0,y0,50);
+for(i=0;i<16;i++)
+{
+　 a=(2*PAI/16)*i;
+　 x=ceil(x0+48*cos(a));
+　 y=ceil(y0+48*sin(a)*B);
+　 setcolor(2); line(x0,y0,x,y);}
+setcolor(3);circle(x0,y0,60);
+/* Make 0 time normal size letters */
+settextstyle(DEFAULT_FONT,HORIZ_DIR,0);
+outtextxy(10,170,"press a key");
+getch();
+setfillstyle(HATCH_FILL,YELLOW);
+floodfill(202,100,WHITE);
+getch();
+for(k=0;k<=500;k++)
+{
+　 setcolor(3);
+　 for(i=0;i<=16;i++)
+　 {
+　　 a=(2*PAI/16)*i+(2*PAI/180)*k;
+　　 x=ceil(x0+48*cos(a));
+　　 y=ceil(y0+48+sin(a)*B);
+　　 setcolor(2); line(x0,y0,x,y);
+　 }
+　 for(j=1;j<=50;j++)
+　 {
+　　 a=(2*PAI/16)*i+(2*PAI/180)*k-1;
+　　 x=ceil(x0+48*cos(a));
+　　 y=ceil(y0+48*sin(a)*B);
+　　 line(x0,y0,x,y);
+　 }
+}
+restorecrtmode();
+}
+-----------------------------------------------------------------------------
+【程序60】
+题目：画图，综合例子。　　　
+1.程序分析：
+2.程序源代码：
+#include "graphics.h"
+#define LEFT 0
+#define TOP 0
+#define RIGHT 639
+#define BOTTOM 479
+#define LINES 400
+#define MAXCOLOR 15
+main()
+{
+int driver,mode,error;
+int x1,y1;
+int x2,y2;
+int dx1,dy1,dx2,dy2,i=1;
+int count=0;
+int color=0;
+driver=VGA;
+mode=VGAHI;
+initgraph(&driver,&mode,"");
+x1=x2=y1=y2=10;
+dx1=dy1=2;
+dx2=dy2=3;
+while(!kbhit())
+{
+　 line(x1,y1,x2,y2);
+　 x1+=dx1;y1+=dy1;
+　 x2+=dx2;y2+dy2;
+　 if(x1<=LEFT||x1>=RIGHT)
+　 dx1=-dx1;
+　 if(y1<=TOP||y1>=BOTTOM)
+　　 dy1=-dy1;
+　 if(x2<=LEFT||x2>=RIGHT)
+　　 dx2=-dx2;
+　 if(y2<=TOP||y2>=BOTTOM)
+　　 dy2=-dy2;
+　 if(++count>LINES)
+　 {
+　　 setcolor(color);
+　　 color=(color>=MAXCOLOR)?0:++color;
+　 }
+}
+closegraph();
+}
+
+ 

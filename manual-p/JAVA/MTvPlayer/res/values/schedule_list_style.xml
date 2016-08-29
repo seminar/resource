@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="schedule_list_bg_style">
+		<item name="android:orientation">vertical</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">260dp</item>
+		<item name="android:layout_gravity">bottom</item>
+		<item name="android:background">@drawable/schedule_list_img_bg</item>
+	</style>
+	<style name="schedule_list_img_top_layout_style">
+		<item name="android:layout_width">59dp</item>
+		<item name="android:layout_height">15dp</item>
+		<item name="android:layout_marginTop">5dp</item>
+		<item name ="android:layout_gravity">right</item>
+		<item name="android:orientation">horizontal</item>
+	</style>
+	<style name="schdeule_list_common_img_pagepoint_style">
+		<item name="android:layout_width">15dp</item>
+		<item name="android:layout_height">15dp</item>
+	</style>
+	<style name="schdeule_list_title_style">
+		<item name="android:layout_height">35dp</item>
+		<item name="android:text">@string/str_textview_schedule_list_title</item>
+		<item name="android:layout_marginLeft">13dp</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_width">120dp</item>
+	</style>
+	<style name="schedule_list_img_date_layout_style">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">35dp</item>
+		<item name="android:orientation">horizontal</item>
+	</style>
+	<style name="schdeule_list_number_img_style">
+		<item name="android:layout_width">12dp</item>
+		<item name="android:layout_height">35dp</item>
+	</style>
+	<style name="schdeule_list_month_img_style">
+	<item name="android:layout_marginLeft">13dp</item>
+	<item name="android:layout_marginRight">13dp</item>
+		<item name="android:layout_width">36dp</item>
+		<item name="android:layout_height">35dp</item>
+	</style>
+	<style name="schdeule_list_time_img_style">
+		<item name="android:layout_width">6dp</item>
+		<item name="android:layout_height">35dp</item>
+	</style>
+	<style name="schdeule_list_text_view_time_style">
+		<item name="android:layout_height">35dp</item>
+		<item name="android:text">@string/str_textview_schedule_list_time</item>
+		<item name="android:gravity">center</item>
+		<item name="android:textColor">#ffffff</item>
+	</style>
+	<style name="schdeule_list_text_view_date_style">
+		<item name="android:layout_height">35dp</item>
+		<item name="android:text">@string/str_textview_schedule_list_date</item>
+		<item name="android:gravity">center</item>
+		<item name="android:textColor">#ffffff</item>
+	</style>
+	<style name="schdeule_list_text_view_channel_name_style">
+		<item name="android:layout_height">35dp</item>
+		<item name="android:text">@string/str_schedule_list_channel_name</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_width">360dp</item>
+		<item name="android:textColor">#ffffff</item>
+	</style>
+	<style name="schdeule_list_text_view_programmer_title_style">
+		<item name="android:layout_height">35dp</item>
+		<item name="android:text">@string/str_schedule_list_programmer_title</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_width">370dip</item>
+		<item name="android:textColor">#ffffff</item>
+	</style>
+	<style name="schdeule_list_view_style">
+		<item name="android:layout_height">139dp</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:listSelector">@drawable/schedule_list_img_focus</item>
+	</style>
+	<style name="schdeule_list_text_view_item_icon_style">
+		<item name="android:layout_height">35dp</item>
+		<item name="android:layout_width">23dp</item>
+	</style>
+</resources>

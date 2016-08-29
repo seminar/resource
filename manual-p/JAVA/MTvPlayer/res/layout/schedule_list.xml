@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/schedule_list_bg_style">
+    <LinearLayout style="@style/schedule_list_img_top_layout_style">
+        <ImageView
+            style="@style/schdeule_list_common_img_pagepoint_style"
+            android:src="@drawable/common_img_pagepoint_disable" />
+        <ImageView
+            style="@style/schdeule_list_common_img_pagepoint_style"
+            android:src="@drawable/common_img_pagepoint_disable" />
+        <ImageView
+            style="@style/schdeule_list_common_img_pagepoint_style"
+            android:src="@drawable/common_img_pagepoint_disable" />
+        <ImageView
+            style="@style/schdeule_list_common_img_pagepoint_style"
+            android:src="@drawable/common_img_pagepoint_enable" />
+    </LinearLayout>
+    
+    <LinearLayout
+        style="@style/schedule_list_img_date_layout_style"
+        android:layout_marginTop="13dip">
+        <TextView style="@style/schdeule_list_title_style" />
+        <TextView
+            android:id="@+id/schdeule_list_current_time"
+            style="@style/schdeule_list_title_style"
+            android:layout_marginLeft="1000dip" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/schedule_list_img_date_layout_style" >
+        <TextView
+            style="@style/schdeule_list_text_view_time_style"
+            android:layout_width="180dp"
+            android:layout_marginLeft="187dip" />
+        <TextView
+            style="@style/schdeule_list_text_view_date_style"
+            android:layout_width="180dp" />
+        <TextView style="@style/schdeule_list_text_view_channel_name_style"/>
+        <TextView style="@style/schdeule_list_text_view_programmer_title_style" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/schdeule_list_view"
+        style="@style/schdeule_list_view_style" />
+    <!-- Add by gerard.jiang 2013/04/17 -->
+    <LinearLayout style="@style/schedule_list_img_date_layout_style"
+        android:gravity="center_horizontal" >
+		<ImageView style="@style/program_epg_schedule_list_style"
+			android:src="@drawable/icon_tips_yellow" />
+		<TextView
+	        android:layout_width="59dip"
+	        android:layout_height="24dip"
+	        android:gravity="left"
+	        android:text="@string/str_epg_program_schedule_list_modify"
+	        android:textColor="#FFFFFF" />
+		
+		<ImageView style="@style/program_epg_schedule_list_style"
+			android:src="@drawable/icon_tips_red" />
+		<TextView android:layout_width="59dip"
+	        android:layout_height="24dip"
+	        android:gravity="left"
+	        android:text="@string/str_epg_program_schedule_list_delete"
+	        android:textColor="#FFFFFF" />
+    </LinearLayout>
+    <!-- End by gerard.jiang 2013/04/17 -->
+</LinearLayout>

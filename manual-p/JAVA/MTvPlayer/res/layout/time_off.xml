@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="510dp"
+    android:layout_height="336dp"
+    android:layout_gravity="center"
+    android:background="@drawable/programme_img_info_bg"
+    android:orientation="vertical" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/str_time_set_time_off_title"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="16dip"
+                android:textColor="#FFFFFF"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="251dip"
+            android:layout_marginTop="15dip">
+            <!-- For Yes or No -->
+            <LinearLayout
+                android:id="@+id/linearlayout_time_power_off_switch"
+                style="@style/time_sty_combo_btn">
+                <ImageView style="@style/time_sty_leftarrow"></ImageView>
+                <TextView
+                    style="@style/time_sty_combo_name"
+                    android:text="@string/str_time_set_time_off"
+                    android:textColor="#FFFFFF" />
+                <TextView
+                    style="@style/time_sty_combo_indicator"
+                    android:textColor="#FFFFFF" />
+                <ImageView style="@style/time_sty_rightarrow"></ImageView>
+            </LinearLayout>
+            <!-- For hour -->
+            <LinearLayout
+                android:id="@+id/linearlayout_time_power_off_hour"
+                style="@style/time_sty_simple_btn">
+                <ImageView style="@style/time_sty_leftarrow"></ImageView>
+                <TextView
+                    style="@style/time_sty_combo_name"
+                    android:text="@string/str_time_schedule_hour"
+                    android:textColor="#FFFFFF" />
+                <TextView
+                    style="@style/time_sty_combo_indicator"
+                    android:textColor="#FFFFFF" />
+                <ImageView style="@style/time_sty_rightarrow"></ImageView>
+            </LinearLayout>
+            <!-- For minute -->
+            <LinearLayout
+                android:id="@+id/linearlayout_time_power_off_minute"
+                style="@style/time_sty_simple_btn">
+                <ImageView style="@style/time_sty_leftarrow"></ImageView>
+                <TextView
+                    style="@style/time_sty_combo_name"
+                    android:text="@string/str_time_schedule_minute"
+                    android:textColor="#FFFFFF" />
+                <TextView
+                    style="@style/time_sty_combo_indicator"
+                    android:textColor="#FFFFFF" />
+                <ImageView style="@style/time_sty_rightarrow"></ImageView>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="27dip">            <!-- <TextView android:text="@string/str_time_confirm_tip" android:layout_width="180px"                 android:layout_height="36px" android:textSize="15px" android:textColor="#ffffff"                 android:layout_marginTop="0px" android:gravity="center" /> -->
+            <TextView
+                android:text="@string/str_mainmenu_menu"
+                android:layout_width="80dip"
+                android:layout_height="24dip"
+                android:textSize="12dip"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="80dip"
+                android:gravity="center" />        </LinearLayout>
+   
+</LinearLayout>

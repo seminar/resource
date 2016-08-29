@@ -1,0 +1,56 @@
+ C++开发必看 四种强制类型转换的总结
+
+
+　　【IT168 技术】C风格的强制类型转换(Type Cast)很简单，不管什么类型的转换统统是：
+
+
+　　TYPE b = (TYPE)a
+
+　　C++风格的类型转换提供了4种类型转换操作符来应对不同场合的应用。
+
+　　const_cast，字面上理解就是去const属性。
+
+　　static_cast，命名上理解是静态类型转换。如int转换成char。
+
+　　dynamic_cast，命名上理解是动态类型转换。如子类和父类之间的多态类型转换。
+
+　　reinterpreter_cast，仅仅重新解释类型，但没有进行二进制的转换。
+
+　　4种类型转换的格式，如：
+
+
+TYPE B = static_cast(TYPE)(a)
+
+　　const_cast
+
+　　去掉类型的const或volatile属性。
+
+
+struct SA {
+     int i;
+};
+const SA ra;
+//ra.i = 10; //直接修改const类型，编译错误
+SA &rb = const_cast<SA&>(ra);
+rb.i = 10;
+
+　　static_cast
+
+　　类似于C风格的强制转换。无条件转换，静态类型转换。用于：
+
+　　1. 基类和子类之间转换：其中子类指针转换成父类指针是安全的;但父类指针转换成子类指针是不安全的。(基类和子类之间的动态类型转换建议用dynamic_cast)
+
+　　2. 基本数据类型转换。enum, struct, int, char, float等。static_cast不能进行无关类型(如非基类和子类)指针之间的转换。
+
+　　3. 把空指针转换成目标类型的空指针。
+
+　　4. 把任何类型的表达式转换成void类型。
+
+　　5. static_cast不能去掉类型的const、volitale属性(用const_cast)。
+
+
+int n = 6;
+double d = static_cast<double>(n); // 基本类型转换
+int *pn = &n;
+double *d = static_cast<double *>(&n) //无关类型指针转换，编译错误
+void *p = static_cast<void *>(pn); //任意类型转换成void类型

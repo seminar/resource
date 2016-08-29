@@ -1,0 +1,243 @@
+ 
+经典C语言程序设计100例31-40
+
+【程序31】
+题目：请输入星期几的第一个字母来判断一下是星期几，如果第一个字母一样，则继续
+　　　 判断第二个字母。
+1.程序分析：用情况语句比较好，如果第一个字母一样，则判断用情况语句或if语句判断第二个字母。
+2.程序源代码：
+#include <stdio.h>
+void main()
+{
+char letter;
+printf("please input the first letter of someday\n");
+while ((letter=getch())!='Y')/*当所按字母为Y时才结束*/
+{ switch (letter)
+{case 'S':printf("please input second letter\n");
+　　　　　 if((letter=getch())=='a')
+　　　　　　 printf("saturday\n");
+　　　　　 else if ((letter=getch())=='u')
+　　　　　　　　　 printf("sunday\n");
+　　　　　　　 else printf("data error\n");
+　　　　　 break;
+case 'F':printf("friday\n");break;
+case 'M':printf("monday\n");break;
+case 'T':printf("please input second letter\n");
+　　　　　 if((letter=getch())=='u')
+　　　　　　 printf("tuesday\n");
+　　　　　 else if ((letter=getch())=='h')
+　　　　　　　　　 printf("thursday\n");
+　　　　　　　 else printf("data error\n");
+　　　　　 break;
+case 'W':printf("wednesday\n");break;
+default: printf("data error\n");
+　　 }
+　 }
+}
+-----------------------------------------------------------------------------
+【程序32】
+题目：Press any key to change color, do you want to try it. Please hurry up!
+1.程序分析：　　　　　　　　　　　　
+2.程序源代码：
+#include <conio.h>
+void main(void)
+{
+int color;
+for (color = 0; color < 8; color++)
+　 { 
+　 textbackground(color);/*设置文本的背景颜色*/
+　 cprintf("This is color %d\r\n", color);
+　 cprintf("Press any key to continue\r\n");
+　 getch();/*输入字符看不见*/
+　 }
+}
+-----------------------------------------------------------------------------
+【程序33】
+题目：学习gotoxy()与clrscr()函数　　　
+1.程序分析：
+2.程序源代码：
+#include <conio.h>
+void main(void)
+{
+clrscr();/*清屏函数*/
+textbackground(2);
+gotoxy(1, 5);/*定位函数*/
+cprintf("Output at row 5 column 1\n");
+textbackground(3);
+gotoxy(20, 10);
+cprintf("Output at row 10 column 20\n");
+}
+-----------------------------------------------------------------------------
+【程序34】
+题目：练习函数调用
+1. 程序分析： 
+2.程序源代码：
+#include <stdio.h>
+void hello_world(void)
+{
+printf("Hello, world!\n");
+}
+void three_hellos(void)
+{
+int counter;
+for (counter = 1; counter <= 3; counter++)
+hello_world();/*调用此函数*/
+}
+void main(void)
+{
+three_hellos();/*调用此函数*/
+}
+-----------------------------------------------------------------------------
+【程序35】
+题目：文本颜色设置
+1.程序分析：
+2.程序源代码：
+#include <conio.h>
+void main(void)
+{
+int color;
+for (color = 1; color < 16; color++)
+　 {
+　 textcolor(color);/*设置文本颜色*/
+　 cprintf("This is color %d\r\n", color);
+　 }
+textcolor(128 + 15);
+cprintf("This is blinking\r\n");
+}
+-----------------------------------------------------------------------------
+【程序36】
+题目：求100之内的素数　　　
+1.程序分析：
+2.程序源代码：
+#include <stdio.h>
+#include "math.h"
+#define N 101
+main()
+{
+int i,j,line,a[N];
+for(i=2;i<N;i++) a[i]=i;
+for(i=2;i<sqrt(N);i++)
+　 for(j=i+1;j<N;j++)
+　 {
+　　 if(a[i]!=0&&a[j]!=0)
+　　 if(a[j]%a[i]==0)
+　　 a[j]=0;}
+printf("\n");
+for(i=2,line=0;i<N;i++)
+{
+　 if(a[i]!=0)
+　 {printf("%5d",a[i]);
+　 line++;}
+　 if(line==10)
+　 {printf("\n");
+line=0;}
+}
+}
+-----------------------------------------------------------------------------
+【程序37】
+题目：对10个数进行排序
+1.程序分析：可以利用选择法，即从后9个比较过程中，选择一个最小的与第一个元素交换，
+　　　　　　 下次类推，即用第二个元素与后8个进行比较，并进行交换。 　　　　　　 
+2.程序源代码：
+#define N 10
+main()
+{int i,j,min,tem,a[N];
+/*input data*/
+printf("please input ten num:\n");
+for(i=0;i<N;i++)
+{
+printf("a[%d]=",i);
+scanf("%d",&a[i]);}
+printf("\n");
+for(i=0;i<N;i++)
+printf("%5d",a[i]);
+printf("\n");
+/*sort ten num*/
+for(i=0;i<N-1;i++)
+{min=i;
+for(j=i+1;j<N;j++)
+if(a[min]>a[j]) min=j;
+tem=a[i];
+a[i]=a[min];
+a[min]=tem;
+}
+/*output data*/
+printf("After sorted \n");
+for(i=0;i<N;i++)
+printf("%5d",a[i]);
+}
+-----------------------------------------------------------------------------
+【程序38】
+题目：求一个3*3矩阵对角线元素之和 
+1.程序分析：利用双重for循环控制输入二维数组，再将a[i][i]累加后输出。
+2.程序源代码：
+main()
+{
+float a[3][3],sum=0;
+int i,j;
+printf("please input rectangle element:\n");
+for(i=0;i<3;i++)
+　 for(j=0;j<3;j++)
+　 scanf("%f",&a[i][j]);
+for(i=0;i<3;i++)
+　 sum=sum+a[i][i];
+printf("duijiaoxian he is %6.2f",sum);
+}
+-----------------------------------------------------------------------------
+【程序39】
+题目：有一个已经排好序的数组。现输入一个数，要求按原来的规律将它插入数组中。
+1. 程序分析：首先判断此数是否大于最后一个数，然后再考虑插入中间的数的情况，插入后
+　　　　　 此元素之后的数，依次后移一个位置。 
+2.程序源代码：
+main()
+{
+int a[11]={1,4,6,9,13,16,19,28,40,100};
+int temp1,temp2,number,end,i,j;
+printf("original array is:\n");
+for(i=0;i<10;i++)
+　 printf("%5d",a[i]);
+printf("\n");
+printf("insert a new number:");
+scanf("%d",&number);
+end=a[9];
+if(number>end)
+　 a[10]=number;
+else
+　 {for(i=0;i<10;i++)
+　　 { if(a[i]>number)
+　　　 {temp1=a[i];
+　　　　 a[i]=number;
+　　　 for(j=i+1;j<11;j++)
+　　　 {temp2=a[j];
+　　　　 a[j]=temp1;
+　　　　 temp1=temp2;
+　　　 }
+　　　 break;
+　　　 }
+　　 }
+}
+for(i=0;i<11;i++)
+　 printf("%6d",a[i]);
+}
+-----------------------------------------------------------------------------
+【程序40】
+题目：将一个数组逆序输出。
+1.程序分析：用第一个与最后一个交换。
+2.程序源代码：
+#define N 5
+main()
+{ int a[N]={9,6,5,4,1},i,temp;
+　 printf("\n original array:\n");
+　 for(i=0;i<N;i++)
+　 printf("%4d",a[i]);
+　 for(i=0;i<N/2;i++)
+　 {temp=a[i];
+　　 a[i]=a[N-i-1];
+　　 a[N-i-1]=temp;
+　 }
+printf("\n sorted array:\n");
+for(i=0;i<N;i++)
+　 printf("%4d",a[i]);
+}
+
+ 

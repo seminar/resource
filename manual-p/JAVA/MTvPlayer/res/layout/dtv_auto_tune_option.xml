@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/cha_dtvautotuning_sty_menu">
+	<LinearLayout android:id="@+id/linearlayout_cha_dtvautotuning_choose" style="@style/cha_dtvautotuning_sty_combo_btn">
+		<ImageView style="@style/cha_dtvautotuning_sty_leftarrow"></ImageView>
+		<TextView  android:layout_width="67dp" android:layout_height="wrap_content"	></TextView>	
+		<TextView style="@style/cha_dtvautotuning_sty_combo_indicator"/>
+		<ImageView android:layout_height="13dp" android:layout_width="13dp" android:layout_marginLeft="84dp" android:background="@drawable/common_img_arrow_r"></ImageView>												
+	</LinearLayout>
+
+	<LinearLayout android:id="@+id/linearlayout_cha_dtvautotuning_fre" style="@style/cha_dtvautotuning_sty_combo_btn">
+		<ImageView style="@style/cha_dtvautotuning_sty_leftarrow"></ImageView>
+		<TextView android:text="@string/str_cha_dtvautotuning_frequency" style="@style/cha_dtvautotuning_sty_combo_name"/>
+		<TextView style="@style/cha_dtvautotuning_sty_combo_indicator"/>
+		<ImageView style="@style/cha_dtvautotuning_sty_rightarrow" ></ImageView>												
+	</LinearLayout>
+	
+	<LinearLayout android:id="@+id/linearlayout_cha_dtvautotuning_mod" style="@style/cha_dtvautotuning_sty_combo_btn">
+		<ImageView style="@style/cha_dtvautotuning_sty_leftarrow"></ImageView>
+		<TextView android:text="@string/str_cha_dtvautotuning_modulation" style="@style/cha_dtvautotuning_sty_combo_name"/>
+		<TextView style="@style/cha_dtvautotuning_sty_combo_indicator"/>
+		<ImageView style="@style/cha_dtvautotuning_sty_rightarrow" ></ImageView>												
+	</LinearLayout>
+
+	<LinearLayout android:id="@+id/linearlayout_cha_dtvautotuning_sym" style="@style/cha_dtvautotuning_sty_combo_btn">
+		<ImageView style="@style/cha_dtvautotuning_sty_leftarrow"></ImageView>
+		<TextView android:text="@string/str_cha_dtvautotuning_symbol" style="@style/cha_dtvautotuning_sty_combo_name"/>
+		<TextView style="@style/cha_dtvautotuning_sty_combo_indicator"/>
+		<ImageView style="@style/cha_dtvautotuning_sty_rightarrow" ></ImageView>												
+	</LinearLayout>
+	
+	<LinearLayout android:id="@+id/linearlayout_cha_dtvautotuning_len" style="@style/cha_dtvautotuning_sty_combo_btn">
+		<ImageView style="@style/cha_dtvautotuning_sty_leftarrow"></ImageView>
+		<TextView android:text="@string/str_cha_dtvautotuning_signalstrength" style="@style/cha_dtvautotuning_sty_combo_name"/>
+		<TextView style="@style/cha_dtvautotuning_sty_combo_indicator"/>
+		<ImageView style="@style/cha_dtvautotuning_sty_rightarrow" ></ImageView>												
+	</LinearLayout>
+
+	<LinearLayout android:id="@+id/linearlayout_cha_dtvautotuning_qual" style="@style/cha_dtvautotuning_sty_combo_btn">
+		<ImageView style="@style/cha_dtvautotuning_sty_leftarrow"></ImageView>
+		<TextView android:text="@string/str_cha_dtvautotuning_signalquality" style="@style/cha_dtvautotuning_sty_combo_name"/>
+		<TextView style="@style/cha_dtvautotuning_sty_combo_indicator"/>
+		<ImageView style="@style/cha_dtvautotuning_sty_rightarrow" ></ImageView>												
+	</LinearLayout>
+			
+
+</LinearLayout>
+
+
+

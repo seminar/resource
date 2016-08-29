@@ -1,0 +1,3 @@
+    OSDcp_readbin_string_ptr(u8Language, id, (U16*)CHAR_BUFFER);
+
+    return CHAR_BUFFER;

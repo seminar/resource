@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearlayout_time_menu"
+     android:orientation="vertical"
+    android:layout_width="460dp"
+    android:layout_height="310dip"
+    android:layout_gravity="center" >
+    <!--
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/str_time_time"
+                android:layout_width="110dip"
+                android:layout_height="33dip"
+                android:gravity="left"
+                android:textSize="13dip"
+                android:textColor="#FFFFFF"/>
+            <ImageView style="@style/pic_mode_sty_disabledot"></ImageView>
+            <ImageView style="@style/pic_mode_sty_disabledot"></ImageView>
+            <ImageView style="@style/pic_mode_sty_disabledot"></ImageView>
+            <ImageView style="@style/pic_mode_sty_disabledot"></ImageView>
+            <ImageView style="@style/sound_sty_enabledot"></ImageView>
+            <ImageView style="@style/pic_mode_sty_disabledot"></ImageView>
+            <ImageView style="@style/pic_mode_sty_disabledot"></ImageView>
+            <ImageView style="@style/pic_mode_sty_disabledot"></ImageView>
+        </LinearLayout> -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:gravity="center"
+        android:text="@string/str_time_time"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+    <ScrollView
+          android:layout_width="fill_parent"
+          android:layout_height="145dip"
+          android:layout_marginTop="3dip"
+          android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="fill_parent"
+        android:layout_height="370dip"
+        android:layout_marginTop="3dip"
+        android:orientation="vertical" >
+                        
+            <!-- For Date -->
+            <LinearLayout
+                android:id="@+id/linearlayout_time_date"
+            style="@style/time_sty_combo_btn" 
+            android:layout_marginTop="3dp">
+                <ImageView style="@style/time_sty_leftarrow"></ImageView>
+                <TextView
+                    style="@style/time_sty_combo_name"
+                    android:text="@string/str_time_date" />
+                <TextView style="@style/time_sty_combo_indicator" />
+            <ImageView style="@style/time_sty_rightarrow" >
+            </ImageView>
+            </LinearLayout>
+            <!-- For Current Time -->
+            <LinearLayout
+                android:id="@+id/linearlayout_time_currenttime"
+                style="@style/time_sty_combo_btn">
+                <ImageView style="@style/time_sty_leftarrow"></ImageView>
+                <TextView
+                    style="@style/time_sty_combo_name"
+                    android:text="@string/str_time_currenttime" />
+                <TextView style="@style/time_sty_combo_indicator" />
+            <ImageView style="@style/time_sty_rightarrow" >
+            </ImageView>
+            </LinearLayout>
+            <!-- For Off Time Simple Button -->
+            <LinearLayout
+                android:id="@+id/linearlayout_time_offtime"
+                android:visibility="gone"
+                style="@style/time_sty_simple_btn">
+                <TextView
+                    style="@style/time_sty_simple_name"
+                    android:text="@string/str_time_offtime" />
+             <ImageView style="@style/time_sty_leftarrow" 
+                android:visibility="visible" > </ImageView>
+            <TextView style="@style/time_sty_simple_indicator" />
+                <ImageView
+                    style="@style/time_sty_rightarrow"
+                android:visibility="visible" >
+            </ImageView>
+            </LinearLayout>
+            <!-- For Scheduled Time Simple Button -->
+            <LinearLayout
+                android:id="@+id/linearlayout_time_schedule"
+                android:visibility="gone"
+                style="@style/time_sty_simple_btn">
+                <TextView
+                    style="@style/time_sty_simple_name"
+                    android:text="@string/str_time_schedule" />
+           <ImageView style="@style/time_sty_leftarrow" 
+                android:visibility="visible" > </ImageView>
+            <TextView style="@style/time_sty_simple_indicator" />
+                <ImageView
+                    style="@style/time_sty_rightarrow"
+                android:visibility="visible" >
+            </ImageView>
+            </LinearLayout>
+            <!-- zb20141009modify For Menu Keeping Time -->
+              <LinearLayout
+                  android:id="@+id/linearlayout_menutime"
+                  style="@style/pic_mode_sty_combo_btn">
+                  <ImageView
+                      style="@style/pic_mode_sty_leftarrow">
+                  </ImageView>
+                  <TextView
+                      style="@style/setting_skye_name"
+                      android:id="@+id/textview_set_menutime"
+                      android:text="@string/str_set_menutime"
+/>
+                  <TextView
+                      android:id="@+id/textview_set_menutime_val"
+                      android:text="@string/str_set_menutime_5sec"
+                      style="@style/setting_skye_val"/>
+                  <ImageView
+                      style="@style/pic_mode_sty_rightarrow">
+                  </ImageView>
+              </LinearLayout>
+            
+            <!-- For Sleep Timer -->
+            <LinearLayout
+                android:id="@+id/linearlayout_time_sleep"
+                android:nextFocusDown="@+id/linearlayout_menutime"
+                style="@style/time_sty_combo_btn">
+                <ImageView style="@style/time_sty_leftarrow"></ImageView>
+                <TextView
+                    style="@style/time_sty_combo_name"
+                    android:text="@string/str_time_sleep"
+                android:textColor="#ffffff" >
+            </TextView>
+                <TextView
+                    style="@style/time_sty_combo_indicator"
+                    android:textColor="#ffffff" />
+            <ImageView style="@style/time_sty_rightarrow" >
+            </ImageView>
+            </LinearLayout>
+             
+            <!-- For Auto Timer -->
+        <!--
+                 <LinearLayout android:id="@+id/linearlayout_time_autotime" 
+                style="@style/time_sty_combo_btn"> <ImageView style="@style/time_sty_leftarrow"></ImageView> 
+                <TextView style="@style/time_sty_combo_name" android:text="@string/str_time_autotime" 
+                android:textColor="#FFFFFF"/> <TextView style="@style/time_sty_combo_indicator" 
+                android:textColor="#FFFFFF"/> <ImageView style="@style/time_sty_rightarrow"></ImageView> 
+                </LinearLayout>
+        -->
+        </LinearLayout>
+         </ScrollView>
+      <!-- <TextView
+        android:layout_width="80dip"
+        android:layout_height="24dip"
+        android:layout_marginLeft="200dip"
+        android:layout_marginTop="17dip"
+        android:gravity="center"
+        android:text="@string/str_mainmenu_menu"
+        android:textColor="#ffffff"
+        android:textSize="12dip" /> -->
+    </LinearLayout>

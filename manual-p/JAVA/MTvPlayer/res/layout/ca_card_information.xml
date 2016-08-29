@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="275dp"
+    android:layout_height="336dp"
+    android:layout_gravity="center"
+    android:background = "@drawable/picture_mode_img_bg"
+    >
+    <LinearLayout 
+    android:id="@+id/linearlayout_ca_info"
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="33dp"
+	>
+	 	<TextView 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="33dp" 
+	    android:gravity="left"
+	    android:text="@string/str_ca_info_title"
+	    android:textColor="#ffffff"
+	    android:textSize="15dp"
+	    android:background="@drawable/button_state"
+	    />	
+	  
+ 	</LinearLayout>
+	
+	<!-- For CA Information(entitle Info Page) -->
+	 <LinearLayout 
+	 		android:id="@+id/linearlayout_ca_info_entitle"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="33dp"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:background="@drawable/button_state"
+			>
+			<TextView
+			  	android:id="@+id/textview_ca_info_entitle"
+			    android:layout_width="wrap_content" 
+			    android:layout_height="fill_parent" 
+			    android:gravity="left|center_vertical"
+			    android:text="@string/str_ca_info_entitle"
+			    android:textColor="#ffffff"
+			    android:textSize="15dp"
+			    android:layout_marginLeft = "20dp"
+			    />											
+		</LinearLayout>
+	<!-- For CA Information(Detitle Info Page) -->
+	 <LinearLayout 
+	 		android:id="@+id/linearlayout_ca_info_detitle"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="33dp"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:background="@drawable/button_state"
+			>
+			<TextView
+			  	android:id="@+id/textview_ca_info_detitle"
+			    android:layout_width="wrap_content" 
+			    android:layout_height="fill_parent" 
+			    android:gravity="left|center_vertical"
+			    android:text="@string/str_ca_info_detitle"
+			    android:textColor="#ffffff"
+			    android:textSize="15dp"
+			    android:layout_marginLeft = "20dp"
+			    />											
+		</LinearLayout>
+		
+	    <!-- For CA Information(Purse Info Page) -->
+	 <LinearLayout 
+	 		android:id="@+id/linearlayout_ca_info_purse"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="33dp"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:background="@drawable/button_state"
+			>
+			<TextView
+			  	android:id="@+id/textview_ca_info_purse"
+			    android:layout_width="wrap_content" 
+			    android:layout_height="fill_parent" 
+			    android:gravity="left|center_vertical"
+			    android:text="@string/str_ca_info_purse_info"
+			    android:textColor="#ffffff"
+			    android:textSize="15dp"
+			    android:layout_marginLeft = "20dp"
+			    />											
+		</LinearLayout>
+		
+	     	    <!-- For CA Information(ippv program Page) -->
+	 <LinearLayout 
+	 		android:id="@+id/linearlayout_ca_ippv_program"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="33dp"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:background="@drawable/button_state"
+			>
+			<TextView
+			  	android:id="@+id/textview_ca_ippv_program"
+			    android:layout_width="wrap_content" 
+			    android:layout_height="fill_parent" 
+			    android:gravity="left|center_vertical"
+			    android:text="@string/str_ca_mg_ippv_program"
+			    android:textColor="#ffffff"
+			    android:textSize="15dp"
+			    android:layout_marginLeft = "20dp"
+			    />											
+		</LinearLayout>
+		
+	     	     	    <!-- For CA Information(card info Page) -->
+	 <LinearLayout 
+	 		android:id="@+id/linearlayout_ca_card_info"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="33dp"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:background="@drawable/button_state"
+			>
+			<TextView
+			  	android:id="@+id/textview_ca_card_info"
+			    android:layout_width="wrap_content" 
+			    android:layout_height="fill_parent" 
+			    android:gravity="left|center_vertical"
+			    android:text="@string/str_ca_mg_card_info"
+			    android:textColor="#ffffff"
+			    android:textSize="15dp"
+			    android:layout_marginLeft = "20dp"
+			    />											
+		</LinearLayout>
+	<TextView android:text="@string/str_mainmenu_menu"
+			android:layout_width="70dp"
+			android:layout_height="25dp"
+			android:textSize="12dp"
+			android:textColor="#ffffff"
+			android:layout_marginTop="150dp" 
+			android:layout_marginLeft="200dp" 
+			android:gravity="center"/>
+</LinearLayout>
+

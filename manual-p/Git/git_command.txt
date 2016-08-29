@@ -1,0 +1,6 @@
+git log
+git log --pretty=format:"%an ~ %h %s" --graph \r
+git add origin
+git remote add origin git@gitserver:/home/git/toptech_git/msd3563_git/Supernova.git/ 
+git clean
+git clean -nxfd   \r git clean -xfd

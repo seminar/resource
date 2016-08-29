@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="267dp"
+    android:layout_height="200dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearlayout_auto_update_scan"
+        android:layout_width="fill_parent"
+        android:layout_height="33dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button_state"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal" >
+	    >
+			
+        <TextView
+            android:id="@+id/textview_auto_update_scan"
+            android:layout_marginLeft="33dp"
+            android:layout_width="267dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="4.64"
+            android:gravity="center|center_vertical"
+            android:text="@string/str_auto_update_scan"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+		 <LinearLayout 
+	 		android:id="@+id/linearlayout_auto_update_scan_choosen"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="33dp"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:background="@drawable/button_state"
+			android:layout_marginTop="15dp"> 
+			<LinearLayout 
+	 		android:id="@+id/linearlayout_auto_update_scan_choosen_yes"
+			android:orientation="horizontal"
+			android:layout_width="133dp"
+			android:layout_height="33dp"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:background="@drawable/button_state"
+			>
+			<TextView
+			    android:layout_width="133dp" 
+			    android:layout_height="fill_parent" 
+			    android:gravity="center|center_vertical"
+			    android:text="@string/str_left_time_choosen_yes"
+			    android:textColor="#ffffff"
+			    android:textSize="15dp"
+			    />
+		  </LinearLayout>
+		  <LinearLayout 
+	 		android:id="@+id/linearlayout_auto_update_scan_choosen_no"
+			android:orientation="horizontal"
+			android:layout_width="133dp"
+			android:layout_height="33dp"
+			android:focusable="true"
+			android:focusableInTouchMode="true"
+			android:background="@drawable/button_state"
+			>
+			<TextView 
+			    android:layout_width="133dp" 
+			    android:layout_height="fill_parent" 
+			    android:gravity="center|center_vertical"
+			    android:text="@string/str_left_time_choosen_no"
+			    android:textColor="#ffffff"
+			    android:textSize="15dp"
+			    />	
+		</LinearLayout>			
+		</LinearLayout>
+
+    
+
+</LinearLayout>

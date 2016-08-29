@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="30dip"
+    android:layout_marginTop="12dip"
+    android:gravity="center"
+    android:layout_marginLeft="55dip"
+    android:orientation="horizontal" >
+    
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bottom_info_adjust"
+        android:textColor="@color/bottom_info_text_color"
+        android:text="@string/bt_info_adjust"
+        android:textSize="18dip"
+        android:layout_weight="1"
+        />
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bottom_info_switch"
+        android:textColor="@color/bottom_info_text_color"
+        android:text="@string/bt_info_switch"
+        android:textSize="18dip"
+        android:layout_weight="1"
+        />
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bottom_info_ok"
+        android:textColor="@color/bottom_info_text_color"
+        android:text="@string/bt_info_ok"
+        android:textSize="18dip"
+        android:layout_weight="1"
+        />
+	<TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/en_bottom_info_back"
+        android:textColor="@color/bottom_info_text_color"
+        android:text="@string/bt_info_exit"
+        android:textSize="18dip"
+        android:layout_weight="1"
+        />
+    
+</LinearLayout>

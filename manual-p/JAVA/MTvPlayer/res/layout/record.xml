@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout style="@style/record_layout_style">
+        <LinearLayout style="@style/record_img_top_layout_style">
+            <ImageView
+                style="@style/record_common_img_pagepoint_style"
+                android:src="@drawable/common_img_pagepoint_disable" />
+            <ImageView
+                style="@style/record_common_img_pagepoint_style"
+                android:src="@drawable/common_img_pagepoint_disable" />
+            <ImageView
+                style="@style/record_common_img_pagepoint_style"
+                android:src="@drawable/common_img_pagepoint_disable" />
+            <ImageView
+                style="@style/record_common_img_pagepoint_style"
+                android:src="@drawable/common_img_pagepoint_enable" />
+        </LinearLayout>
+        <TextView style="@style/record_title_style" />
+        <TextView
+            android:id="@+id/record_service_name"
+            style="@style/record_channel_name_style" />
+        <TextView
+            style="@style/record_subtitle_style"
+            android:text="@string/str_textview_record_start_time" />
+        <TextView
+            android:id="@+id/record_start_time_minute"
+            style="@style/record_context_style" />
+        <TextView
+            android:id="@+id/record_start_time_hour"
+            style="@style/record_context_style" />
+        <TextView
+            android:id="@+id/record_start_time_month"
+            style="@style/record_context_style" />
+        <TextView
+            android:id="@+id/record_start_time_date"
+            style="@style/record_context_style" />
+        <TextView
+            style="@style/record_subtitle_style"
+            android:text="@string/str_textview_record_end_time" />
+        <TextView
+            android:id="@+id/record_end_time_minute"
+            style="@style/record_context_style" />
+        <TextView
+            android:id="@+id/record_end_time_hour"
+            style="@style/record_context_style" />
+        <TextView
+            android:id="@+id/record_end_time_month"
+            style="@style/record_context_style" />
+        <TextView
+            android:id="@+id/record_end_time_date"
+            style="@style/record_context_style" />
+        <LinearLayout
+            android:id="@+id/reminder_mode_value_layout"
+            style="@style/record_mode_layout_style">
+            <ImageView style="@style/record_img_star_style" />
+            <TextView
+                android:id="@+id/reminder_mode_value"
+                android:gravity="center"
+                style="@style/record_mode_text_style" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="267dip"
+            android:layout_marginLeft="13dip"
+            android:layout_marginTop="2dip"
+            android:layout_height="24dip"
+            android:orientation="horizontal">
+            <ImageView
+                android:src="@drawable/common_img_ok"
+                android:layout_width="41dip"
+                android:layout_height="21dip"
+                android:layout_marginLeft="20dip" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
