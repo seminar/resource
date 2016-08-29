@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:id="@+id/programme_epg_list_view_item_bg" style="@style/programme_epg_list_view_item_bg_style">    <TextView  android:id="@+id/programme_epg_list_view_item_text_view" style="@style/programme_epg_list_view_item_text_view_style_num"/>    <TextView  android:id="@+id/programme_epg_list_view_item_text_view_title" style="@style/programme_epg_list_view_item_text_view_style"/>
-</LinearLayout>
