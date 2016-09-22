@@ -1,3 +1,9 @@
     OSDcp_readbin_string_ptr(u8Language, id, (U16*)CHAR_BUFFER);
 
     return CHAR_BUFFER;
+
+  // 数组定义：
+    int aa[]={1,2,3,4};
+
+  //其他 文件调用；
+   extern in a[] 即可；！！
