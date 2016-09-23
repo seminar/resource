@@ -1,0 +1,6 @@
+git config http.postBuffer 524288000
+
+fatal: The remote end hung up unexpectedly
+Everything up-to-date
+在网上查到的解决方法如下:
+以上发生在push命令中，有可能是push的文件过大导致
