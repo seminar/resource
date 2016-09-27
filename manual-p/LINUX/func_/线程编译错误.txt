@@ -1,0 +1,21 @@
+
+undefined reference to 'pthread_create'问题解决 
+.
+ 分类： Linux Ubuntu程序开发2008-08-31 09:5164370人阅读评论(58)收藏举报
+ 
+referencelinux编程threadjoingcc
+
+ 由于是Linux新手，所以现在才开始接触线程编程，照着GUN/Linux编程指南中的一个例子输入编译，结果出现如下错误：
+undefined reference to 'pthread_create'
+undefined reference to 'pthread_join'
+
+问题原因：
+    pthread 库不是 Linux 系统默认的库，连接时需要使用静态库 libpthread.a，所以在使用pthread_create()创建线程，以及调用 pthread_atfork()函数建立fork处理程序时，需要链接该库。
+
+问题解决：
+    在编译中要加 -lpthread参数
+    gcc thread.c -o thread -lpthread
+    thread.c为你些的源文件，不要忘了加上头文件#include<pthread.h>
+
+CPP 文件：
+    g++ xx.cpp -o thread -lpthread  //add by ffs

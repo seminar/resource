@@ -1,0 +1,13 @@
+# uname -a               # 查看内核/操作系统/CPU信息
+# head -n 1 /etc/issue   # 查看操作系统版本
+# cat /proc/cpuinfo      # 查看CPU信息
+# hostname               # 查看计算机名
+# lspci -tv              # 列出所有PCI设备
+# lsusb -tv              # 列出所有USB设备
+# lsmod                  # 列出加载的内核模块
+# env                    # 查看环境变量
+
+
+/dev/sda4 /Customer/usb/sda4 vfat rw,relatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=utf8,shortname=winnt,errors=remount-ro 0 0
+
+/dev/sda4 /Customer/usb/sda4 vfat rw,relatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=utf8,shortname=winnt,errors=remount-ro 0 0

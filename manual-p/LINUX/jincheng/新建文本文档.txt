@@ -1,0 +1,33 @@
+Ctrl+C
+终止并退出前台命令的执行，回到SHELL
+Ctrl+Z
+暂停前台命令的执行，将该进程放入后台，回到SHELL
+jobs
+查看当前在后台执行的命令，可查看命令进程号码
+&
+运行命令时，在命令末尾加上&可让命令在后台执行
+fg N
+将命令进程号码为N的命令进程放到前台执行，同%N
+bg N
+将命令进程号码为N的命令进程放到后台执行
+通过crtl+z可以把当前的信息放入后台去执行，想调用的时候，执行fg N就可以调用了，而这个N的查询可以通过jobs来实现。
+比如：
+[root@liufofu ~]# jobs
+[1] Running /usr/local/mysql5.5.38/bin/mysqld_safe –user=mysql & (wd: /usr/local/mysql5.5.38)
+[2]- Stopped vim x.py
+[3]+ Stopped vim x.sh
+假设你发现前台运行的一个程序需要很长的时间，但是需要干其他的事情，你就可以用 Ctrl-Z ，终止这个程序，然后可以看到系统提示：
+[1]+ Stopped /root/bin/rsync.sh
+如果没有此提示，则用 jobs 命令查看任务：
+#jobs
+[1]+ suspended /root/bin/rsync.sh &
+然后我们可以把程序调度到后台执行：（bg 后面的数字为作业号）
+#bg 1
+[1]+ /root/bin/rsync.sh &
+用 jobs 命令查看正在运行的任务：
+#jobs
+[1]+ Running /root/bin/rsync.sh &
+如果想把它调回到前台运行，可以用
+#fg 1
+/root/bin/rsync.sh
+这样，你在控制台上就只能等待这个任务完成了

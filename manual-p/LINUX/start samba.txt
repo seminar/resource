@@ -1,0 +1,4 @@
+sudo service smbd restart
+
+
+// sudo vi /etc/samba/smb.conf

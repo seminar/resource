@@ -1,0 +1,10 @@
+ffs@ubuntu-desktop:/home$ ls
+ffs  hujian  hx  Supernova  Supernova_791978_DVB_ISDB.tar.bz2  ubuntu  wql  wym  xdl
+ffs@ubuntu-desktop:/home$ su
+Password: 
+root@ubuntu-desktop:/home# chown -R ffs ffs
+root@ubuntu-desktop:/home# chgrp -R ffs ffs
+root@ubuntu-desktop:/home# su ffs
+ffs@ubuntu-desktop:/home$ ls
+ffs  hujian  hx  Supernova  Supernova_791978_DVB_ISDB.tar.bz2  ubuntu  wql  wym  xdl
+ffs@ubuntu-desktop:/home$ cd ffs/

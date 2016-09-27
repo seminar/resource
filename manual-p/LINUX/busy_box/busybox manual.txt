@@ -1,0 +1,4 @@
+
+iP ≤È—Ø£∫
+ip addr show 
+
